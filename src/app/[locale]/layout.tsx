@@ -2,11 +2,11 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 
+import { LOCALES } from '@/constants/config';
+import { THEME_DARK } from '@/constants/colors';
 import { AppContextWrap } from '@/context/App.context';
 
 import './globals.css';
-import { LOCALES } from '@/constants/config';
-import { THEME_DARK } from '@/constants/colors';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
