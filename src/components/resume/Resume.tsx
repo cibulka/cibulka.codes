@@ -12,7 +12,7 @@ import { getDocuments } from '@/content/getDocuments';
 import { IconTetris } from '@/icons/IconTetris';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 
-import styles from './resume.module.css';
+import styles from './Resume.module.css';
 
 export async function Resume(props: { locale: Locale }) {
   const { t } = await getTranslationServer('common', props.locale);
