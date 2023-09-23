@@ -31,7 +31,7 @@ export default function LocaleLayout(
       </head>
       <body className={inter.className}>
         <AppContextWrap>{props.children}</AppContextWrap>
-        {/* props.modal */}
+        {props.modal}
       </body>
     </html>
   );

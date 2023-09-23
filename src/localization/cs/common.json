@@ -1,4 +1,28 @@
 {
+    "availability": "K dispozici od {{ month }}/{{ year }}",
+    "contactMe": {
+        "button": "Kontaktovat"
+    },
+    "cv": {
+        "button": "Můj životopis",
+        "sections": {
+            "demos": "Vybrané projekty",
+            "education": "Vzdělání",
+            "experience": "Relevantní zkušenosti",
+            "hobbies": "Koníčky",
+            "languages": "Jazyky",
+            "projects": "Vybrané projekty",
+            "resume": "Můj životopis",
+            "skills": "Schopnosti",
+            "tetris": "Zahrajte si Tetris!",
+            "tools": {
+                "short": "Nástroje",
+                "past": "Co jsem používal",
+                "present": "Co používám teď",
+                "future": "Co se učím"
+            }
+        }
+    },
     "name": "Petr Cibulka",
     "tagline": "Vývojář kultury a front-endu"
 }
