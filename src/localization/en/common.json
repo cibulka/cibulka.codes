@@ -1,0 +1,41 @@
+{
+    "availability": "Available from {{ month }}/{{ year }}",
+    "contactMe": {
+        "button": "Contact me"
+    },
+    "cv": {
+        "button": "My resumé",
+        "sections": {
+            "demos": "Selected demos",
+            "education": "Education",
+            "experience": "Relevant experience",
+            "hobbies": "Hobbies",
+            "languages": "Languages",
+            "projects": "Selected projects",
+            "resume": "My resumé",
+            "skills": "Skills",
+            "tetris": "Play Tetris!",
+            "tools": {
+                "short": "Tools",
+                "past": "Tools I used",
+                "present": "Tools I use now",
+                "future": "Tools I'm learning"
+            }
+        }
+    },
+    "hireMe": {
+        "button": "Hire me!"
+    },
+    "langPlaceholder": "Select language",
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "ru": "Русский"
+    },
+    "location": "Prague & Remote",
+    "tetris": {
+        "button": "Play Tetris"
+    },
+    "name": "Petr Cibulka",
+    "tagline": "Front-end developer powered by React and Next.js."
+}

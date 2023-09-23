@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "module": "ESNext",
+        "skipLibCheck": true
+    },
+    "ts-node": {
+        "esm": true
+    },
+    "exclude": [
+      "node_modules"
+    ]
+}

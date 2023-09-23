@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus {
+  outline: dotted 2px theme('colors.outline');
+  outline-offset: 3px;
+  @apply rounded-md;
+}
+
+.text p {
+  @apply mb-2;
+}
+.text a {
+  @apply underline;
+}
+
+svg {
+  @apply fill-current;
+}
+
+html {
+  font-size: 14px;
+}
+@screen md {
+  html {
+    font-size: 15px;
+  }
+}
+@screen xl {
+  html {
+    font-size: 16px;
+  }
+}

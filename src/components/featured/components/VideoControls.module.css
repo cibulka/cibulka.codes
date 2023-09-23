@@ -1,0 +1,11 @@
+.bg {
+  background-image: linear-gradient(
+    transparent,
+    transparent,
+    transparent,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.5),
+    #000
+  );
+  height: 8em;
+}
