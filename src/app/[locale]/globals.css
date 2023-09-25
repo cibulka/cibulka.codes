@@ -5,6 +5,7 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  @apply w-full h-full overflow-hidden;
 }
 @screen md {
   html {
@@ -15,6 +16,11 @@ html {
   html {
     font-size: 16px;
   }
+}
+
+body {
+  @apply overflow-auto h-full;
+  -webkit-overflow-scrolling: touch;
 }
 
 *:focus {
