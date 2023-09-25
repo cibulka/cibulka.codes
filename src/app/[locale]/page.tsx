@@ -22,6 +22,8 @@ import styles from './page.module.css';
 import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 
+// TODO: Fix CSS conflicts with Tetris!
+
 // TODO: Metadata
 // TODO: Tetris transition
 // TODO: Media query for dark mode
