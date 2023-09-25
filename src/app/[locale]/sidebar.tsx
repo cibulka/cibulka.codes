@@ -53,14 +53,6 @@ export async function Sidebar(props: {
             },
           ]}
         />
-        {/*
-        <div className="flex flex-col gap-4 -mt-2">
-          <Button href="/tetris" icon={<IconTetris />}>
-            {t('tetris.button')}
-          </Button>
-          <ButtonCV locale={props.locale} />
-        </div>
-        */}
         <div className="flex-1" />
         <div className="flex-1" />
         <BlockContact className="bgMax:flex-col" isCV={false} />

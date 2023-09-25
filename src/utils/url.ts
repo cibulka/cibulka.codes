@@ -30,7 +30,7 @@ export function isAbsoluteUrl(url: string) {
 }
 
 export function isRelativeFileUrl(href: string) {
-  return href.split('/').slice(-1).includes('.');
+  return href.split('/').slice(-1)[0].includes('.');
 }
 
 export function getUrlLabel(href: string) {
