@@ -3,7 +3,18 @@
 @tailwind utilities;
 
 html {
+  font-size: 14px;
   scroll-behavior: smooth;
+}
+@screen md {
+  html {
+    font-size: 15px;
+  }
+}
+@screen xl {
+  html {
+    font-size: 16px;
+  }
 }
 
 *:focus {
@@ -21,18 +32,4 @@ html {
 
 svg {
   @apply fill-current;
-}
-
-html {
-  font-size: 14px;
-}
-@screen md {
-  html {
-    font-size: 15px;
-  }
-}
-@screen xl {
-  html {
-    font-size: 16px;
-  }
 }

@@ -16,7 +16,8 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
   return (
     <ul className={props.className}>
       {props.options.map((item, i) => {
-        const isSelected = `#${activeHomeSections[0]}` === item.href;
+        const isSelected =
+          `#${activeHomeSections[0]}` === item.href || (activeHomeSections.length === 0 && i === 0);
         const El = item.href.startsWith('#') ? 'a' : Link;
         return (
           <li

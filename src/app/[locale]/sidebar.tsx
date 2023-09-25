@@ -18,31 +18,6 @@ export async function Sidebar(props: {
 }) {
   const { t } = await getTranslationServer('common', props.locale);
 
-  const menu = [
-    {
-      label: t('cv.sections.projects'),
-      href: '#experience',
-    },
-    {
-      label: t('cv.sections.experience'),
-      href: '#experience',
-    },
-    {
-      label: t('cv.sections.education'),
-      href: '#education',
-    },
-    {
-      label: t('cv.sections.resume'),
-      href: `/${props.locale}/cv.pdf`,
-      icon: <IconCV className="flex transform scale-125" />,
-    },
-    {
-      label: t('cv.sections.tetris'),
-      href: '/tetris',
-      icon: <IconTetris className="fill-action" />,
-    },
-  ];
-
   return (
     <div className={[props.className, 'flex flex-col'].join(' ')}>
       <header className="flex flex-col gap-1">

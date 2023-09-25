@@ -23,6 +23,7 @@ import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 
 // TODO: Fix CSS conflicts with Tetris!
+// TODO: 404 page
 
 // TODO: Metadata
 // TODO: Tetris transition
@@ -43,7 +44,7 @@ export default async function Home(props: { params: { locale: string } }) {
 
   return (
     <div className="relative">
-      <div className={['w-full bg:px-8 px-4 ml-auto mr-auto', styles.wrap].join(' ')}>
+      <div className={['w-full ml-auto mr-auto', styles.wrap].join(' ')}>
         <Sidebar
           className={styles.header}
           classNameHeaderInfo={styles.header_info}
