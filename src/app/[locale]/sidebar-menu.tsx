@@ -2,6 +2,7 @@
 import Link from 'next/link';
 
 import { useAppContext } from '@/context/App.utils';
+import { isRelativeFileUrl } from '@/utils/url';
 
 type SidebarMenuOption = {
   label: string;
@@ -18,7 +19,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
       {props.options.map((item, i) => {
         const isSelected =
           `#${activeHomeSections[0]}` === item.href || (activeHomeSections.length === 0 && i === 0);
-        const El = item.href.startsWith('#') ? 'a' : Link;
+        const El = item.href.startsWith('#') || isRelativeFileUrl(item.href) ? 'a' : Link;
         return (
           <li
             key={i}
