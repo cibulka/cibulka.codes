@@ -9,7 +9,7 @@ export const THEME_DARK = {
   chip_dark_2: '#374151',
   outline: '#06b6d4',
   text: '#e7e5e4',
-  text_fade: '#78716c',
+  text_fade: '#a8a29e',
   video: '#ef4444',
 } as const;
 
