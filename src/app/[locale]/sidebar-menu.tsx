@@ -19,7 +19,8 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
       {props.options.map((item, i) => {
         const isSelected =
           `#${activeHomeSections[0]}` === item.href || (activeHomeSections.length === 0 && i === 0);
-        const El = item.href.startsWith('#') || isRelativeFileUrl(item.href) ? 'a' : Link;
+        const isScrollLink = item.href.startsWith('#');
+        const El = isScrollLink || isRelativeFileUrl(item.href) ? 'a' : Link;
         return (
           <li
             key={i}
@@ -37,6 +38,14 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
               ]
                 .filter(Boolean)
                 .join(' ')}
+              onClick={(e) => {
+                if (isScrollLink && document) {
+                  e.preventDefault();
+                  const id = e.currentTarget.href.split('#')[1];
+                  const el = document.getElementById(id);
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               {item.icon && <span className="w-6 h-6">{item.icon}</span>}
               {item.label}
