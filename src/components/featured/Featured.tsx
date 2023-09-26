@@ -6,6 +6,7 @@ import { Skills } from '@/components/skills/Skills';
 
 import { VideoPlayer } from './components/VideoPlayer';
 import { Button } from '../button/Button';
+import { TetrisBg } from '../tetris-bg/TetrisBg';
 
 export function Featured(props: { isFirst?: boolean; locale: string; project: Project }) {
   return (
@@ -33,11 +34,11 @@ export function Featured(props: { isFirst?: boolean; locale: string; project: Pr
           'relative aspect-video',
           'border border-chip_dark',
           'rounded-md overflow-hidden',
-          props.project.demo && 'bg-text_fade',
         ]
           .filter(Boolean)
           .join(' ')}
       >
+        {props.project.demo && <TetrisBg />}
         {props.project.demo && (
           <div className="absolute inset-0 flex items-center justify-center">
             <Button href={props.project.demo}>Play a game</Button>
