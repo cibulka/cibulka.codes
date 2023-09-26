@@ -23,8 +23,11 @@ import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 
 // TODO: 404 page
+// TODO: OG Image
+// TODO: Footer (with Readme link)
+// TODO: Expandable README
+// TODO: Tetris README (english)
 
-// TODO: Metadata
 // TODO: Tetris transition
 // TODO: Media query for dark mode
 

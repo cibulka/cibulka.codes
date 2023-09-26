@@ -15,6 +15,8 @@ function getBestLocale(request: NextRequest) {
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-path', pathname);
 
   const isWorkbox = pathname.startsWith('/workbox');
   if (isWorkbox) return NextResponse.next();

@@ -1,4 +1,10 @@
 {
+    "404": {
+        "title": "Chyba 404",
+        "subTitle": "Obsah nenalezen",
+        "text": "Je to chyba? Pokud ano, budu rád když mi dáte vědět.",
+        "back": "Zpět na úvodní stránku"
+    },
     "availability": "K dispozici od {{ month }}/{{ year }}",
     "bar": {
         "email": "E-mail",

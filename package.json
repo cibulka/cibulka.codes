@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@react-pdf/renderer": "^3.1.12",
+    "csshake": "^1.7.0",
     "dayjs": "^1.11.9",
     "i18next": "^23.5.1",
     "i18next-resources-to-backend": "^1.1.4",

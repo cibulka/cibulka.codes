@@ -12,7 +12,7 @@ i18next
   .use(initReactI18next)
   .use(
     resourcesToBackend((loc: string, ns: string) => {
-      return import(`../../../localization/${loc}/${ns}.json`);
+      return import(`../localization/${loc}/${ns}.json`);
     }),
   )
   .init({

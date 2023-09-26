@@ -1,4 +1,10 @@
 {
+    "404": {
+        "title": "TRANSLATE",
+        "subTitle": "TRANSLATE",
+        "text": "TRANSLATE",
+        "back": "TRANSLATE"
+    },
     "availability": "Доступен с {{ month }}/{{ year }}",
     "bar": {
         "email": "E-mail",

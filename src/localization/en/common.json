@@ -1,4 +1,10 @@
 {
+    "404": {
+        "title": "Error 404",
+        "subTitle": "Content not found",
+        "text": "Is it a mistake? If yes, I'd appreciate if you let me know.",
+        "back": "Back to homepage"
+    },
     "availability": "Available from {{ month }}/{{ year }}",
     "bar": {
         "email": "E-mail",

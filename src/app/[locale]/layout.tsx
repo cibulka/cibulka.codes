@@ -7,13 +7,19 @@ import { THEME_DARK } from '@/constants/colors';
 import { AppContextWrap } from '@/context/App.context';
 
 import './globals.css';
+import { getTranslationServer } from '@/utils/getTranslationServer';
+import { isLocale } from '@/utils/typeguards';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
-export const metadata: Metadata = {
-  title: 'Petr Cibulka | Front-end developer',
-  description: 'Front-end developer powered by React and Next.js',
-};
+export async function generateMetadata(props: { params: { locale: string } }) {
+  const locale = isLocale(props.params.locale) ? props.params.locale : 'en';
+  const { t } = await getTranslationServer('common', locale);
+  return {
+    title: [t('name'), t('tagline')].join(' | '),
+    description: [t('availability'), t('location')].join(' | '),
+  };
+}
 
 export default function LocaleLayout(
   props: PropsWithChildren & { modal: ReactNode; params?: { locale: string } },
