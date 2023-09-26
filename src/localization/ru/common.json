@@ -1,3 +1,41 @@
 {
-    "tagline": "Разработчик FrontEnd и культуры"
+    "availability": "Доступен с {{ month }}/{{ year }}",
+    "contactMe": {
+        "button": "Связаться со мной"
+    },
+    "cv": {
+        "button": "Мое резюме",
+        "sections": {
+            "demos": "Отобранные проекты",
+            "education": "Образование",
+            "experience": "Опыт работы",
+            "hobbies": "Хобби",
+            "languages": "Языки коммуникации",
+            "projects": "Отобранные проекты",
+            "resume": "Мое резюме",
+            "skills": "Навыки",
+            "tetris": "Играть в Тетрис!",
+            "tools": {
+                "short": "Интструменты",
+                "past": "Работал с",
+                "present": "Работаю с",
+                "future": "Изучаю"
+            }
+        }
+    },
+    "hireMe": {
+        "button": "Поговорим?"
+    },
+    "langPlaceholder": "Выбрать язык",
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "ru": "Русский"
+    },
+    "location": "Прага или удаленно",
+    "name": "Petr Cibulka",
+    "tagline": "Frontend-разработчик (React/Next.js) ",
+    "tetris": {
+        "button": "Играть в Тетрис"
+    }
 }
