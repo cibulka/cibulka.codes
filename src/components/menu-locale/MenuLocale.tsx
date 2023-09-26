@@ -21,7 +21,6 @@ export async function MenuLocale(props: { locale: Locale }) {
   const options = LOCALES.map((l) => ({
     value: l,
     label: getLabel(l),
-    disabled: l === 'ru',
   }));
 
   return <MenuLocaleClient options={options} placeholder={t('langPlaceholder')} />;

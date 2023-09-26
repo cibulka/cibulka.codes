@@ -23,7 +23,7 @@ export function getDocuments(types: DocumentTypeNames[], locale: string) {
     if (locale === LOCALES[0]) {
       used = original;
     } else {
-      const localized = documents.find((doc) => doc.slug === slug && locale);
+      const localized = documents.find((doc) => doc.slug === slug && doc.locale === locale);
       used = {
         ...original,
         ...localized,

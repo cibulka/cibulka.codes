@@ -22,11 +22,6 @@ export function Skills(props: {
     const bPriority = b.priority || 0;
     return bPriority - aPriority;
   });
-  console.log(
-    'S',
-    props.locale,
-    skills.map((s) => ({ title: s.title, locale: s.locale })),
-  );
 
   const types = props.types || TYPES;
 

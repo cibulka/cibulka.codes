@@ -1,14 +1,17 @@
 import { Project } from 'contentlayer/generated';
 
+import { Button } from '@/components/button/Button';
 import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ProjectIcon } from '@/components/project-header/components/ProjectIcon';
 import { Skills } from '@/components/skills/Skills';
+import { TetrisBg } from '@/components/tetris-bg/TetrisBg';
+import { Locale } from '@/constants/config';
+import { getTranslationServer } from '@/utils/getTranslationServer';
 
 import { VideoPlayer } from './components/VideoPlayer';
-import { Button } from '../button/Button';
-import { TetrisBg } from '../tetris-bg/TetrisBg';
 
-export function Featured(props: { isFirst?: boolean; locale: string; project: Project }) {
+export async function Featured(props: { isFirst?: boolean; locale: Locale; project: Project }) {
+  const { t } = await getTranslationServer('common', props.locale);
   return (
     <article className="rounded-md md:-ml-4 md:-mr-4">
       <header className="flex items-center justify-between gap-4 md:px-4 mb-2 text-lg">
@@ -41,7 +44,7 @@ export function Featured(props: { isFirst?: boolean; locale: string; project: Pr
         {props.project.demo && <TetrisBg />}
         {props.project.demo && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Button href={props.project.demo}>Play a game</Button>
+            <Button href={props.project.demo}>{t('play')}</Button>
           </div>
         )}
         {props.project.video && (
