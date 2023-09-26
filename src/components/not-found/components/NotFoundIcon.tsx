@@ -2,13 +2,13 @@
 import 'csshake/dist/csshake.css';
 
 import { Button } from '@/components/button/Button';
-import { ContactEmail } from '@/components/contact-email/ContactEmail';
 import { IconArrowLeft } from '@/icons/IconArrowLeft';
 import { IconOnionAlt } from '@/icons/IconOnionAlt';
 import { useLocale } from '@/utils/useLocale';
 import { useTranslationClient } from '@/utils/useTranslationClient';
 
 import styles from './NotFoundIcon.module.css';
+import { BlockContact } from '@/components/block-contact/BlockContact';
 
 export function NotFoundIcon() {
   const locale = useLocale();
@@ -38,12 +38,11 @@ export function NotFoundIcon() {
           </span>
         </span>
       </Button>
-      <div className="flex flex-col items-center gap-2">
-        <div className="text ml-auto mr-auto text-center" style={{ maxWidth: '18em' }}>
-          <p>{t('404.text')}</p>
-        </div>
-        <ContactEmail />
+
+      <div className="text-2xl max-w-md text ml-auto mr-auto text-center">
+        <p>{t('404.text')}</p>
       </div>
+      <BlockContact isCV />
     </>
   );
 }

@@ -1,9 +1,9 @@
 'use client';
-import { LOCALES } from '@/constants/config';
+import { LOCALES, Locale } from '@/constants/config';
 import { usePathname } from 'next/navigation';
 import { isLocale } from './typeguards';
 
-export function useLocale() {
+export function useLocale(): Locale {
   const locale = useLocaleStrict();
   return locale || LOCALES[0];
 }

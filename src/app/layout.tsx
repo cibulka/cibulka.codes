@@ -1,8 +1,13 @@
-import { getHomeMeta } from '@/meta/home';
 import { PropsWithChildren } from 'react';
 
+import { getNotFoundMeta } from '@/meta/not-found';
+
+import { getHref, getLocale } from './layout.utils';
+
 export default async function LocaleLayout(props: PropsWithChildren) {
-  const { title, description } = await getHomeMeta('en');
+  const href = getHref();
+  const locale = getLocale(href);
+  const { title, description } = await getNotFoundMeta(locale);
   return (
     <html>
       <head>
