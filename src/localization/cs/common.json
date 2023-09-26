@@ -23,6 +23,19 @@
             }
         }
     },
+    "hireMe": {
+        "button": "Hledám práci!"
+    },
+    "langPlaceholder": "Vybrat jazyk",
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "ru": "Русский"
+    },
+    "location": "Praha & Remote",
     "name": "Petr Cibulka",
-    "tagline": "Vývojář kultury a front-endu"
+    "tagline": "Vývojář kultury a front-endu, React a Next.js",
+    "tetris": {
+        "button": "Zahrát si Tetris"
+    }
 }

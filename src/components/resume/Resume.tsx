@@ -29,8 +29,8 @@ export async function Resume(props: { locale: Locale }) {
         `}</style>
 
       <div className={styles.container}>
-        <div className="flex gap-8">
-          <div className="flex flex-col gap-8" style={{ width: '21em' }}>
+        <div className="flex gap-8 h-full">
+          <div className="flex flex-col gap-8 relative" style={{ width: '21em' }}>
             <aside className="flex flex-col gap-2 mb-4">
               <Name className="text-4xl" locale={props.locale} />
               <p className="max-w-xs text-lg leading-snug">{t('tagline')}</p>
@@ -97,9 +97,7 @@ export async function Resume(props: { locale: Locale }) {
               <Skills locale={props.locale} types={['hobby']} />
             </div>
             <div className="flex-1" />
-            <div
-              className={['sticky bottom-4', 'bg-white', '-mb-4 pb-4', 'pt-4 border-t'].join(' ')}
-            >
+            <div className={['sticky bottom-0', 'bg-white', 'pb-4', 'pt-4 border-t'].join(' ')}>
               <BlockContact isCV />
             </div>
           </div>

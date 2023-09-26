@@ -33,9 +33,9 @@
         "ru": "Русский"
     },
     "location": "Prague & Remote",
+    "name": "Petr Cibulka",
+    "tagline": "Front-end developer\npowered by React and Next.js.",
     "tetris": {
         "button": "Play Tetris"
-    },
-    "name": "Petr Cibulka",
-    "tagline": "Front-end developer\npowered by React and Next.js."
+    }
 }
