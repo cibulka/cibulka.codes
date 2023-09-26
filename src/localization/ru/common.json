@@ -40,6 +40,7 @@
     "location": "Прага или удаленно",
     "name": "Petr Cibulka",
     "play": "Играть",
+    "present": "Сейчас",
     "tagline": "Frontend-разработчик (React/Next.js) ",
     "tetris": {
         "button": "Играть в Тетрис"
