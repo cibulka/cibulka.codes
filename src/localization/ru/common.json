@@ -1,5 +1,10 @@
 {
     "availability": "Доступен с {{ month }}/{{ year }}",
+    "bar": {
+        "email": "E-mail",
+        "phone": "Телефон",
+        "cv": "Резюме"
+    },
     "contactMe": {
         "button": "Связаться со мной"
     },
@@ -34,6 +39,7 @@
     },
     "location": "Прага или удаленно",
     "name": "Petr Cibulka",
+    "play": "Играть",
     "tagline": "Frontend-разработчик (React/Next.js) ",
     "tetris": {
         "button": "Играть в Тетрис"
