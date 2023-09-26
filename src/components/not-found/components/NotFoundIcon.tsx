@@ -39,7 +39,7 @@ export function NotFoundIcon() {
         </span>
       </Button>
       <div className="flex flex-col items-center gap-2">
-        <div className="text max-w-md ml-auto mr-auto text-center">
+        <div className="text ml-auto mr-auto text-center" style={{ maxWidth: '18em' }}>
           <p>{t('404.text')}</p>
         </div>
         <ContactEmail />

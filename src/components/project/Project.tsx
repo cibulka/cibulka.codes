@@ -4,13 +4,14 @@ import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { MdxReader } from '@/components/mdx-reader/MdxReader';
 import { Skills } from '@/components/skills/Skills';
+import { Locale } from '@/constants/config';
 
 export function Project(props: {
   project: Project;
   isFeatured?: boolean;
   isBorder?: boolean;
   isSkillsHidden?: boolean;
-  locale: string;
+  locale: Locale;
 }) {
   return (
     <article

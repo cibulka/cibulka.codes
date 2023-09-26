@@ -29,7 +29,14 @@ export async function NotFound(props: { href: string | null; locale: string }) {
             --video: ${getColor('video')};
           }
     `}</style>
-      <div className="absolute inset-0 flex flex-col gap-8 items-center justify-center px-8">
+      <div
+        className={[
+          'absolute inset-0',
+          'flex flex-col gap-8 items-center justify-center',
+          'bg-background text-text',
+          'px-8',
+        ].join(' ')}
+      >
         <NotFoundIcon />
       </div>
     </>

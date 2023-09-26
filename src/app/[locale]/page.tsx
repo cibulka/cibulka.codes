@@ -21,8 +21,9 @@ import { isLocale } from '@/utils/typeguards';
 import styles from './page.module.css';
 import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
+import { getHomeMeta } from '@/meta/home';
 
-// TODO: 404 page
+// TODO: RU: 404 page
 // TODO: OG Image
 // TODO: Footer (with Readme link)
 // TODO: Expandable README
@@ -30,6 +31,10 @@ import { HomeSection } from './section';
 
 // TODO: Tetris transition
 // TODO: Media query for dark mode
+
+export async function generateMetadata(props: { params: { locale: string } }) {
+  return await getHomeMeta(props.params.locale);
+}
 
 export default async function Home(props: { params: { locale: string } }) {
   const locale = isLocale(props.params.locale) ? props.params.locale : null;
