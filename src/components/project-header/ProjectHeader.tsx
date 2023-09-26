@@ -1,19 +1,21 @@
 import dayjs from 'dayjs';
 import { Education, Position, Project } from 'contentlayer/generated';
 
+import { Locale } from '@/constants/config';
 import { getDocuments } from '@/content/getDocuments';
+import { getTranslationServer } from '@/utils/getTranslationServer';
 
 import { ProjectIcon } from './components/ProjectIcon';
-import { IconBriefcase } from '@/icons/IconBriefcase';
 
-export function ProjectHeader(props: {
+export async function ProjectHeader(props: {
   className?: string;
   classNameIcon?: string;
-  locale: string;
+  locale: Locale;
   project: Project | Education;
   isJobsHidden?: boolean;
   isYearsHidden?: boolean;
 }) {
+  const { t } = await getTranslationServer('common', props.locale);
   const { positions, title, excerpt } = props.project;
   const positionSlugs = positions?.map((p) => p.slug);
   const positionsFiltered = (getDocuments(['Position'], props.locale) as Position[]).filter((p) =>
@@ -43,7 +45,7 @@ export function ProjectHeader(props: {
                       <span>
                         {startYear === endYear
                           ? startYear
-                          : [startYear, end ? endYear : 'Present'].join(' – ')}
+                          : [startYear, end ? endYear : t('present')].join(' – ')}
                       </span>
                     )}
                   </li>

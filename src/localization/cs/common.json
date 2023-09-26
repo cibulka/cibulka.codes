@@ -1,5 +1,10 @@
 {
     "availability": "K dispozici od {{ month }}/{{ year }}",
+    "bar": {
+        "email": "E-mail",
+        "phone": "Telefon",
+        "cv": "Životopis"
+    },
     "contactMe": {
         "button": "Kontaktovat"
     },
@@ -34,6 +39,7 @@
     },
     "location": "Praha & Remote",
     "name": "Petr Cibulka",
+    "play": "Zahrát si",
     "tagline": "Vývojář kultury a front-endu, React a Next.js",
     "tetris": {
         "button": "Zahrát si Tetris"
