@@ -1,9 +1,9 @@
 {
     "404": {
-        "title": "TRANSLATE",
-        "subTitle": "TRANSLATE",
-        "text": "TRANSLATE",
-        "back": "TRANSLATE"
+        "title": "Ошибка 404",
+        "subTitle": "Страница не найдена",
+        "text": "Возникла ошибка? Буду признателен, если вы о ней сообщите.",
+        "back": "Обратно на главную"
     },
     "availability": "Доступен с {{ month }}/{{ year }}",
     "bar": {
