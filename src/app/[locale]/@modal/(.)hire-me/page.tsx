@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { BusinessCard } from '@/components/business-card/BusinessCard';
+import { BusinessCard } from '@/sections/business-card/BusinessCard';
 import { isLocale } from '@/utils/typeguards';
 
 export default function HireMeModal(props: { params: { locale: string } }) {

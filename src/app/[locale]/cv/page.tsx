@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { Resume } from '@/components/resume/Resume';
+import { Resume } from '@/sections/resume/Resume';
 import { isLocale } from '@/utils/typeguards';
 
 import styles from './page.module.css';

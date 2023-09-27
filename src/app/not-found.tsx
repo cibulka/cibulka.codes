@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import { headers } from 'next/headers';
 
-import { NotFound } from '@/components/not-found/NotFound';
+import { NotFound } from '@/sections/not-found/NotFound';
 import { LOCALES } from '@/constants/config';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { isLocale } from '@/utils/typeguards';

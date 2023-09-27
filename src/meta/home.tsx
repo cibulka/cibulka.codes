@@ -11,6 +11,6 @@ export async function getHomeMeta(localeProvided: string): Promise<Metadata> {
   return {
     title: [t('name'), t('tagline')].join(' | '),
     description: [availability, t('location')].join(' | '),
-    openGraph: { images: [`/${locale}/image`, `/petr.jpg`] },
+    openGraph: { images: [`/og_cibulka-codes.png`, `/petr.jpg`] },
   };
 }

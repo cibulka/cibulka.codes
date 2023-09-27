@@ -23,8 +23,6 @@ import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 import { getHomeMeta } from '@/meta/home';
 
-// TODO: RU: 404 page
-// TODO: OG Image
 // TODO: Footer (with Readme link)
 // TODO: Expandable README
 // TODO: Tetris README (english)
