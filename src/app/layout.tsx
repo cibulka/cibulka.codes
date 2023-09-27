@@ -41,11 +41,13 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: new URL(homeUrl),
     themeColor: '#ffffff',
+    generator: t('name'),
     applicationName: t('name'),
     other: {
       rel: 'mask-icon',
       href: '/safari-pinned-tab.svg',
     },
+    manifest: 'site.webmanifest',
   };
 }
 
