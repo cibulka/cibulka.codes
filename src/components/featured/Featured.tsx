@@ -52,6 +52,7 @@ export async function Featured(props: { isFirst?: boolean; locale: Locale; proje
             priority={Boolean(props.isFirst)}
             src={props.project.video}
             poster={props.project.video_poster}
+            project={props.project.slug}
           />
         )}
       </div>
