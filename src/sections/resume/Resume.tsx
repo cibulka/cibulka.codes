@@ -8,7 +8,7 @@ import { LayoutPaper } from '@/components/layout-paper/LayoutPaper';
 import { Name } from '@/components/name/Name';
 import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
-import { Locale } from '@/constants/config';
+import { Locale, REPO } from '@/constants/config';
 import { getDocuments } from '@/content/getDocuments';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { IconGitHub } from '@/icons/IconGitHub';
@@ -58,25 +58,19 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
               <h2 className="font-bold mb-2">{t('cv.sections.demos')}</h2>
               <ul>
                 <li>
-                  <a
-                    className="flex gap-1 items-center pl-1"
-                    href="https://www.github.com/cibulka/react-tetris-ts"
-                  >
+                  <a className="flex gap-1 items-center pl-1" href={REPO.TETRIS}>
                     <span className="w-6 h-6 text-text_fade">
                       <IconGitHub />
                     </span>
-                    <ChipLink href="https://www.github.com/cibulka/react-tetris-ts" isInsideLink />
+                    <ChipLink href={REPO.TETRIS} isInsideLink />
                   </a>
                 </li>
                 <li>
-                  <a
-                    className="flex gap-1 items-center pl-1"
-                    href="https://www.github.com/cibulka/cibulka.codes"
-                  >
+                  <a className="flex gap-1 items-center pl-1" href={REPO.PORTFOLIO}>
                     <span className="w-6 h-6 text-text_fade">
                       <IconGitHub />
                     </span>
-                    <ChipLink href="https://www.github.com/cibulka/cibulka.codes" isInsideLink />
+                    <ChipLink href={REPO.PORTFOLIO} isInsideLink />
                   </a>
                 </li>
               </ul>

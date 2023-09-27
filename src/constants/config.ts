@@ -25,4 +25,12 @@ export const HOME_SECTIONS = {
   EDUCATION: 'education',
 } as const;
 
-export const GITHUB_CIBULKA_CODES = 'https://github.com/cibulka/cibulka.codes';
+export const SOCIAL = {
+  GITHUB: 'https://www.github.com/cibulka',
+  LINKED_IN: 'https://www.linkedin.com/in/cibulkacodes',
+};
+
+export const REPO = {
+  PORTFOLIO: 'https://github.com/cibulka/cibulka.codes',
+  TETRIS: 'https://www.github.com/cibulka/react-tetris-ts',
+};

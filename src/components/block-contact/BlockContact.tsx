@@ -3,7 +3,7 @@ import NextImage from 'next/image';
 import { ContactEmail } from '@/components/contact-email/ContactEmail';
 import { ContactPhone } from '@/components/contact-phone/ContactPhone';
 import { ChipLink } from '@/components/chip-link/ChipLink';
-import { Locale } from '@/constants/config';
+import { Locale, SOCIAL } from '@/constants/config';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { IconLinkedIn } from '@/icons/IconLinkedIn';
 import { getClassNamePlausible } from '@/utils/plausible';
@@ -48,7 +48,7 @@ export function BlockContact(props: {
         <ul className="flex gap-4 text-text_fade mt-4 print:hidden">
           <li>
             <a
-              href="https://github.com/cibulka"
+              href={SOCIAL.GITHUB}
               className={['flex w-8 h-8', getClassNamePlausible(PLAUSIBLE_GOALS.GITHUB)].join(' ')}
               title="GitHub"
             >
@@ -57,7 +57,7 @@ export function BlockContact(props: {
           </li>
           <li>
             <a
-              href="https://linkedin.com/cibulkacodes"
+              href={SOCIAL.LINKED_IN}
               className={['flex w-8 h-8', getClassNamePlausible(PLAUSIBLE_GOALS.LINKED_IN)].join(
                 ' ',
               )}
