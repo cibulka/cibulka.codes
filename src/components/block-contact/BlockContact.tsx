@@ -10,7 +10,7 @@ export function BlockContact(props: { className?: string; classNamePic?: string;
   return (
     <div className={['flex', props.className, 'text-sm gap-4'].filter(Boolean).join(' ')}>
       <div
-        className={[props.classNamePic, 'relative overflow-hidden rounded-md']
+        className={[props.classNamePic, 'relative overflow-hidden rounded-md', 'bg-chip_fade']
           .filter(Boolean)
           .join(' ')}
         style={{ height: '6.75em', width: '6.75em' }}

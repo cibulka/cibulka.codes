@@ -14,26 +14,33 @@ import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { Skills } from '@/components/skills/Skills';
 import { ThemeSwitch } from '@/components/theme-switch/ThemeSwitch';
 import { getDocuments } from '@/content/getDocuments';
-import { FEATURED, HOME_SECTIONS } from '@/constants/config';
+import { FEATURED, HOME_SECTIONS, LOCALES } from '@/constants/config';
+import { getAlternates } from '@/meta/getAlternates';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { isLocale } from '@/utils/typeguards';
 
-import styles from './page.module.css';
 import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
-import { getHomeMeta } from '@/meta/home';
+import styles from './page.module.css';
 
 // TODO: Footer (with Readme link)
 // TODO: Expandable README
 // TODO: Tetris README (english)
 
-export async function generateMetadata(props: { params: { locale: string } }) {
-  return await getHomeMeta(props.params.locale);
+export function generateMetadata(props: { params: { locale: string } }) {
+  return {
+    alternates: getAlternates(props.params.locale),
+  };
+}
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => {
+    locale;
+  });
 }
 
 export default async function Home(props: { params: { locale: string } }) {
-  const locale = isLocale(props.params.locale) ? props.params.locale : null;
-  if (!locale) notFound();
+  const locale = isLocale(props.params.locale) ? props.params.locale : LOCALES[0];
 
   const { t } = await getTranslationServer('common', locale);
   const projects = getDocuments(['Project'], locale) as Project[];

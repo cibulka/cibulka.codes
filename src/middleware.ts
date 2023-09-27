@@ -1,7 +1,8 @@
 import Negotiator from 'negotiator';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { LOCALES } from '@/constants/config';
+import { LOCALES, X_HEADER_LOCALE } from '@/constants/config';
+import { isLocale } from './utils/typeguards';
 
 function getBestLocale(request: NextRequest) {
   const headers = {
@@ -14,25 +15,27 @@ function getBestLocale(request: NextRequest) {
 }
 
 export async function middleware(request: NextRequest) {
+  const localeBest = getBestLocale(request);
   const pathname = request.nextUrl.pathname;
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-path', pathname);
-
-  const isWorkbox = pathname.startsWith('/workbox');
-  if (isWorkbox) return NextResponse.next();
+  const response = NextResponse.next();
 
   const isFile = !pathname.split('.').pop()?.startsWith('/');
-  if (isFile) return NextResponse.next();
+  if (isFile) return response;
+
+  const isIcon = pathname.startsWith('/icon');
+  if (isIcon) return response;
 
   const pathnameIsMissingLocale = LOCALES.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
   if (pathnameIsMissingLocale) {
-    const locale = getBestLocale(request);
-    return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url));
+    return NextResponse.redirect(new URL(`/${localeBest}/${pathname}`, request.url));
   }
 
-  return NextResponse.next();
+  const localeProvided = pathname.split('/').filter(Boolean)[0];
+  const locale = isLocale(localeProvided) ? localeProvided : LOCALES[0];
+  response.headers.set(X_HEADER_LOCALE, locale);
+  return response;
 }
 
 export const config = {

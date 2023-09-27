@@ -33,6 +33,20 @@ export function isRelativeFileUrl(href: string) {
   return href.split('/').slice(-1)[0].includes('.');
 }
 
+export function joinPathname(...parts: (string | undefined)[]) {
+  return parts
+    .filter(Boolean)
+    .map((p) => p.replace(/^\/|\/$/g, ''))
+    .filter(Boolean)
+    .join('/');
+}
+
+export function getAbsoluteUrl(pathname?: string) {
+  const baseUrl = process.env.BASE_URL || process.env.VERCEL_URL;
+  if (!baseUrl) throw new Error(`getAbsoluteUrl: Base URL not provided`);
+  return joinPathname(baseUrl, pathname || '');
+}
+
 export function getUrlLabel(href: string) {
   try {
     const url = new URL(href);

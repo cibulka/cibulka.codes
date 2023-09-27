@@ -24,3 +24,5 @@ export const HOME_SECTIONS = {
   PROJECTS: 'projects',
   EDUCATION: 'education',
 } as const;
+
+export const X_HEADER_LOCALE = 'X-Locale';
