@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Metadata } from 'next';
 import PlausibleProvider from 'next-plausible';
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
 
 import { LOCALES } from '@/constants/config';
 import { AppContextWrap } from '@/context/App.context';
@@ -45,7 +45,7 @@ function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) 
   return (
     <PlausibleProvider domain="cibulka.codes" taggedEvents>
       {props.children}
-      {props.isProduction && <Analytics />}
+      {/* props.isProduction && <Analytics /> */}
     </PlausibleProvider>
   );
 }
