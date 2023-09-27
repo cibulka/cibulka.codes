@@ -1,13 +1,29 @@
 import { Inter } from 'next/font/google';
+import { headers } from 'next/headers';
 
 import { NotFound } from '@/components/not-found/NotFound';
-import { THEME_DARK } from '@/constants/colors';
+import { LOCALES } from '@/constants/config';
 import { getTranslationServer } from '@/utils/getTranslationServer';
+import { isLocale } from '@/utils/typeguards';
 
-import { getHref, getLocale } from './layout.utils';
 import './[locale]/globals.css';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
+
+export function getHref() {
+  const headersList = headers();
+  return (
+    headersList.get('x-path') ||
+    headersList.get('referer') ||
+    headersList.get('url') ||
+    headersList.get('x-invoke-path')
+  );
+}
+
+export function getLocale(url: string | null) {
+  const locale = url?.split('/').reverse()[1];
+  return locale && isLocale(locale) ? locale : LOCALES[0];
+}
 
 export async function generateMetadata() {
   const href = getHref();

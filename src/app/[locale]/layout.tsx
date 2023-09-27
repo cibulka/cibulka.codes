@@ -10,6 +10,12 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
+export function generateStaticParams() {
+  return LOCALES.map((locale) => {
+    locale;
+  });
+}
+
 export default function LocaleLayout(
   props: PropsWithChildren & { modal: ReactNode; params?: { locale: string } },
 ) {
