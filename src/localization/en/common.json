@@ -1,9 +1,7 @@
 {
     "404": {
         "title": "Error 404",
-        "subTitle": "Content not found",
-        "text": "Is it a mistake? If yes, I'd appreciate if you let me know.",
-        "back": "Back to homepage"
+        "subTitle": "Content not found"
     },
     "availability": "Available from {{ month }}/{{ year }}",
     "bar": {
@@ -15,10 +13,6 @@
         "button": "Contact me"
     },
     "copy": "Copy",
-    "darkMode": {
-        "dark": "Dark mode",
-        "light": "Light mode"
-    },
     "cv": {
         "button": "My resumé",
         "sections": {
@@ -38,6 +32,15 @@
                 "future": "Tools I'm learning"
             }
         }
+    },
+    "darkMode": {
+        "dark": "Dark mode",
+        "light": "Light mode"
+    },
+    "error": {
+        "back": "Back to homepage",
+        "contact": "I'd appreciate if you let me know.",
+        "title": "Something wrong happened"
     },
     "hireMe": {
         "button": "Hire me!"

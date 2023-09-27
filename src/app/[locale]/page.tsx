@@ -1,4 +1,5 @@
 import { Block, Education, Project } from 'contentlayer/generated';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { BlockContactBar } from '@/components/block-contact-bar/BlockContactBar';
@@ -17,7 +18,6 @@ import { getDocuments } from '@/content/getDocuments';
 import { FEATURED, HOME_SECTIONS, LOCALES, Locale } from '@/constants/config';
 import { getAlternates } from '@/meta/getAlternates';
 import { getTranslationServer } from '@/utils/getTranslationServer';
-import { isLocale } from '@/utils/typeguards';
 
 import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
@@ -129,6 +129,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
           </div>
           <div className="text-xs mt-12 border-t border-t-button_shade pt-4">
             Powered by Next.js, Tailwind and MDX (Contentlayer).
+            <Link href="/readme">README</Link>
           </div>
         </div>
       </div>

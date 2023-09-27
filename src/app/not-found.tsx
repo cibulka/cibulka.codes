@@ -19,5 +19,9 @@ export default async function NotFoundPage() {
   const headersList = headers();
   const localeProvided = headersList.get('x-locale');
   const locale = isLocale(localeProvided) ? localeProvided : LOCALES[0];
-  return <NotFound locale={locale} />;
+  return (
+    <div className={['absolute inset-0', 'flex items-center justify-center'].join(' ')}>
+      <NotFound locale={locale} />
+    </div>
+  );
 }

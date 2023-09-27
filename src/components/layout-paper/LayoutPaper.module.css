@@ -1,0 +1,26 @@
+.container {
+  height: 29.7cm;
+  width: 21cm;
+  background-color: #fff;
+  padding: 1.5em;
+}
+
+@media print {
+  .is-single-page {
+    overflow: hidden;
+  }
+}
+
+@media not print {
+  .container {
+    @apply border border-t-4 border-t-action shadow-md;
+  }
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 2em 2em 0 2em;
+  }
+}

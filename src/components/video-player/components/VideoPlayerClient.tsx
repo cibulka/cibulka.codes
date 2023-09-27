@@ -15,6 +15,7 @@ export function VideoPlayerClient(props: {
   priority: boolean;
   src: string;
 }) {
+  const [isRendered, setIsRendered] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isOpaque, setIsOpaque] = useState(true);
   const [isReady, setIsReady] = useState(true);
@@ -30,8 +31,12 @@ export function VideoPlayerClient(props: {
   const isPlaying = playState === VIDEO_STATE.PLAYING;
 
   useEffect(() => {
-    ref.current?.load();
+    setIsRendered(true);
   }, []);
+
+  useEffect(() => {
+    if (isRendered) ref.current?.load();
+  }, [isRendered]);
 
   const isPlay = isReady && isPlayRequested;
   useEffect(() => {
@@ -40,35 +45,37 @@ export function VideoPlayerClient(props: {
 
   return (
     <>
-      <video
-        className={[
-          'absolute top-0 left-0',
-          'w-full h-full',
-          'object-contain object-center',
-          'transition-opacity',
-          isIdle ? 'opacity-0' : 'opacity-100',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        muted={isMuted}
-        onCanPlay={() => setIsReady(true)}
-        onEnded={() => {
-          setIsOpaque(true);
-          setPlayState(VIDEO_STATE.FINISHED);
-        }}
-        onError={() => setPlayState(VIDEO_STATE.ERRORED)}
-        onLoadedMetadata={(e) => {
-          setDuration(Math.ceil(e.currentTarget.duration));
-        }}
-        onPause={() => setPlayState(VIDEO_STATE.PAUSED)}
-        onPlay={() => setPlayState(VIDEO_STATE.PLAYING)}
-        onTimeUpdate={(e) => {
-          setTime(Math.ceil(e.currentTarget.currentTime));
-        }}
-        preload="auto"
-        ref={ref}
-        src={props.src}
-      />
+      {isRendered && (
+        <video
+          className={[
+            'absolute top-0 left-0',
+            'w-full h-full',
+            'object-contain object-center',
+            'transition-opacity',
+            isIdle ? 'opacity-0' : 'opacity-100',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          muted={isMuted}
+          onCanPlay={() => setIsReady(true)}
+          onEnded={() => {
+            setIsOpaque(true);
+            setPlayState(VIDEO_STATE.FINISHED);
+          }}
+          onError={() => setPlayState(VIDEO_STATE.ERRORED)}
+          onLoadedMetadata={(e) => {
+            setDuration(Math.ceil(e.currentTarget.duration));
+          }}
+          onPause={() => setPlayState(VIDEO_STATE.PAUSED)}
+          onPlay={() => setPlayState(VIDEO_STATE.PLAYING)}
+          onTimeUpdate={(e) => {
+            setTime(Math.ceil(e.currentTarget.currentTime));
+          }}
+          preload="auto"
+          ref={ref}
+          src={props.src}
+        />
+      )}
       {props.poster && (
         <Image
           alt="Video"
@@ -97,6 +104,7 @@ export function VideoPlayerClient(props: {
         isFinished={isFinished}
         isMuted={isMuted}
         isPlaying={isPlaying}
+        isRendered={isRendered}
         labels={props.labels}
         onToggleMute={() => setIsMuted((old) => !old)}
         onTogglePlay={() => {

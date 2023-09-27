@@ -21,6 +21,7 @@ export function VideoControls(props: {
   isFinished: boolean;
   isMuted: boolean;
   isPlaying: boolean;
+  isRendered: boolean;
   labels: VideoPlayerLabels;
   onToggleMute: () => void;
   onTogglePlay: () => void;
@@ -57,6 +58,7 @@ export function VideoControls(props: {
             props.isPlaying ? 'opacity-0' : 'opacity-100',
             !isButtonInvisible && 'hover:opacity-100',
           ].join(' ')}
+          disabled={!props.isRendered}
           onClick={() => props.onTogglePlay()}
           aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
         >
@@ -70,6 +72,7 @@ export function VideoControls(props: {
           <button
             type="button"
             className="w-8 h-8 p-1 text-white"
+            disabled={!props.isRendered}
             onClick={() => props.onTogglePlay()}
             aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
           >
@@ -94,6 +97,7 @@ export function VideoControls(props: {
             type="button"
             onClick={() => props.onToggleMute()}
             className="w-8 h-8 p-1"
+            disabled={!props.isRendered}
             aria-label={props.isMuted ? props.labels.volumeOn : props.labels.volumeOff}
           >
             {props.isMuted ? <IconVolumeOn /> : <IconVolumeOff />}

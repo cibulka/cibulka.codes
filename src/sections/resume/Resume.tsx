@@ -4,6 +4,7 @@ import { BlockContact } from '@/components/block-contact/BlockContact';
 import { ChipAvailability } from '@/components/chip-availability/ChipAvailability';
 import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ChipLocation } from '@/components/chip-location/ChipLocation';
+import { LayoutPaper } from '@/components/layout-paper/LayoutPaper';
 import { Name } from '@/components/name/Name';
 import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
@@ -12,9 +13,7 @@ import { getDocuments } from '@/content/getDocuments';
 import { IconTetris } from '@/icons/IconTetris';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 
-import styles from './Resume.module.css';
-
-export async function Resume(props: { locale: Locale }) {
+export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
   const { t } = await getTranslationServer('common', props.locale);
   const positions = getDocuments(['Position'], props.locale) as Position[];
   const educations = getDocuments(['Education'], props.locale) as Education[];
@@ -27,8 +26,7 @@ export async function Resume(props: { locale: Locale }) {
             -webkit-print-color-adjust: exact;
           }
         `}</style>
-
-      <div className={styles.container}>
+      <LayoutPaper isRoute={props.isRoute}>
         <div className="flex gap-8 h-full">
           <div className="flex flex-col gap-8 relative" style={{ width: '21em' }}>
             <aside className="flex flex-col gap-2 mb-4">
@@ -114,7 +112,7 @@ export async function Resume(props: { locale: Locale }) {
             </ul>
           </section>
         </div>
-      </div>
+      </LayoutPaper>
     </>
   );
 }

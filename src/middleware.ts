@@ -2,8 +2,9 @@ import Negotiator from 'negotiator';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { LOCALES } from '@/constants/config';
-import { isLocale } from './utils/typeguards';
-import { X_HEADER_LOCALE } from './utils/headers';
+import { isLocale } from '@/utils/typeguards';
+import { X_HEADER_LOCALE } from '@/utils/headers';
+import { joinPathname } from './utils/url';
 
 function getBestLocale(request: NextRequest) {
   const headers = {
@@ -43,7 +44,7 @@ export async function middleware(request: NextRequest) {
   if (isManifest) return;
 
   const localeBest = getBestLocale(request);
-  request.nextUrl.pathname = `/${localeBest}${pathname}`;
+  request.nextUrl.pathname = joinPathname(localeBest, pathname);
   return Response.redirect(request.nextUrl);
 }
 

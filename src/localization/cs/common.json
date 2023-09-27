@@ -1,9 +1,7 @@
 {
     "404": {
         "title": "Chyba 404",
-        "subTitle": "Obsah nenalezen",
-        "text": "Je to chyba? Pokud ano, budu rád když mi dáte vědět.",
-        "back": "Zpět na úvodní stránku"
+        "subTitle": "Obsah nenalezen"
     },
     "availability": "K dispozici od {{ month }}/{{ year }}",
     "bar": {
@@ -38,6 +36,11 @@
     "darkMode": {
         "dark": "Temný režim",
         "light": "Světlý režim"
+    },
+    "error": {
+        "back": "Zpět na úvodní stránku",
+        "contact": "Budu rád když mi dáte vědět.",
+        "title": "Stala se chyba"
     },
     "hireMe": {
         "button": "Kontakt"
