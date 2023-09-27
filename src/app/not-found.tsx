@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google';
 import { headers } from 'next/headers';
 
 import { NotFound } from '@/sections/not-found/NotFound';
@@ -8,16 +7,23 @@ import { isLocale } from '@/utils/typeguards';
 
 import './[locale]/globals.css';
 
-const inter = Inter({ subsets: ['latin', 'latin-ext'] });
+export const dynamic = 'force-dynamic';
 
 export function getHref() {
-  const headersList = headers();
-  return (
-    headersList.get('x-path') ||
-    headersList.get('referer') ||
-    headersList.get('url') ||
-    headersList.get('x-invoke-path')
-  );
+  return null;
+
+  try {
+    const headersList = headers();
+    return (
+      headersList.get('x-path') ||
+      headersList.get('referer') ||
+      headersList.get('url') ||
+      headersList.get('x-invoke-path')
+    );
+  } catch (e: any) {
+    console.log(e?.message || 'Headers error');
+    return null;
+  }
 }
 
 export function getLocale(url: string | null) {
