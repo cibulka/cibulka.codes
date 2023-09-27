@@ -6,6 +6,8 @@ import { IconCV } from '@/icons/IconCV';
 import { IconTetris } from '@/icons/IconTetris';
 
 import { SidebarMenu } from './sidebar-menu';
+import { getClassNamePlausible } from '@/utils/plausible';
+import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 
 export async function Sidebar(props: {
   className: string;
@@ -34,6 +36,7 @@ export async function Sidebar(props: {
               href: `#${HOME_SECTIONS.EXPERIENCE}`,
             },
             {
+              className: getClassNamePlausible(PLAUSIBLE_GOALS.EDUCATION),
               label: t('cv.sections.education'),
               href: `#${HOME_SECTIONS.EDUCATION}`,
             },

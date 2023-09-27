@@ -5,6 +5,7 @@ import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { MdxReader } from '@/components/mdx-reader/MdxReader';
 import { Skills } from '@/components/skills/Skills';
 import { Locale } from '@/constants/config';
+import { getPlausibleClassNameForLink } from '@/utils/plausible';
 
 export function Project(props: {
   project: Project;
@@ -28,7 +29,12 @@ export function Project(props: {
       <div className="text mb-2">
         <MdxReader locale={props.locale} mdx={props.project.body.code} />
       </div>
-      {props.project.www && <ChipLink href={props.project.www} />}
+      {props.project.www && (
+        <ChipLink
+          classNamePlausible={getPlausibleClassNameForLink(props.project.slug)}
+          href={props.project.www}
+        />
+      )}
       {!props.isSkillsHidden && props.project.skills && (
         <Skills className="mt-4" isJobsShown locale={props.locale} slugs={props.project.skills} />
       )}

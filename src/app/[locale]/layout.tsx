@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Metadata } from 'next';
+import PlausibleProvider from 'next-plausible';
+import { Analytics } from '@vercel/analytics/react';
 
 import { LOCALES } from '@/constants/config';
 import { AppContextWrap } from '@/context/App.context';
@@ -39,11 +41,26 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) {
+  return props.isProduction ? (
+    <>
+      <PlausibleProvider domain="after-russia.org" taggedEvents>
+        {props.children}
+        <Analytics />
+      </PlausibleProvider>
+    </>
+  ) : (
+    <>{props.children}</>
+  );
+}
+
 export default async function LocaleLayout(props: PropsWithChildren & { modal: JSX.Element }) {
   return (
-    <AppContextWrap>
-      {props.children}
-      {props.modal}
-    </AppContextWrap>
+    <ServicesProvider isProduction={Boolean(process.env.IS_PRODUCTION)}>
+      <AppContextWrap>
+        {props.children}
+        {props.modal}
+      </AppContextWrap>
+    </ServicesProvider>
   );
 }

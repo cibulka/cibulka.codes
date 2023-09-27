@@ -5,6 +5,7 @@ import { useAppContext } from '@/context/App.utils';
 import { isRelativeFileUrl } from '@/utils/url';
 
 type SidebarMenuOption = {
+  className?: string;
   label: string;
   href: string;
   icon?: JSX.Element;
@@ -35,6 +36,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
                 'py-2 border-b-2',
                 isSelected ? 'text-text' : 'text-text_fade',
                 isSelected ? 'border-b-chip_dark' : 'border-b-chip',
+                item.className,
               ]
                 .filter(Boolean)
                 .join(' ')}

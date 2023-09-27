@@ -3,12 +3,14 @@ import { IconLink } from '@/icons/IconLink';
 import { getUrlLabel } from '@/utils/url';
 
 export function ChipLink(props: {
+  classNamePlausible?: string;
   href: string;
   isInsideLink?: boolean;
   variant?: 'primary' | 'basic';
 }) {
   return (
     <Chip
+      className={props.classNamePlausible}
       icon={<IconLink />}
       isIconRight
       isNoUnderline

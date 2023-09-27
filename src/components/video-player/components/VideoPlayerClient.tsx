@@ -2,16 +2,23 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
+import { usePlausibleEvent } from '@/utils/plausible';
+
 import { VideoPlayerLabels } from '../VideoPlayer';
 import { VIDEO_STATE, VideoState } from '../VideoPlayer.constants';
 
 import { VideoControls } from './VideoControls';
 import { VideoFinished } from './VideoFinished';
+import { PlausibleGoal } from '@/constants/plausible';
 
 // TODO: Change time by clicking on the range
 export function VideoPlayerClient(props: {
   labels: VideoPlayerLabels;
   poster?: string;
+  plausible: {
+    onStart?: PlausibleGoal;
+    onFinish?: PlausibleGoal;
+  };
   priority: boolean;
   src: string;
 }) {
@@ -23,6 +30,9 @@ export function VideoPlayerClient(props: {
   const [duration, setDuration] = useState<number | undefined>(undefined);
   const [time, setTime] = useState(0);
   const [playState, setPlayState] = useState<VideoState>(VIDEO_STATE.IDLE);
+
+  const onStart = usePlausibleEvent(props.plausible.onStart);
+  const onFinish = usePlausibleEvent(props.plausible.onFinish);
 
   const ref = useRef<HTMLVideoElement>(null);
   const isIdle = playState === VIDEO_STATE.IDLE;
@@ -61,13 +71,17 @@ export function VideoPlayerClient(props: {
           onEnded={() => {
             setIsOpaque(true);
             setPlayState(VIDEO_STATE.FINISHED);
+            if (onFinish) onFinish();
           }}
           onError={() => setPlayState(VIDEO_STATE.ERRORED)}
           onLoadedMetadata={(e) => {
             setDuration(Math.ceil(e.currentTarget.duration));
           }}
           onPause={() => setPlayState(VIDEO_STATE.PAUSED)}
-          onPlay={() => setPlayState(VIDEO_STATE.PLAYING)}
+          onPlay={() => {
+            setPlayState(VIDEO_STATE.PLAYING);
+            if (onStart) onStart();
+          }}
           onTimeUpdate={(e) => {
             setTime(Math.ceil(e.currentTarget.currentTime));
           }}

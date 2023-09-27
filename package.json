@@ -13,6 +13,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@react-pdf/renderer": "^3.1.12",
+    "@vercel/analytics": "^1.0.2",
     "@vercel/og": "^0.5.17",
     "csshake": "^1.7.0",
     "dayjs": "^1.11.9",
@@ -20,6 +21,7 @@
     "i18next-resources-to-backend": "^1.1.4",
     "negotiator": "^0.6.3",
     "next": "13.5.3",
+    "next-plausible": "^3.11.1",
     "puppeteer": "^21.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

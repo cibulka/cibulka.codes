@@ -6,6 +6,8 @@ import { ChipLink } from '@/components/chip-link/ChipLink';
 import { Locale } from '@/constants/config';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { IconLinkedIn } from '@/icons/IconLinkedIn';
+import { getClassNamePlausible } from '@/utils/plausible';
+import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 
 export function BlockContact(props: {
   className?: string;
@@ -45,12 +47,22 @@ export function BlockContact(props: {
         </ul>
         <ul className="flex gap-4 text-text_fade mt-4 print:hidden">
           <li>
-            <a href="https://github.com/cibulka" className="flex w-8 h-8" title="GitHub">
+            <a
+              href="https://github.com/cibulka"
+              className={['flex w-8 h-8', getClassNamePlausible(PLAUSIBLE_GOALS.GITHUB)].join(' ')}
+              title="GitHub"
+            >
               <IconGitHub />
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/cibulkacodes" className="flex w-8 h-8" title="LinkedIn">
+            <a
+              href="https://linkedin.com/cibulkacodes"
+              className={['flex w-8 h-8', getClassNamePlausible(PLAUSIBLE_GOALS.LINKED_IN)].join(
+                ' ',
+              )}
+              title="LinkedIn"
+            >
               <IconLinkedIn />
             </a>
           </li>
