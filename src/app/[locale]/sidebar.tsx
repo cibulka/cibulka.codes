@@ -1,14 +1,10 @@
-import Link from 'next/link';
-
 import { BlockContact } from '@/components/block-contact/BlockContact';
-// import { Button } from '@/components/button/Button';
-// import { ButtonCV } from '@/components/button-cv/ButtonCv';
 import { Name } from '@/components/name/Name';
 import { HOME_SECTIONS, Locale } from '@/constants/config';
-// import { IconTetris } from '@/icons/IconTetris';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { IconCV } from '@/icons/IconCV';
 import { IconTetris } from '@/icons/IconTetris';
+
 import { SidebarMenu } from './sidebar-menu';
 
 export async function Sidebar(props: {
@@ -20,7 +16,7 @@ export async function Sidebar(props: {
 
   return (
     <div className={[props.className, 'flex flex-col'].join(' ')}>
-      <header className="flex flex-col gap-1">
+      <header className="relative flex flex-col gap-1">
         <Name className="bg:text-5xl text-4xl" locale={props.locale} />
         <h2 className="text-sm leading-normal">{t('tagline')}</h2>
       </header>

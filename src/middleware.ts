@@ -25,6 +25,9 @@ export async function middleware(request: NextRequest) {
   const isIcon = pathname.startsWith('/icon');
   if (isIcon) return response;
 
+  const isAppleIcon = pathname.startsWith('/apple-touch-icon');
+  if (isAppleIcon) return response;
+
   const pathnameIsMissingLocale = LOCALES.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );

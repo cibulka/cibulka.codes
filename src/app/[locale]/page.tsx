@@ -42,7 +42,8 @@ export function generateStaticParams() {
 */
 
 export default async function Home(props: { params: { locale: string } }) {
-  const locale = isLocale(props.params.locale) ? props.params.locale : LOCALES[0];
+  const locale = isLocale(props.params.locale) ? props.params.locale : null;
+  if (!locale) notFound();
 
   const { t } = await getTranslationServer('common', locale);
   const projects = getDocuments(['Project'], locale) as Project[];

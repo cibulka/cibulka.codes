@@ -25,7 +25,7 @@ export default function Icon() {
           color: THEME_DARK.action,
         }}
       >
-        <IconOnionAlt fillPath={THEME_DARK.action} style={{ width: '80%', height: '80%' }} />
+        <IconOnionAlt fillPath={THEME_DARK.action} style={{ width: '100%', height: '100%' }} />
       </div>
     ),
     {

@@ -1,15 +1,15 @@
-import { PropsWithChildren, ReactNode, cache } from 'react';
+import { PropsWithChildren, cache } from 'react';
+import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { Inter } from 'next/font/google';
 
 import { LOCALES, Locale, X_HEADER_LOCALE } from '@/constants/config';
-import { THEME_DARK } from '@/constants/colors';
 import { AppContextWrap } from '@/context/App.context';
-
-import './globals.css';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { getAvailabilityStr } from '@/utils/getAvailability';
 import { getAbsoluteUrl } from '@/utils/url';
+
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
@@ -19,7 +19,7 @@ export const getLocaleServer = cache((): Locale => {
   return result as Locale;
 });
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const locale = getLocaleServer();
   const { t } = await getTranslationServer('common', locale);
   const availability = await getAvailabilityStr(locale);
@@ -39,7 +39,7 @@ export async function generateMetadata() {
         { url: `/petr.jpg`, width: 2320, height: 3088 },
       ],
     },
-    metadataBase: homeUrl,
+    metadataBase: new URL(homeUrl),
     themeColor: '#ffffff',
   };
 }
