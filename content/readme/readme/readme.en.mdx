@@ -22,11 +22,14 @@ title: README
   <a aria-label="Tailwind" href="https://tailwindcss.com/">
     <img src="https://img.shields.io/badge/Tailwind_CSS-black?logo=tailwindcss&labelColor=black" />
   </a>
+  <a aria-label="My resumé" href="https://www.cibulka.codes/en/cv.pdf">
+    <img src="https://img.shields.io/badge/Download_my_resumé!-blue" />
+  </a>
 </p>
 
 ## What is this?
 
-My portfolio residing at [www.cibulka.codes](https://www.cibulka.codes) built with Next.js and managed with MDX.
+[www.cibulka.codes](https://www.cibulka.codes) is my **portfolio** built with Next.js and managed with MDX.
 
 ## Features
 
@@ -55,7 +58,7 @@ npm run dev # For development
 npm run build && npm start # For production preview
 ```
 
-To generate localized resumés in PDFs, the `http://localhost:3000` with the site must be available. Whenever it does, run:
+PDF is generated with Puppetteer right from `http://localhost:3000`, so the page must be available on that link during the build time. Whenever it is, run:
 
 ```
 npm run cv
