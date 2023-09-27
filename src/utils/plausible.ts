@@ -3,7 +3,7 @@ import { usePlausible } from 'next-plausible';
 import { PLAUSIBLE_GOALS, PlausibleGoal } from '@/constants/plausible';
 
 export function getClassNamePlausible(type: PlausibleGoal) {
-  if (!process.env.NEXT_PUBLIC_IS_PRODUCTION) return undefined;
+  if (!process.env.IS_PRODUCTION) return undefined;
   const event = PLAUSIBLE_GOALS[type];
   return event ? `plausible-event-name=${PLAUSIBLE_GOALS[type]}` : undefined;
 }
@@ -13,7 +13,7 @@ export function usePlausibleEvent(type?: PlausibleGoal) {
 
   return type
     ? () => {
-        if (process.env.NEXT_PUBLIC_IS_PRODUCTION) plausible(type);
+        if (process.env.IS_PRODUCTION) plausible(type);
       }
     : undefined;
 }
