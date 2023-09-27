@@ -9,9 +9,6 @@
 
 <div align="center" className="flex justify-center items-center gap-4">
   <a aria-label="Next.js" href="https://www.nextjs.org">
-    <img src="https://img.shields.io/badge/MDX-black?logo=mdx&labelColor=black" />
-  </a>
-  <a aria-label="MDX" href="https://www.contentlayer.dev">
     <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&labelColor=black" />
   </a>
   <a aria-label="TypeScript" href="https://www.typescriptlang.org/">
@@ -19,6 +16,9 @@
   </a>
   <a aria-label="Tailwind" href="https://tailwindcss.com/">
     <img src="https://img.shields.io/badge/Tailwind_CSS-black?logo=tailwindcss&labelColor=black" />
+  </a>
+  <a aria-label="MDX" href="https://www.contentlayer.dev">
+    <img src="https://img.shields.io/badge/MDX-black?logo=mdx&labelColor=black" />
   </a>
   <a aria-label="My resumé" href="https://www.cibulka.codes/en/cv.pdf">
     <img src="https://img.shields.io/badge/Download_my_resumé!-blue" />
