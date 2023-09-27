@@ -8,12 +8,7 @@ export const Readme = defineDocumentType(() => ({
   name: 'Readme',
   filePathPattern: `${DIR}/*/*.mdx`,
   contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      required: true,
-    },
-  },
+  fields: {},
   computedFields: {
     locale: {
       type: 'string',
