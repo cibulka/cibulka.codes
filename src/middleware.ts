@@ -1,8 +1,9 @@
 import Negotiator from 'negotiator';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { LOCALES, X_HEADER_LOCALE } from '@/constants/config';
+import { LOCALES } from '@/constants/config';
 import { isLocale } from './utils/typeguards';
+import { X_HEADER_LOCALE } from './utils/headers';
 
 function getBestLocale(request: NextRequest) {
   const headers = {
@@ -15,30 +16,35 @@ function getBestLocale(request: NextRequest) {
 }
 
 export async function middleware(request: NextRequest) {
-  const localeBest = getBestLocale(request);
-  const pathname = request.nextUrl.pathname;
-  const response = NextResponse.next();
+  const { pathname } = request.nextUrl;
+  const localeProvided = pathname.split('/').filter(Boolean)[0];
+  const localeValid = localeProvided && isLocale(localeProvided) ? localeProvided : null;
 
-  const isFile = !pathname.split('.').pop()?.startsWith('/');
-  if (isFile) return response;
-
-  const isIcon = pathname.startsWith('/icon');
-  if (isIcon) return response;
-
-  const isAppleIcon = pathname.startsWith('/apple-touch-icon');
-  if (isAppleIcon) return response;
-
-  const pathnameIsMissingLocale = LOCALES.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
-  );
-  if (pathnameIsMissingLocale) {
-    return NextResponse.redirect(new URL(`/${localeBest}/${pathname}`, request.url));
+  if (localeValid) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set(X_HEADER_LOCALE, localeValid);
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
   }
 
-  const localeProvided = pathname.split('/').filter(Boolean)[0];
-  const locale = isLocale(localeProvided) ? localeProvided : LOCALES[0];
-  response.headers.set(X_HEADER_LOCALE, locale);
-  return response;
+  const isFile = !pathname.split('.').pop()?.startsWith('/');
+  if (isFile) return;
+
+  const isIcon = pathname.startsWith('/icon');
+  if (isIcon) return;
+
+  const isAppleIcon = pathname.startsWith('/apple-touch-icon');
+  if (isAppleIcon) return;
+
+  const isManifest = pathname.includes('site.webmanifest');
+  if (isManifest) return;
+
+  const localeBest = getBestLocale(request);
+  request.nextUrl.pathname = `/${localeBest}${pathname}`;
+  return Response.redirect(request.nextUrl);
 }
 
 export const config = {

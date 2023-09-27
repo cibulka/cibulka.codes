@@ -1,13 +1,10 @@
-import { notFound } from 'next/navigation';
-
+import { Locale } from '@/constants/config';
 import { Resume } from '@/sections/resume/Resume';
-import { isLocale } from '@/utils/typeguards';
 
 import styles from './page.module.css';
 
-export default function ResumePage(props: { params: { locale: string } }) {
-  const locale = isLocale(props.params.locale) ? props.params.locale : null;
-  if (!locale) notFound();
+export default function ResumePage(props: { params: { locale: Locale } }) {
+  const { locale } = props.params;
   return (
     <div className={styles.wrap}>
       <Resume locale={locale} />

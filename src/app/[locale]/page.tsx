@@ -14,7 +14,7 @@ import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { Skills } from '@/components/skills/Skills';
 import { ThemeSwitch } from '@/components/theme-switch/ThemeSwitch';
 import { getDocuments } from '@/content/getDocuments';
-import { FEATURED, HOME_SECTIONS, LOCALES } from '@/constants/config';
+import { FEATURED, HOME_SECTIONS, LOCALES, Locale } from '@/constants/config';
 import { getAlternates } from '@/meta/getAlternates';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { isLocale } from '@/utils/typeguards';
@@ -33,17 +33,18 @@ export function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-/*
 export function generateStaticParams() {
-  return LOCALES.map((locale) => {
-    locale;
-  });
+  const result = LOCALES.map((locale) => ({
+    locale,
+  }));
+  return result;
 }
-*/
 
-export default async function Home(props: { params: { locale: string } }) {
-  const locale = isLocale(props.params.locale) ? props.params.locale : null;
-  if (!locale) notFound();
+export const dynamicParams = false;
+
+export default async function Home(props: { params: { locale: Locale } }) {
+  const { locale } = props.params;
+  if (!LOCALES.includes(props.params.locale)) notFound();
 
   const { t } = await getTranslationServer('common', locale);
   const projects = getDocuments(['Project'], locale) as Project[];

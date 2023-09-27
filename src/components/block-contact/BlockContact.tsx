@@ -13,7 +13,7 @@ export function BlockContact(props: { className?: string; classNamePic?: string;
         className={[props.classNamePic, 'relative overflow-hidden rounded-md', 'bg-chip_fade']
           .filter(Boolean)
           .join(' ')}
-        style={{ height: '6.75em', width: '6.75em' }}
+        style={{ position: 'relative', height: '6.75em', width: '6.75em', overflow: 'hidden' }}
       >
         <NextImage
           src="/petr.jpg"
@@ -44,7 +44,7 @@ export function BlockContact(props: { className?: string; classNamePic?: string;
             </a>
           </li>
           <li>
-            <a href="https://github.com/cibulka" className="flex w-8 h-8">
+            <a href="https://linkedin.com/cibulkacodes" className="flex w-8 h-8">
               <IconLinkedIn />
             </a>
           </li>
