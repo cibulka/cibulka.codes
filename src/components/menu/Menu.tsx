@@ -1,11 +1,13 @@
 'use client';
-import { IconCheck } from '@/icons/IconCheck';
+import { PlausibleGoal } from '@/constants/plausible';
 import { IconChevronRight } from '@/icons/IconChevron';
-import { IconHourGlass } from '@/icons/IconHourGlass';
 import { Menu as MenuLib } from '@headlessui/react';
+
+import { MenuOptionView } from './components/MenuOptionView';
 
 export type MenuOption<T> = {
   disabled?: boolean;
+  plausible?: PlausibleGoal;
   value: T;
   label: string;
 };
@@ -34,31 +36,12 @@ export function Menu<T>(props: {
           {props.options.map((option, i) => (
             <MenuLib.Item key={i} disabled={option.disabled}>
               {({ active }) => (
-                <button
-                  className={[
-                    'flex items-center gap-12 w-full',
-                    'py-2 px-4',
-                    active && 'bg-chip_dark',
-                    option.disabled && 'opacity-50 cursor-not-allowed',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  disabled={option.disabled}
-                  onClick={() => props.onChange(option.value)}
-                  type="button"
-                >
-                  <span className="flex justify-start flex-1">{option.label}</span>
-                  {option.value === props.value && (
-                    <span className="w-6 h-6">
-                      <IconCheck />
-                    </span>
-                  )}
-                  {option.disabled && (
-                    <span className="w-6 h-6">
-                      <IconHourGlass />
-                    </span>
-                  )}
-                </button>
+                <MenuOptionView
+                  active={active}
+                  isSelected={option.value === props.value}
+                  onChange={props.onChange}
+                  option={option}
+                />
               )}
             </MenuLib.Item>
           ))}
