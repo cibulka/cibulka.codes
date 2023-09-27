@@ -42,6 +42,10 @@
         "contact": "Буду признателен, если вы дадите мне знать.",
         "title": "Что-то пошло не так"
     },
+    "footer": {
+        "readme": "README",
+        "github": "или посетите open-source repo на GitHub"
+    },
     "hireMe": {
         "button": "Поговорим?"
     },

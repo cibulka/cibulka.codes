@@ -23,6 +23,7 @@ import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 import styles from './page.module.css';
 import { IconGitHub } from '@/icons/IconGitHub';
+import { Footer } from './footer';
 
 // TODO: Footer (with Readme link)
 // TODO: Expandable README
@@ -128,23 +129,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
               <Skills locale={locale} isFuture />
             </section>
           </div>
-          <div className="text-sm mt-12 border-t border-t-button_shade pt-4">
-            <div className="flex items-center gap-2">
-              <a href="https://github.com/cibulka/cibulka.codes" className="w-6 h-6">
-                <IconGitHub />
-              </a>
-              <div>
-                <Link href="/readme" className="underline">
-                  README
-                </Link>{' '}
-                or visit{' '}
-                <a href="https://github.com/cibulka/cibulka.codes" className="underline">
-                  the open-source repo on GitHub
-                </a>
-                .
-              </div>
-            </div>
-          </div>
+          <Footer locale={locale} />
         </div>
       </div>
       <BlockContactBar className={styles['contact-bar']} locale={locale} />

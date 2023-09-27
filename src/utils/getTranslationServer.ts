@@ -10,7 +10,7 @@ const initI18next = async (namespace: Namespace, locale: Locale) => {
     .use(initReactI18next)
     .use(
       resourcesToBackend((loc: string, ns: string) => {
-        return import(`../localization/${loc}/${ns}.json`);
+        return import(`../../localization/${loc}/${ns}.json`);
       }),
     )
     .init({

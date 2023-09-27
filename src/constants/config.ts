@@ -24,3 +24,5 @@ export const HOME_SECTIONS = {
   PROJECTS: 'projects',
   EDUCATION: 'education',
 } as const;
+
+export const GITHUB_CIBULKA_CODES = 'https://github.com/cibulka/cibulka.codes';

@@ -42,6 +42,10 @@
         "contact": "Budu rád když mi dáte vědět.",
         "title": "Stala se chyba"
     },
+    "footer": {
+        "readme": "README",
+        "github": "nebo navštivte open-source repo na GitHubu"
+    },
     "hireMe": {
         "button": "Kontakt"
     },

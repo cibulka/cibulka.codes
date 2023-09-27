@@ -42,6 +42,10 @@
         "contact": "I'd appreciate if you let me know.",
         "title": "Something wrong happened"
     },
+    "footer": {
+        "readme": "README",
+        "github": "or visit the open-source repository on GitHub"
+    },
     "hireMe": {
         "button": "Hire me!"
     },
