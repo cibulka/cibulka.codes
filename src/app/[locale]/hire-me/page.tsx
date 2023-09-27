@@ -1,5 +1,13 @@
 import { Locale } from '@/constants/config';
 import { BusinessCard } from '@/sections/business-card/BusinessCard';
+import { getTranslationServer } from '@/utils/getTranslationServer';
+
+export async function generateMetadata(props: { params: { locale: Locale } }) {
+  const { t } = await getTranslationServer('common', props.params.locale);
+  return {
+    title: t('hireMe.button'),
+  };
+}
 
 export default function HireMePage(props: { params: { locale: Locale } }) {
   const { locale } = props.params;
