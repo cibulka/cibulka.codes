@@ -33,11 +33,13 @@ export function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
+/*
 export function generateStaticParams() {
   return LOCALES.map((locale) => {
     locale;
   });
 }
+*/
 
 export default async function Home(props: { params: { locale: string } }) {
   const locale = isLocale(props.params.locale) ? props.params.locale : LOCALES[0];
