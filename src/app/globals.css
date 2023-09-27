@@ -6,6 +6,7 @@ html {
   font-size: 14px;
   scroll-behavior: smooth;
   @apply w-full h-full overflow-hidden;
+  @apply bg-background text-text;
 }
 @screen md {
   html {
