@@ -8,6 +8,7 @@ import { TetrisBg } from '@/components/tetris-bg/TetrisBg';
 import { VideoPlayer } from '@/components/video-player/VideoPlayer';
 import { Locale } from '@/constants/config';
 import { getTranslationServer } from '@/utils/getTranslationServer';
+import { getPlausibleClassNameForLink } from '@/utils/plausible';
 
 export async function Featured(props: { isFirst?: boolean; locale: Locale; project: Project }) {
   const { t } = await getTranslationServer('common', props.locale);
@@ -57,7 +58,13 @@ export async function Featured(props: { isFirst?: boolean; locale: Locale; proje
         )}
       </div>
       <div className="md:px-4 mt-4 flex gap-8 justify-between">
-        {props.project.www && <ChipLink href={props.project.www} variant="primary" />}
+        {props.project.www && (
+          <ChipLink
+            classNamePlausible={getPlausibleClassNameForLink(props.project.slug)}
+            href={props.project.www}
+            variant="primary"
+          />
+        )}
         {props.project.skills && (
           <Skills
             className="justify-end overflow-hidden h-8"

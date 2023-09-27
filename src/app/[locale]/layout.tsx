@@ -42,15 +42,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) {
-  return props.isProduction ? (
-    <>
-      <PlausibleProvider domain="cibulka.codes" taggedEvents>
-        {props.children}
-        <Analytics />
-      </PlausibleProvider>
-    </>
-  ) : (
-    <>{props.children}</>
+  return (
+    <PlausibleProvider domain="cibulka.codes" taggedEvents>
+      {props.children}
+      {props.isProduction && <Analytics />}
+    </PlausibleProvider>
   );
 }
 
