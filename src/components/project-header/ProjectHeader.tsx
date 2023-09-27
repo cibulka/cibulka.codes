@@ -40,7 +40,9 @@ export async function ProjectHeader(props: {
                 const endYear = dayjs(end).format('YYYY');
                 return start ? (
                   <li key={p.slug} className="flex items-center gap-1">
-                    <span className="font-bold">{p.title}</span>
+                    <span className={!props.isYearsHidden ? 'font-bold' : undefined}>
+                      {p.title}
+                    </span>
                     {!props.isYearsHidden && (
                       <span>
                         {startYear === endYear

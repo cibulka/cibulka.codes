@@ -16,7 +16,7 @@
     "cv": {
         "button": "Мое резюме",
         "sections": {
-            "demos": "Избранные проекты",
+            "demos": "Open-source проекты",
             "education": "Образование",
             "experience": "Опыт работы",
             "hobbies": "Хобби",

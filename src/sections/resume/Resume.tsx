@@ -10,8 +10,8 @@ import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
 import { Locale } from '@/constants/config';
 import { getDocuments } from '@/content/getDocuments';
-import { IconTetris } from '@/icons/IconTetris';
 import { getTranslationServer } from '@/utils/getTranslationServer';
+import { IconGitHub } from '@/icons/IconGitHub';
 
 export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
   const { t } = await getTranslationServer('common', props.locale);
@@ -26,7 +26,7 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
             -webkit-print-color-adjust: exact;
           }
         `}</style>
-      <LayoutPaper isRoute={props.isRoute}>
+      <LayoutPaper isRoute={props.isRoute} isSinglePage>
         <div className="flex gap-8 h-full">
           <div className="flex flex-col gap-8 relative" style={{ width: '21em' }}>
             <aside className="flex flex-col gap-2 mb-4">
@@ -62,10 +62,21 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
                     className="flex gap-1 items-center pl-1"
                     href="https://www.github.com/cibulka/react-tetris-ts"
                   >
-                    <span className="w-6 h-6 text-action">
-                      <IconTetris />
+                    <span className="w-6 h-6 text-text_fade">
+                      <IconGitHub />
                     </span>
                     <ChipLink href="https://www.github.com/cibulka/react-tetris-ts" isInsideLink />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="flex gap-1 items-center pl-1"
+                    href="https://www.github.com/cibulka/cibulka.codes"
+                  >
+                    <span className="w-6 h-6 text-text_fade">
+                      <IconGitHub />
+                    </span>
+                    <ChipLink href="https://www.github.com/cibulka/cibulka.codes" isInsideLink />
                   </a>
                 </li>
               </ul>

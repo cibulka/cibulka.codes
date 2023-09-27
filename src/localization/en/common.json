@@ -16,7 +16,7 @@
     "cv": {
         "button": "My resumé",
         "sections": {
-            "demos": "Selected demos",
+            "demos": "Open-source projects",
             "education": "Education",
             "experience": "Relevant experience",
             "hobbies": "Hobbies",
