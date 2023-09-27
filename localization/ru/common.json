@@ -44,7 +44,7 @@
     },
     "footer": {
         "readme": "README",
-        "github": "или посетите open-source repo на GitHub"
+        "github": "посетите open-source repo на GitHub"
     },
     "hireMe": {
         "button": "Поговорим?"
@@ -57,6 +57,7 @@
     },
     "location": "Прага или удаленно",
     "name": "Petr Cibulka",
+    "or": "или",
     "play": "Играть",
     "present": "Сейчас",
     "tagline": "Frontend-разработчик (React/Next.js) ",

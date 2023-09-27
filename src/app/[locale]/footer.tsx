@@ -16,7 +16,7 @@ export async function Footer(props: { locale: Locale }) {
           <Link href="/readme" className="font-semibold border-b border-b-text_fade">
             {t('footer.readme')}
           </Link>{' '}
-          or{' '}
+          <span>{t('or')}</span>{' '}
           <a href={GITHUB_CIBULKA_CODES} className="border-b border-b-text_fade">
             {t('footer.github')}
           </a>

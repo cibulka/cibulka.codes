@@ -44,7 +44,7 @@
     },
     "footer": {
         "readme": "README",
-        "github": "or visit the open-source repository on GitHub"
+        "github": "visit the open-source repository on GitHub"
     },
     "hireMe": {
         "button": "Hire me!"
@@ -57,6 +57,7 @@
     },
     "location": "Prague & Remote",
     "name": "Petr Cibulka",
+    "or": "or",
     "play": "Play a game",
     "present": "Present",
     "tagline": "Culture and front-end developer (React/Next.js)",

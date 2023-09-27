@@ -44,7 +44,7 @@
     },
     "footer": {
         "readme": "README",
-        "github": "nebo navštivte open-source repo na GitHubu"
+        "github": "navštivte open-source repo na GitHubu"
     },
     "hireMe": {
         "button": "Kontakt"
@@ -57,6 +57,7 @@
     },
     "location": "Praha & Remote",
     "name": "Petr Cibulka",
+    "or": "nebo",
     "play": "Zahrát si",
     "present": "Aktuálně",
     "tagline": "Vývojář kultury a front-endu (React/Next.js)",
