@@ -3,19 +3,13 @@ import { usePlausible } from 'next-plausible';
 import { PLAUSIBLE_GOALS, PlausibleGoal } from '@/constants/plausible';
 
 export function getClassNamePlausible(type: PlausibleGoal) {
-  if (!process.env.IS_PRODUCTION) return undefined;
   const event = PLAUSIBLE_GOALS[type];
   return event ? `plausible-event-name=${PLAUSIBLE_GOALS[type]}` : undefined;
 }
 
 export function usePlausibleEvent(type?: PlausibleGoal) {
   const plausible = usePlausible();
-
-  return type
-    ? () => {
-        if (process.env.IS_PRODUCTION) plausible(type);
-      }
-    : undefined;
+  return type ? () => plausible(type) : undefined;
 }
 
 export function getPlausibleClassNameForLink(slug: string) {
