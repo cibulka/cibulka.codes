@@ -36,7 +36,7 @@ export function isRelativeFileUrl(href: string) {
 export function joinPathname(...parts: (string | undefined)[]) {
   return parts
     .filter(Boolean)
-    .map((p) => p.replace(/^\/|\/$/g, ''))
+    .map((p) => p?.replace(/^\/|\/$/g, ''))
     .filter(Boolean)
     .join('/');
 }
