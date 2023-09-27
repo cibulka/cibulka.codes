@@ -24,6 +24,9 @@ export function getPlausibleClassNameForLink(slug: string) {
     case 'after-russia':
       event = PLAUSIBLE_GOALS.LINK_AFTER_RUSSIA;
       break;
+    case 'tvar':
+      event = PLAUSIBLE_GOALS.LINK_TVAR;
+      break;
     case 'portfolio':
     case 'cibulka.codes':
       event = PLAUSIBLE_GOALS.LINK_PORTFOLIO;

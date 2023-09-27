@@ -9,6 +9,8 @@ import { IconVolumeOn } from '@/icons/IconVolumeOn';
 import { IconVolumeOff } from '@/icons/IconVolumeOff';
 
 import { VideoPlayerLabels } from '../VideoPlayer';
+import { useAppContext } from '@/context/App.utils';
+import { THEME_MODE } from '@/constants/config';
 
 function numberToTime(s: number) {
   const minutes = Math.floor(s / 60);
@@ -28,6 +30,8 @@ export function VideoControls(props: {
   time: number;
 }) {
   const [isButtonInvisible, setIsButtonInvisible] = useState(false);
+  const context = useAppContext();
+  const isDark = context.state.theme.selected === THEME_MODE.DARK;
 
   useEffect(() => {
     function handler() {
@@ -62,7 +66,7 @@ export function VideoControls(props: {
           onClick={() => props.onTogglePlay()}
           aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
         >
-          <span className="w-20 h-20 text-text_fade">
+          <span className={['w-20 h-20', isDark ? 'text-chip' : 'text-text_fade'].join(' ')}>
             {props.isPlaying ? <IconPause /> : <IconPlay />}
           </span>
         </button>
