@@ -27,9 +27,6 @@ import { getHomeMeta } from '@/meta/home';
 // TODO: Expandable README
 // TODO: Tetris README (english)
 
-// TODO: Tetris transition
-// TODO: Media query for dark mode
-
 export async function generateMetadata(props: { params: { locale: string } }) {
   return await getHomeMeta(props.params.locale);
 }
