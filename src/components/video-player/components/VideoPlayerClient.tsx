@@ -2,17 +2,18 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
-import { VIDEO_STATE, VideoState } from './VideoPlayer.constants';
+import { VideoPlayerLabels } from '../VideoPlayer';
+import { VIDEO_STATE, VideoState } from '../VideoPlayer.constants';
+
 import { VideoControls } from './VideoControls';
 import { VideoFinished } from './VideoFinished';
 
-// TODO: Change time with range
-// TODO: Hide icon after playing for N seconds
-export function VideoPlayer(props: {
+// TODO: Change time by clicking on the range
+export function VideoPlayerClient(props: {
+  labels: VideoPlayerLabels;
   poster?: string;
   priority: boolean;
   src: string;
-  video: string;
 }) {
   const [isMuted, setIsMuted] = useState(false);
   const [isOpaque, setIsOpaque] = useState(true);
@@ -56,7 +57,6 @@ export function VideoPlayer(props: {
           setPlayState(VIDEO_STATE.FINISHED);
         }}
         onError={() => setPlayState(VIDEO_STATE.ERRORED)}
-        // TODO: Proper TS
         onLoadedMetadata={(e) => {
           setDuration(Math.ceil(e.currentTarget.duration));
         }}
@@ -86,13 +86,18 @@ export function VideoPlayer(props: {
         />
       )}
 
-      <VideoFinished isFinished={isFinished} onReplay={() => ref.current?.play()} />
+      <VideoFinished
+        isFinished={isFinished}
+        labels={props.labels}
+        onReplay={() => ref.current?.play()}
+      />
 
       <VideoControls
         duration={duration}
         isFinished={isFinished}
         isMuted={isMuted}
         isPlaying={isPlaying}
+        labels={props.labels}
         onToggleMute={() => setIsMuted((old) => !old)}
         onTogglePlay={() => {
           setIsOpaque(false);
@@ -100,6 +105,7 @@ export function VideoPlayer(props: {
             ref.current?.pause();
           } else if (isReady) {
             ref.current?.play();
+            // if (ref.current) ref.current.currentTime = 148;
           } else {
             setIsPlayRequested(true);
           }

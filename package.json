@@ -9,6 +9,7 @@
     "lint": "next lint",
     "cv": "ts-node ./lib/scripts/cv.mts"
   },
+  "browserslist": "> 0.5%",
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@react-pdf/renderer": "^3.1.12",

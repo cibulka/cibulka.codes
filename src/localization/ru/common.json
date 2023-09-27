@@ -14,6 +14,7 @@
     "contactMe": {
         "button": "Связаться со мной"
     },
+    "copy": "Копировать",
     "cv": {
         "button": "Мое резюме",
         "sections": {
@@ -34,6 +35,10 @@
             }
         }
     },
+    "darkMode": {
+        "dark": "Темный режим",
+        "light": "Светлый режим"
+    },
     "hireMe": {
         "button": "Поговорим?"
     },
@@ -50,5 +55,12 @@
     "tagline": "Frontend-разработчик (React/Next.js) ",
     "tetris": {
         "button": "Играть в Тетрис"
+    },
+    "video": {
+        "pause": "Пауза",
+        "play": "Играть",
+        "replay": "Повтор",
+        "volumeOn": "Со звуком",
+        "volumeOff": "Без звука"
     }
 }

@@ -35,7 +35,7 @@ export async function BusinessCard(props: { locale: Locale }) {
         </div>
       </header>
       <div className="flex flex-col gap-4">
-        <article>
+        <article className="flex flex-col lgMax:items-center">
           {intro && (
             <div className="mb-4 max-w-xs">
               <MdxReader locale={props.locale} mdx={intro.body.code} />
@@ -46,15 +46,15 @@ export async function BusinessCard(props: { locale: Locale }) {
             <ChipAvailability locale={props.locale} />
           </div>
         </article>
-        <article>
-          <h2 className="text-lg font-semibold mb-2">{t('contactMe.button')}</h2>
+        <article className="flex flex-col lgMax:ml-auto lgMax:mr-auto">
+          <h2 className="text-lg font-semibold mb-2 lgMax:hidden">{t('contactMe.button')}</h2>
           <div className="flex">
             <ul className="text-sm flex flex-col gap-2">
               <li>
-                <ContactEmail />
+                <ContactEmail locale={props.locale} />
               </li>
               <li>
-                <ContactPhone />
+                <ContactPhone locale={props.locale} />
               </li>
             </ul>
           </div>

@@ -1,7 +1,14 @@
 import { Contact } from '@/components/contact/Contact';
-import { CONTACT } from '@/constants/config';
+import { CONTACT, Locale } from '@/constants/config';
 import { IconPhone } from '@/icons/IconPhone';
 
-export function ContactPhone() {
-  return <Contact value={CONTACT.PHONE} icon={<IconPhone />} href={`phone:${CONTACT.PHONE}`} />;
+export function ContactPhone(props: { locale: Locale }) {
+  return (
+    <Contact
+      locale={props.locale}
+      value={CONTACT.PHONE}
+      icon={<IconPhone />}
+      href={`phone:${CONTACT.PHONE}`}
+    />
+  );
 }

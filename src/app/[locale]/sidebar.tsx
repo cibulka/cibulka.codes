@@ -51,7 +51,7 @@ export async function Sidebar(props: {
         />
         <div className="flex-1" />
         <div className="flex-1" />
-        <BlockContact className="bgMax:flex-col" isCV={false} />
+        <BlockContact className="bgMax:flex-col" isCV={false} locale={props.locale} />
       </div>
     </div>
   );

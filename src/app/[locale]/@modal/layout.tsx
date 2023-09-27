@@ -5,11 +5,13 @@ import { Dialog } from '@headlessui/react';
 
 import { IconX } from '@/icons/IconX';
 
+// TODO: Weird scroll to bottom on close
 export default function ModalLayout(props: PropsWithChildren) {
   const { back } = useRouter();
+
   return (
     <Dialog open onClose={back}>
-      <div className="fixed inset-0 flex items-center justify-center">
+      <div className="fixed inset-0 flex items-center justify-center" style={{ zIndex: 100 }}>
         <span className="absolute inset-0 bg-black opacity-80" />
         <Dialog.Panel
           className={['relative z-10', 'rounded bg-white', 'flex flex-col'].join(' ')}

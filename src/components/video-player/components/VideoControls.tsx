@@ -8,6 +8,8 @@ import styles from './VideoControls.module.css';
 import { IconVolumeOn } from '@/icons/IconVolumeOn';
 import { IconVolumeOff } from '@/icons/IconVolumeOff';
 
+import { VideoPlayerLabels } from '../VideoPlayer';
+
 function numberToTime(s: number) {
   const minutes = Math.floor(s / 60);
   const seconds = s % 60;
@@ -19,6 +21,7 @@ export function VideoControls(props: {
   isFinished: boolean;
   isMuted: boolean;
   isPlaying: boolean;
+  labels: VideoPlayerLabels;
   onToggleMute: () => void;
   onTogglePlay: () => void;
   time: number;
@@ -55,6 +58,7 @@ export function VideoControls(props: {
             !isButtonInvisible && 'hover:opacity-100',
           ].join(' ')}
           onClick={() => props.onTogglePlay()}
+          aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
         >
           <span className="w-20 h-20 text-text_fade">
             {props.isPlaying ? <IconPause /> : <IconPlay />}
@@ -67,11 +71,12 @@ export function VideoControls(props: {
             type="button"
             className="w-8 h-8 p-1 text-white"
             onClick={() => props.onTogglePlay()}
+            aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
           >
             {props.isPlaying ? <IconPause /> : <IconPlayMini />}
           </button>
           {props.duration && (
-            <>
+            <label className="flex flex-1">
               <span className="mr-2">{numberToTime(props.duration - props.time)}</span>
               <input
                 className="flex-1"
@@ -83,9 +88,14 @@ export function VideoControls(props: {
                 value={props.time}
                 step={1}
               />
-            </>
+            </label>
           )}
-          <button type="button" onClick={() => props.onToggleMute()} className="w-8 h-8 p-1">
+          <button
+            type="button"
+            onClick={() => props.onToggleMute()}
+            className="w-8 h-8 p-1"
+            aria-label={props.isMuted ? props.labels.volumeOn : props.labels.volumeOff}
+          >
             {props.isMuted ? <IconVolumeOn /> : <IconVolumeOff />}
           </button>
         </div>

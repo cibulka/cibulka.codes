@@ -1,8 +1,18 @@
+'use client';
+import { useRouter } from 'next/navigation';
+
 import { IconBriefcase } from '@/icons/IconBriefcase';
 import { IconReplay } from '@/icons/IconReplay';
 
-// TODO: Hire me
-export function VideoFinished(props: { isFinished: boolean; onReplay: () => void }) {
+import { VideoPlayerLabels } from '../VideoPlayer';
+
+export function VideoFinished(props: {
+  isFinished: boolean;
+  labels: VideoPlayerLabels;
+  onReplay: () => void;
+}) {
+  const { push } = useRouter();
+
   return (
     <div
       className={[
@@ -31,7 +41,7 @@ export function VideoFinished(props: { isFinished: boolean; onReplay: () => void
             <span className="w-20 h-20">
               <IconReplay />
             </span>
-            <span className="mt-2 font-semibold">Replay</span>
+            <span className="mt-2 font-semibold">{props.labels.replay}</span>
           </button>
         </div>
       </div>
@@ -47,12 +57,13 @@ export function VideoFinished(props: { isFinished: boolean; onReplay: () => void
               'flex flex-col items-center',
               'transition-transform scale-100 hover:scale-125',
             ].join(' ')}
+            onClick={() => push('/hire-me')}
             type="button"
           >
             <span className="w-20 h-20">
               <IconBriefcase />
             </span>
-            <span className="mt-2 font-semibold">Hire me</span>
+            <span className="mt-2 font-semibold">{props.labels.hireMe}</span>
           </button>
         </div>
       </div>

@@ -69,7 +69,7 @@ export async function NotFound(props: { locale: Locale }) {
         <div className="text-2xl max-w-md text ml-auto mr-auto text-center">
           <p>{t('404.text')}</p>
         </div>
-        <BlockContact isCV />
+        <BlockContact isCV locale={props.locale} />
       </div>
     </>
   );

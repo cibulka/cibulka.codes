@@ -34,7 +34,7 @@ export function Chip(
         'inline-flex items-center',
         'rounded-md text-sm',
         variant === 'basic' && 'bg-chip border border-chip_dark',
-        variant === 'primary' && 'bg-action text-white',
+        variant === 'primary' && 'bg-action',
         variant !== 'transparent' && 'px-1',
       ]
         .filter(Boolean)

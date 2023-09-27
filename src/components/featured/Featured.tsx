@@ -5,10 +5,9 @@ import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ProjectIcon } from '@/components/project-header/components/ProjectIcon';
 import { Skills } from '@/components/skills/Skills';
 import { TetrisBg } from '@/components/tetris-bg/TetrisBg';
+import { VideoPlayer } from '@/components/video-player/VideoPlayer';
 import { Locale } from '@/constants/config';
 import { getTranslationServer } from '@/utils/getTranslationServer';
-
-import { VideoPlayer } from './components/VideoPlayer';
 
 export async function Featured(props: { isFirst?: boolean; locale: Locale; project: Project }) {
   const { t } = await getTranslationServer('common', props.locale);
@@ -49,10 +48,10 @@ export async function Featured(props: { isFirst?: boolean; locale: Locale; proje
         )}
         {props.project.video && (
           <VideoPlayer
+            locale={props.locale}
             priority={Boolean(props.isFirst)}
             src={props.project.video}
             poster={props.project.video_poster}
-            video={props.project.video}
           />
         )}
       </div>

@@ -98,7 +98,7 @@ export async function Resume(props: { locale: Locale }) {
             </div>
             <div className="flex-1" />
             <div className={['sticky bottom-0', 'bg-white', 'pb-4', 'pt-4 border-t'].join(' ')}>
-              <BlockContact isCV />
+              <BlockContact isCV locale={props.locale} />
             </div>
           </div>
           <section className="flex-1">

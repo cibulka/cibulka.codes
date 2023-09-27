@@ -11,6 +11,8 @@ export function TetrisBg() {
     setIsRendered(true);
   }, []);
 
+  return null;
+
   return (
     <div className="absolute top-0 left-0 w-full h-full flex gap-1 bg-text">
       {isRendered && (

@@ -68,7 +68,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
             <div className="flex flex-col gap-4">
               <div className="flex justify-between items-center">
                 <MenuLocale locale={locale} />
-                <ThemeSwitch />
+                <ThemeSwitch labels={{ dark: t('darkMode.dark'), light: t('darkMode.light') }} />
               </div>
               {intro_1 && intro_2 && (
                 <div className="text md:text-xl md:leading-normal">
@@ -124,9 +124,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
             </HomeSection>
             <section>
               <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.future')}</h2>
-              <ul className="flex flex-wrap gap-4">
-                <Skills locale={locale} isFuture />
-              </ul>
+              <Skills locale={locale} isFuture />
             </section>
           </div>
           <div className="text-xs mt-12 border-t border-t-button_shade pt-4">

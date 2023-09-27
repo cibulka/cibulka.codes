@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       rel: 'mask-icon',
       href: '/safari-pinned-tab.svg',
     },
-    manifest: 'site.webmanifest',
+    manifest: '/site.webmanifest',
   };
 }
 

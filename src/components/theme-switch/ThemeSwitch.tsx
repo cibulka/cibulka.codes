@@ -5,7 +5,7 @@ import { useAppContext } from '@/context/App.utils';
 import { IconMoon } from '@/icons/IconMoon';
 import { IconSun } from '@/icons/IconSun';
 
-export function ThemeSwitch() {
+export function ThemeSwitch(props: { labels: { dark: string; light: string } }) {
   const { dispatch, state } = useAppContext();
   const isDarkMode = state.theme.selected === THEME_MODE.DARK;
   return (
@@ -18,6 +18,7 @@ export function ThemeSwitch() {
           payload: isDarkMode ? THEME_MODE.LIGHT : THEME_MODE.DARK,
         });
       }}
+      aria-label={isDarkMode ? props.labels.light : props.labels.dark}
     >
       {isDarkMode ? <IconSun /> : <IconMoon />}
     </button>

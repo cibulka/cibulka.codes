@@ -3,10 +3,16 @@ import NextImage from 'next/image';
 import { ContactEmail } from '@/components/contact-email/ContactEmail';
 import { ContactPhone } from '@/components/contact-phone/ContactPhone';
 import { ChipLink } from '@/components/chip-link/ChipLink';
+import { Locale } from '@/constants/config';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { IconLinkedIn } from '@/icons/IconLinkedIn';
 
-export function BlockContact(props: { className?: string; classNamePic?: string; isCV: boolean }) {
+export function BlockContact(props: {
+  className?: string;
+  classNamePic?: string;
+  isCV: boolean;
+  locale: Locale;
+}) {
   return (
     <div className={['flex', props.className, 'text-sm gap-4'].filter(Boolean).join(' ')}>
       <div
@@ -26,10 +32,10 @@ export function BlockContact(props: { className?: string; classNamePic?: string;
       <div className="flex-1">
         <ul className="flex flex-col gap-2">
           <li>
-            <ContactEmail />
+            <ContactEmail locale={props.locale} />
           </li>
           <li>
-            <ContactPhone />
+            <ContactPhone locale={props.locale} />
           </li>
           {props.isCV && (
             <li className="-mt-1">
@@ -39,12 +45,12 @@ export function BlockContact(props: { className?: string; classNamePic?: string;
         </ul>
         <ul className="flex gap-4 text-text_fade mt-4 print:hidden">
           <li>
-            <a href="https://github.com/cibulka" className="flex w-8 h-8">
+            <a href="https://github.com/cibulka" className="flex w-8 h-8" title="GitHub">
               <IconGitHub />
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/cibulkacodes" className="flex w-8 h-8">
+            <a href="https://linkedin.com/cibulkacodes" className="flex w-8 h-8" title="LinkedIn">
               <IconLinkedIn />
             </a>
           </li>
