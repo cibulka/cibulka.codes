@@ -41,6 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: new URL(homeUrl),
     themeColor: '#ffffff',
+    applicationName: t('name'),
   };
 }
 
