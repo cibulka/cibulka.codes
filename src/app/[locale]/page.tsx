@@ -1,5 +1,4 @@
 import { Block, Education, Project } from 'contentlayer/generated';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { BlockContactBar } from '@/components/block-contact-bar/BlockContactBar';
@@ -22,11 +21,8 @@ import { getTranslationServer } from '@/utils/getTranslationServer';
 import { Sidebar } from './sidebar';
 import { HomeSection } from './section';
 import styles from './page.module.css';
-import { IconGitHub } from '@/icons/IconGitHub';
 import { Footer } from './footer';
 
-// TODO: Footer (with Readme link)
-// TODO: Expandable README
 // TODO: Tetris README (english)
 
 export function generateMetadata(props: { params: { locale: string } }) {
