@@ -2,17 +2,14 @@
 title: README
 ---
 
-<p align="center">
-  <img
-    src="https://github.com/cibulka/cibulka.codes/blob/main/public/onion-dark.png"
-    height="128"
-  />
-  <h1 align="center">
+<div align="center" className="flex flex-col items-center gap-4 mb-4">
+  <img src="https://www.cibulka.codes/onion-dark.png" height="128" width="128" />
+  <h1 align="center" className="text-5xl font-bold">
     <a href="https://www.cibulka.codes">www.cibulka.codes</a>
   </h1>
-</p>
+</div>
 
-<p align="center">
+<div align="center" className="flex justify-center items-center gap-4 mb-12">
   <a aria-label="Next.js" href="https://www.nextjs.org">
     <img src="https://img.shields.io/badge/MDX-black?logo=mdx&labelColor=black" />
   </a>
@@ -28,13 +25,13 @@ title: README
   <a aria-label="My resumé" href="https://www.cibulka.codes/en/cv.pdf">
     <img src="https://img.shields.io/badge/Download_my_resumé!-blue" />
   </a>
-</p>
+</div>
+
+<img src="https://www.cibulka.codes/screenshot.png" className="mb-12" />
 
 ## What is this?
 
 [www.cibulka.codes](https://www.cibulka.codes) is my **portfolio** built with Next.js and managed with MDX.
-
-<img src="https://github.com/cibulka/cibulka.codes/blob/main/public/screenshot.png" />
 
 ## Features
 
@@ -63,7 +60,7 @@ npm run dev # For development
 npm run build && npm start # For production preview
 ```
 
-PDF is generated with Puppetteer right from `http://localhost:3000`, so the page must be available on that link during the build time. Whenever it is, run:
+PDF is generated with Puppetteer right from [http://localhost:3000](http://localhost:3000), so the page must be available on that link during the build time. Whenever it is, run:
 
 ```
 npm run cv

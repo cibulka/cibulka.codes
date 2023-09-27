@@ -30,11 +30,20 @@ body {
   @apply rounded-md;
 }
 
-.text p {
+.text p,
+.text code,
+.text details {
   @apply mb-2;
 }
 .text a {
   @apply underline;
+}
+.text h2 {
+  @apply text-xl font-bold pb-2 border-b;
+  @apply mt-6 mb-4;
+}
+.text code {
+  @apply block font-mono bg-chip p-2;
 }
 
 svg {
