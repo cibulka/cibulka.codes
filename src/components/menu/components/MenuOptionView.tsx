@@ -1,8 +1,8 @@
 import { IconCheck } from '@/icons/IconCheck';
 import { IconHourGlass } from '@/icons/IconHourGlass';
+import { usePlausibleEvent } from '@/utils/plausible';
 
 import { MenuOption } from '../Menu';
-import { usePlausibleEvent } from '@/utils/plausible';
 
 export function MenuOptionView<T>(props: {
   active: boolean;
