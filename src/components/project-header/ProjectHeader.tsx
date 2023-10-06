@@ -21,6 +21,7 @@ export async function ProjectHeader(props: {
   const positionsFiltered = (getDocuments(['Position'], props.locale) as Position[]).filter((p) =>
     positionSlugs?.includes(p.slug),
   );
+
   return (
     <header className={props.className}>
       <div
@@ -34,25 +35,33 @@ export async function ProjectHeader(props: {
           </h3>
           {!props.isJobsHidden && positionsFiltered.length > 0 && (
             <ul className="mt-2">
-              {positionsFiltered.map((p) => {
-                const { start, end } = positions?.find((pos) => pos.slug === p.slug) || {};
-                const startYear = dayjs(start).format('YYYY');
-                const endYear = dayjs(end).format('YYYY');
-                return start ? (
-                  <li key={p.slug} className="flex items-center gap-1">
-                    <span className={!props.isYearsHidden ? 'font-bold' : undefined}>
-                      {p.title}
-                    </span>
-                    {!props.isYearsHidden && (
-                      <span>
-                        {startYear === endYear
-                          ? startYear
-                          : [startYear, end ? endYear : t('present')].join(' – ')}
+              {positionsFiltered
+                .sort((a, b) => {
+                  const { start: aStart } = positions?.find((pos) => pos.slug === a.slug) || {};
+                  const { start: bStart } = positions?.find((pos) => pos.slug === b.slug) || {};
+                  if (!aStart) return 1;
+                  if (!bStart) return -1;
+                  return dayjs(aStart).unix() - dayjs(bStart).unix();
+                })
+                .map((p) => {
+                  const { start, end } = positions?.find((pos) => pos.slug === p.slug) || {};
+                  const startYear = dayjs(start).format('YYYY');
+                  const endYear = dayjs(end).format('YYYY');
+                  return start ? (
+                    <li key={p.slug} className="flex items-center gap-1">
+                      <span className={!props.isYearsHidden ? 'font-bold' : undefined}>
+                        {p.title}
                       </span>
-                    )}
-                  </li>
-                ) : null;
-              })}
+                      {!props.isYearsHidden && (
+                        <span>
+                          {startYear === endYear
+                            ? startYear
+                            : [startYear, end ? endYear : t('present')].join(' – ')}
+                        </span>
+                      )}
+                    </li>
+                  ) : null;
+                })}
             </ul>
           )}
         </div>
