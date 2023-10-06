@@ -3,6 +3,8 @@ import { ElementType, PropsWithChildren } from 'react';
 import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { isAbsoluteUrl } from '@/utils/url';
 
+export type ChipVariant = 'naked' | 'transparent' | 'basic' | 'primary';
+
 export function Chip(
   props: PropsWithChildren & {
     className?: string;
@@ -12,7 +14,7 @@ export function Chip(
     isIconRight?: boolean;
     isNoUnderline?: boolean;
     onClick?: () => void;
-    variant?: 'transparent' | 'basic' | 'primary';
+    variant?: ChipVariant;
   },
 ) {
   const variant = props.variant || 'transparent';

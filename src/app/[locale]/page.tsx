@@ -80,6 +80,16 @@ export default async function Home(props: { params: { locale: Locale } }) {
                 <ChipAvailability locale={locale} />
               </div>
             </div>
+
+            <section>
+              <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.present')}</h2>
+              <Skills locale={props.params.locale} variant="naked" />
+            </section>
+            <section>
+              <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.past')}</h2>
+              <Skills locale={props.params.locale} isPast variant="naked" />
+            </section>
+
             <HomeSection id={HOME_SECTIONS.PROJECTS} label={t('cv.sections.projects')}>
               <ul className="flex flex-col gap-8">
                 {featured.map((f, i) => (
@@ -89,15 +99,6 @@ export default async function Home(props: { params: { locale: Locale } }) {
                 ))}
               </ul>
             </HomeSection>
-
-            <section>
-              <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.present')}</h2>
-              <Skills locale={props.params.locale} />
-            </section>
-            <section>
-              <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.past')}</h2>
-              <Skills locale={props.params.locale} isPast />
-            </section>
 
             <HomeSection id={HOME_SECTIONS.EXPERIENCE} label={t('cv.sections.experience')}>
               <ul className="flex flex-col gap-8">
