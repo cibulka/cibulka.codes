@@ -1,8 +1,6 @@
 'use client';
-import Link from 'next/link';
 
 import { useAppContext } from '@/context/App.utils';
-import { isRelativeFileUrl } from '@/utils/url';
 
 type SidebarMenuOption = {
   className?: string;
@@ -21,7 +19,6 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
         const isSelected =
           `#${activeHomeSections[0]}` === item.href || (activeHomeSections.length === 0 && i === 0);
         const isScrollLink = item.href.startsWith('#');
-        const El = isScrollLink || isRelativeFileUrl(item.href) ? 'a' : Link;
         return (
           <li
             key={i}
@@ -29,7 +26,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
               ' ',
             )}
           >
-            <El
+            <a
               href={item.href}
               className={[
                 'flex items-center gap-2',
@@ -51,7 +48,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
             >
               {item.icon && <span className="w-6 h-6">{item.icon}</span>}
               {item.label}
-            </El>
+            </a>
           </li>
         );
       })}

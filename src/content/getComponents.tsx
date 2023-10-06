@@ -1,10 +1,11 @@
 import { PropsWithChildren } from 'react';
-import Link from 'next/link';
 
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
+import { Locale } from '@/constants/config';
 import { isParagraphNode } from '@/utils/dom';
 import { isAbsoluteUrl } from '@/utils/url';
 
-export function getComponents(locale: string) {
+export function getComponents(locale: Locale) {
   return {
     a: (p: PropsWithChildren & { href: string }) => {
       const isExternal = isAbsoluteUrl(p.href);
@@ -13,9 +14,9 @@ export function getComponents(locale: string) {
           {p.children}
         </a>
       ) : (
-        <Link href={p.href} locale={locale}>
+        <LinkLocalized href={p.href} locale={locale}>
           {p.children}
-        </Link>
+        </LinkLocalized>
       );
     },
     p: (p: PropsWithChildren) => {

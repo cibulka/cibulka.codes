@@ -1,8 +1,7 @@
-import { LOCALES } from '@/constants/config';
 import { Readme } from '@/sections/readme/Readme';
-import { isLocale } from '@/utils/typeguards';
+import { getServerLocale } from '@/utils/locale';
 
 export default function ReadMeModal(props: { params: { locale: string } }) {
-  const locale = isLocale(props.params.locale) ? props.params.locale : LOCALES[0];
+  const locale = getServerLocale(props.params.locale);
   return <Readme locale={locale} />;
 }

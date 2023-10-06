@@ -44,7 +44,9 @@ export async function Featured(props: { isFirst?: boolean; locale: Locale; proje
         {props.project.demo && <TetrisBg />}
         {props.project.demo && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Button href={props.project.demo}>{t('play')}</Button>
+            <Button href={props.project.demo} locale={props.locale}>
+              {t('play')}
+            </Button>
           </div>
         )}
         {props.project.video && (

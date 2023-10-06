@@ -1,3 +1,5 @@
+import { Locale } from '@/constants/config';
+
 export function isAbsoluteUrl(url: string) {
   // Create a regular expression to match absolute URLs
   const absoluteUrlRegex = /^(?:\w+:)?\/\/(\S+)$/;
@@ -61,4 +63,8 @@ export function getUrlLabel(href: string) {
   } catch (e) {
     return `Invalid url ${href}.`;
   }
+}
+
+export function getLocalizedHref(href: string, locale: Locale) {
+  return href.startsWith(`/${locale}`) ? href : `/${joinPathname(locale, href)}`;
 }

@@ -56,6 +56,9 @@
         "ru": "Русский"
     },
     "location": "Prague & Remote",
+    "modal": {
+        "close": "Close"
+    },
     "name": "Petr Cibulka",
     "or": "or",
     "play": "Play a game",

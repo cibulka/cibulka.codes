@@ -1,6 +1,6 @@
 import { ElementType, PropsWithChildren } from 'react';
-import Link from 'next/link';
 
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { isAbsoluteUrl } from '@/utils/url';
 
 export function Chip(
@@ -20,7 +20,7 @@ export function Chip(
 
   let Wrap: ElementType;
   if (props.href) {
-    Wrap = isAbsolute ? 'a' : Link;
+    Wrap = isAbsolute ? 'a' : LinkLocalized;
   } else if (props.onClick) {
     Wrap = 'button';
   } else {

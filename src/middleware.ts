@@ -1,10 +1,10 @@
 import Negotiator from 'negotiator';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { X_HEADER_LOCALE } from '@/constants/headers';
 import { LOCALES } from '@/constants/config';
 import { isLocale } from '@/utils/typeguards';
-import { X_HEADER_LOCALE } from '@/utils/headers';
-import { joinPathname } from './utils/url';
+import { joinPathname } from '@/utils/url';
 
 function getBestLocale(request: NextRequest) {
   const headers = {

@@ -3,11 +3,13 @@ import NextImage from 'next/image';
 import { ContactEmail } from '@/components/contact-email/ContactEmail';
 import { ContactPhone } from '@/components/contact-phone/ContactPhone';
 import { ChipLink } from '@/components/chip-link/ChipLink';
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { Locale, SOCIAL } from '@/constants/config';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { IconLinkedIn } from '@/icons/IconLinkedIn';
 import { getClassNamePlausible } from '@/utils/plausible';
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
+import { URLS } from '@/constants/url';
 
 export function BlockContact(props: {
   className?: string;
@@ -17,10 +19,12 @@ export function BlockContact(props: {
 }) {
   return (
     <div className={['flex', props.className, 'text-sm gap-4'].filter(Boolean).join(' ')}>
-      <div
+      <LinkLocalized
         className={[props.classNamePic, 'relative overflow-hidden rounded-md', 'bg-chip_fade']
           .filter(Boolean)
           .join(' ')}
+        href={URLS.READ_ME}
+        locale={props.locale}
         style={{ position: 'relative', height: '6.75em', width: '6.75em', overflow: 'hidden' }}
       >
         <NextImage
@@ -30,7 +34,7 @@ export function BlockContact(props: {
           className="absolute top-0 left-0 object-cover"
           sizes="6em"
         />
-      </div>
+      </LinkLocalized>
       <div className="flex-1">
         <ul className="flex flex-col gap-2">
           <li>

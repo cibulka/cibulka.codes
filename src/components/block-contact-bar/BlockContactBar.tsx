@@ -1,6 +1,8 @@
 import NextImage from 'next/image';
 
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { CONTACT, Locale } from '@/constants/config';
+import { URLS } from '@/constants/url';
 import { IconCV } from '@/icons/IconCV';
 import { IconEmail } from '@/icons/IconEmail';
 import { IconPhone } from '@/icons/IconPhone';
@@ -11,7 +13,11 @@ export async function BlockContactBar(props: { className: string; locale: Locale
   return (
     <div className={[props.className, 'mt-8 py-2 bg-background border-t'].join(' ')}>
       <div className="relative z-10 flex justify-between w-full">
-        <a href="/hire-me" className="flex flex-col items-center justify-center flex-1">
+        <LinkLocalized
+          href={URLS.HIRE_ME}
+          className="flex flex-col items-center justify-center flex-1"
+          locale={props.locale}
+        >
           <div className="relative w-14 h-14 rounded-full overflow-hidden bg-chip_shade">
             <NextImage
               src="/petr.jpg"
@@ -21,7 +27,7 @@ export async function BlockContactBar(props: { className: string; locale: Locale
               sizes="3em"
             />
           </div>
-        </a>
+        </LinkLocalized>
         <a
           href={`mailto:${CONTACT.EMAIL}`}
           className="flex flex-col items-center justify-center flex-1"

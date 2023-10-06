@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
+import { PlausibleGoal } from '@/constants/plausible';
+import { Locale } from '@/constants/config';
 import { usePlausibleEvent } from '@/utils/plausible';
 
 import { VideoPlayerLabels } from '../VideoPlayer';
@@ -9,11 +11,11 @@ import { VIDEO_STATE, VideoState } from '../VideoPlayer.constants';
 
 import { VideoControls } from './VideoControls';
 import { VideoFinished } from './VideoFinished';
-import { PlausibleGoal } from '@/constants/plausible';
 
 // TODO: Change time by clicking on the range
 export function VideoPlayerClient(props: {
   labels: VideoPlayerLabels;
+  locale: Locale;
   poster?: string;
   plausible: {
     onStart?: PlausibleGoal;
@@ -110,6 +112,7 @@ export function VideoPlayerClient(props: {
       <VideoFinished
         isFinished={isFinished}
         labels={props.labels}
+        locale={props.locale}
         onReplay={() => ref.current?.play()}
       />
 

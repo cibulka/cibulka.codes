@@ -6,7 +6,12 @@ import { getTranslationServer } from '@/utils/getTranslationServer';
 export async function ButtonCV(props: { isSmall?: boolean; locale: Locale }) {
   const { t } = await getTranslationServer('common', props.locale);
   return (
-    <Button href={`/${props.locale}/cv.pdf`} icon={<IconCV />} isSmall={props.isSmall}>
+    <Button
+      href={`/${props.locale}/cv.pdf`}
+      icon={<IconCV />}
+      isSmall={props.isSmall}
+      locale={props.locale}
+    >
       {t('cv.button')}
     </Button>
   );

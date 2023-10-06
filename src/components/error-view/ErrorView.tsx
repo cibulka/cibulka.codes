@@ -26,7 +26,7 @@ export async function ErrorView(props: { locale: Locale; title?: string; subTitl
         <h1 className="text-5xl font-bold">{props.title || t('error.title')}</h1>
         {props.subTitle && <h2 className="mt-2 text-2xl">{props.subTitle}</h2>}
       </header>
-      <Button href="https://www.cibulka.codes">
+      <Button href="https://www.cibulka.codes" locale={props.locale}>
         <span className="flex items-center gap-2">
           {t('error.back')}
           <span className="w-6 h-6 transform rotate-180 -mr-2">

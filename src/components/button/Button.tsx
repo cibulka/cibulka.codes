@@ -1,15 +1,21 @@
 import { PropsWithChildren } from 'react';
-import Link from 'next/link';
 
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { isAbsoluteUrl, isRelativeFileUrl } from '@/utils/url';
+import { Locale } from '@/constants/config';
 
 function ButtonWrap(
-  props: PropsWithChildren & { className?: string; href?: string; onClick?: () => void },
+  props: PropsWithChildren & {
+    className?: string;
+    href?: string;
+    locale: Locale;
+    onClick?: () => void;
+  },
 ) {
   return props.href && !isAbsoluteUrl(props.href) && !isRelativeFileUrl(props.href) ? (
-    <Link href={props.href} className={props.className}>
+    <LinkLocalized href={props.href} className={props.className} locale={props.locale}>
       {props.children}
-    </Link>
+    </LinkLocalized>
   ) : props.href ? (
     <a className={props.className} href={props.href}>
       {props.children}
@@ -27,6 +33,7 @@ export function Button(
     className?: string;
     href?: string;
     icon?: JSX.Element;
+    locale: Locale;
     isSmall?: boolean;
     onClick?: () => void;
   },
@@ -53,6 +60,7 @@ export function Button(
             ].join(' ')
       }
       href={props.href}
+      locale={props.locale}
       onClick={props.onClick}
     >
       {props.icon && (

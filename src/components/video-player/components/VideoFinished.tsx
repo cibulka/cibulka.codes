@@ -1,17 +1,22 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
+import { Locale } from '@/constants/config';
+import { URLS } from '@/constants/url';
 import { IconBriefcase } from '@/icons/IconBriefcase';
 import { IconReplay } from '@/icons/IconReplay';
+import { getLocalizedHref } from '@/utils/url';
 
 import { VideoPlayerLabels } from '../VideoPlayer';
 
 export function VideoFinished(props: {
   isFinished: boolean;
   labels: VideoPlayerLabels;
+  locale: Locale;
   onReplay: () => void;
 }) {
   const { push } = useRouter();
+  const hireMeUrl = getLocalizedHref(URLS.HIRE_ME, props.locale);
 
   return (
     <div
@@ -57,7 +62,7 @@ export function VideoFinished(props: {
               'flex flex-col items-center',
               'transition-transform scale-100 hover:scale-125',
             ].join(' ')}
-            onClick={() => push('/hire-me')}
+            onClick={() => push(hireMeUrl)}
             type="button"
           >
             <span className="w-20 h-20">

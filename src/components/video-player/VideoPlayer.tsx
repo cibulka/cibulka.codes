@@ -49,6 +49,7 @@ export async function VideoPlayer(props: {
         volumeOff: t('video.volumeOff'),
         volumeOn: t('video.volumeOn'),
       }}
+      locale={props.locale}
       poster={props.poster}
       priority={props.priority}
       plausible={{

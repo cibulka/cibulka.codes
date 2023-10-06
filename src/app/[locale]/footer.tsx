@@ -1,6 +1,6 @@
-import Link from 'next/link';
-
+import { LinkLocalized } from '@/components/link-localized/LinkLocalized';
 import { Locale, REPO } from '@/constants/config';
+import { URLS } from '@/constants/url';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 import { getPlausibleClassNameForLink } from '@/utils/plausible';
@@ -19,9 +19,13 @@ export async function Footer(props: { locale: Locale }) {
           <IconGitHub />
         </a>
         <div>
-          <Link href="/readme" className="font-semibold border-b border-b-text_fade">
+          <LinkLocalized
+            href={URLS.READ_ME}
+            locale={props.locale}
+            className="font-semibold border-b border-b-text_fade"
+          >
             {t('footer.readme')}
-          </Link>{' '}
+          </LinkLocalized>{' '}
           <span>{t('or')}</span>{' '}
           <a
             href={REPO.PORTFOLIO}

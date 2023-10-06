@@ -25,8 +25,8 @@ body {
 }
 
 *:focus {
-  outline: dotted 2px theme('colors.outline');
-  outline-offset: 3px;
+  outline: dashed 3px theme('colors.outline');
+  outline-offset: 2px;
   @apply rounded-md;
 }
 
