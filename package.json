@@ -9,7 +9,6 @@
     "lint": "next lint",
     "cv": "ts-node ./lib/scripts/cv.mts"
   },
-  "browserslist": "> 0.5%",
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@react-pdf/renderer": "^3.1.12",
@@ -20,7 +19,7 @@
     "i18next": "^23.5.1",
     "i18next-resources-to-backend": "^1.1.4",
     "negotiator": "^0.6.3",
-    "next": "13.5.3",
+    "next": "13.5.4",
     "next-plausible": "^3.11.1",
     "puppeteer": "^21.3.1",
     "react": "18.2.0",
@@ -30,7 +29,7 @@
     "sharp": "^0.32.6"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^13.5.3",
+    "@next/bundle-analyzer": "^13.5.4",
     "@types/negotiator": "^0.6.1",
     "@types/node": "20.6.2",
     "@types/react": "18.2.21",
@@ -38,10 +37,10 @@
     "autoprefixer": "10.4.15",
     "contentlayer": "^0.3.4",
     "eslint": "8.49.0",
-    "eslint-config-next": "13.5.3",
+    "eslint-config-next": "13.5.4",
     "eslint-plugin-i18next": "^6.0.3",
     "next-contentlayer": "^0.3.4",
-    "postcss": "8.4.29",
+    "postcss": "^8.4.31",
     "tailwindcss": "3.3.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
