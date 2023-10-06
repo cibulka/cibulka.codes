@@ -69,9 +69,11 @@ export function VideoControls(props: {
           aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
         >
           <span
-            className={['w-20 h-20', isDark ? 'text-chip' : 'text-text_fade', 'focusable'].join(
-              ' ',
-            )}
+            className={[
+              'w-24 h-24 smMax:w-20 smMax:h-20 xsMax:w-16 xsMax:h-16',
+              isDark ? 'text-chip' : 'text-text_fade',
+              'focusable',
+            ].join(' ')}
           >
             {props.isPlaying ? <IconPause /> : <IconPlay />}
           </span>
