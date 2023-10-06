@@ -9,8 +9,9 @@ import { getLocalizedHref } from '@/utils/url';
 
 import { VideoPlayerLabels } from '../VideoPlayer';
 
+import styles from './VideoFinished.module.css';
+
 export function VideoFinished(props: {
-  isFinished: boolean;
   labels: VideoPlayerLabels;
   locale: Locale;
   onReplay: () => void;
@@ -21,24 +22,18 @@ export function VideoFinished(props: {
   return (
     <div
       className={[
-        'absolute inset-0',
+        'absolute z-10 inset-0',
         'flex bg-text text-background',
         'transition-opacity duration-1000',
-        props.isFinished && 'z-10',
-        props.isFinished ? 'opacity-100' : 'opacity-0',
+        styles['anim-opaque'],
       ].join(' ')}
     >
       <div className="flex items-center justify-center flex-1">
-        <div
-          className={[
-            'transition-all duration-500 transform delay-500',
-            props.isFinished ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
-          ].join(' ')}
-        >
+        <div className={styles['anim-toTop']}>
           <button
             className={[
               'flex flex-col items-center',
-              'transition-transform scale-100 hover:scale-125',
+              'transition-transform scale-100 hover:scale-125 focus:scale-125',
             ].join(' ')}
             onClick={() => props.onReplay()}
             type="button"
@@ -51,16 +46,11 @@ export function VideoFinished(props: {
         </div>
       </div>
       <div className="flex items-center justify-center flex-1">
-        <div
-          className={[
-            'transition-all duration-500 transform delay-500',
-            props.isFinished ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12',
-          ].join(' ')}
-        >
+        <div className={styles['anim-toBottom']}>
           <button
             className={[
               'flex flex-col items-center',
-              'transition-transform scale-100 hover:scale-125',
+              'transition-transform scale-100 hover:scale-125 focus:scale-125',
             ].join(' ')}
             onClick={() => push(hireMeUrl)}
             type="button"

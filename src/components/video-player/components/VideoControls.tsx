@@ -61,12 +61,18 @@ export function VideoControls(props: {
             'transition-opacity',
             props.isPlaying ? 'opacity-0' : 'opacity-100',
             !isButtonInvisible && 'hover:opacity-100',
+            styles['overlay'],
+            'has-focusable',
           ].join(' ')}
           disabled={!props.isRendered}
           onClick={() => props.onTogglePlay()}
           aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
         >
-          <span className={['w-20 h-20', isDark ? 'text-chip' : 'text-text_fade'].join(' ')}>
+          <span
+            className={['w-20 h-20', isDark ? 'text-chip' : 'text-text_fade', 'focusable'].join(
+              ' ',
+            )}
+          >
             {props.isPlaying ? <IconPause /> : <IconPlay />}
           </span>
         </button>

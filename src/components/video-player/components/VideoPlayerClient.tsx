@@ -109,12 +109,13 @@ export function VideoPlayerClient(props: {
         />
       )}
 
-      <VideoFinished
-        isFinished={isFinished}
-        labels={props.labels}
-        locale={props.locale}
-        onReplay={() => ref.current?.play()}
-      />
+      {isFinished && (
+        <VideoFinished
+          labels={props.labels}
+          locale={props.locale}
+          onReplay={() => ref.current?.play()}
+        />
+      )}
 
       <VideoControls
         duration={duration}

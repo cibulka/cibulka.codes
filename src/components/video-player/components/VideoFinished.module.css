@@ -1,0 +1,40 @@
+@keyframes opaque {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideToTop {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes slideToBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.anim-opaque {
+  animation: opaque 0.5s ease-in forwards;
+}
+.anim-toTop {
+  animation: slideToTop 0.5s ease-in forwards 0.5s;
+}
+.anim-toBottom {
+  animation: slideToBottom 0.5s ease-in forwards 0.5s;
+}

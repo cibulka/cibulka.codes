@@ -24,7 +24,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-*:focus {
+*:focus,
+.is-focusable:focus,
+.has-focusable:focus .focusable {
   outline: dashed 3px theme('colors.outline');
   outline-offset: 2px;
   @apply rounded-md;

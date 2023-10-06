@@ -9,3 +9,13 @@
   );
   height: 8em;
 }
+
+.overlay > * {
+  transition: transform 0.4s ease;
+  transform: scale(1);
+}
+
+.overlay:focus > * {
+  transform: scale(1.5);
+  @apply text-text;
+}
