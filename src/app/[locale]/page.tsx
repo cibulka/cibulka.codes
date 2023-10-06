@@ -31,15 +31,6 @@ export function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-export function generateStaticParams() {
-  const result = LOCALES.map((locale) => ({
-    locale,
-  }));
-  return result;
-}
-
-export const dynamicParams = false;
-
 export default async function Home(props: { params: { locale: Locale } }) {
   const { locale } = props.params;
   if (!LOCALES.includes(props.params.locale)) notFound();

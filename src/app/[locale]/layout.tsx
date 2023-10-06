@@ -41,6 +41,15 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export function generateStaticParams() {
+  const result = LOCALES.map((locale) => ({
+    locale,
+  }));
+  return result;
+}
+
+export const dynamicParams = false;
+
 function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) {
   return (
     <PlausibleProvider domain="cibulka.codes" taggedEvents>
