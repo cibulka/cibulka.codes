@@ -31,6 +31,6 @@ export const SOCIAL = {
 };
 
 export const REPO = {
-  PORTFOLIO: 'https://github.com/cibulka/cibulka.codes',
+  PORTFOLIO: 'https://www.github.com/cibulka/cibulka.codes',
   TETRIS: 'https://www.github.com/cibulka/react-tetris-ts',
 };

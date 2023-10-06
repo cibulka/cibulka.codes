@@ -123,7 +123,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
             </HomeSection>
             <section>
               <h2 className="text-xl font-bold mb-4">{t('cv.sections.tools.future')}</h2>
-              <Skills locale={locale} isFuture />
+              <Skills locale={locale} isFuture variant="naked" />
             </section>
           </div>
           <Footer locale={locale} />
