@@ -56,7 +56,7 @@ export function VideoControls(props: {
         <button
           type="button"
           className={[
-            'absolute inset-0',
+            'absolute top-0 left-0 w-full h-full',
             'flex items-center justify-center',
             'transition-opacity',
             props.isPlaying ? 'opacity-0' : 'opacity-100',
