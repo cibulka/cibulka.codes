@@ -77,11 +77,11 @@ export function VideoControls(props: {
           </span>
         </button>
       )}
-      <div className="absolute bottom-0 left-0 w-full px-4 text-white py-2">
-        <div className="flex justify-between gap-2 items-center">
+      <div className="absolute bottom-0 left-0 w-full  text-white py-2">
+        <div className="flex justify-between gap-2 px-2 items-center">
           <button
             type="button"
-            className="w-8 h-8 p-1 text-white"
+            className="w-12 h-12 p-1 text-white"
             disabled={!props.isRendered}
             onClick={() => props.onTogglePlay()}
             aria-label={props.isPlaying ? props.labels.pause : props.labels.play}
@@ -106,7 +106,7 @@ export function VideoControls(props: {
           <button
             type="button"
             onClick={() => props.onToggleMute()}
-            className="w-8 h-8 p-1"
+            className="w-12 h-12 p-1"
             disabled={!props.isRendered}
             aria-label={props.isMuted ? props.labels.volumeOn : props.labels.volumeOff}
           >
