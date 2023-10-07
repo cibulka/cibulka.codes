@@ -11,11 +11,8 @@ function getBestLocale(request: NextRequest) {
   const headersValue = request.headers.get('Accept-Language');
   if (!headersValue) return LOCALES[0];
   const headers = { 'accept-language': headersValue };
-  console.log('HEADERS', headers);
   const languages = new Negotiator({ headers }).languages();
-  console.log('LANGUAGES', languages);
   const result = match(languages, LOCALES, LOCALES[0]);
-  console.log('R', result);
   return result;
 }
 
