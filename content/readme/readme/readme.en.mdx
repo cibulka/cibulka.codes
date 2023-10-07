@@ -36,33 +36,147 @@
 ## 📦  Features
 
 <details>
-  <summary>Next.js 13 (server components)</summary>
-  More on that soon.
+  <summary>🚧 <strong>Next.js 13</strong> (server components)</summary>
+  <br />
+
+Next.js 13 is a [significant update](https://nextjs.org/blog/next-13), introducing the "app directory" with React server components. It packs **very powerful features** focused on performance and security, but was also _relatively unstable_ for some time with a slight learning curve.
+
+The update allows me to handle a lot of things server-side (image generation, fetching and prefetching data, localization), making things faster and more secure. Like in good old PHP days. 🐘
+
+Certain aspects of the sollution still leaves me _somewhat frustrated_ (the lack of in-built internalization sollution, for instance), but ultimately **I'm happy for the switch**.
+
+</details>
+
+<br />
+
+<details>
+  <summary>🌐 <strong>Internalization</strong> (i18n)</summary>
+  <br />
+  
+  A point of frustration with Next.js 13. **The previous versions had an in-built solution** for providing multiple language versions of your site - it worked out of the box and very well. 
+  
+  Next.js 13, however, listed i18n as a "not planned feature". This prompted the community to find its own sollutions, leading to further instability and breaking updates. 
+  
+  After some months the team finally shared [a guide on how you can implement i18n on your own](https://nextjs.org/docs/app/building-your-application/routing/internationalization). unfortunately I still find it quite incomplete.
+
+Here's the list of things I miss from the guide:
+
+<details>
+  <summary><strong>Root layout</strong></summary>
+  <br />
+
+Majority of Next.js sollutions (including the official ones) **expects a "root layout"** directly under the app folder that includes at least the `<html />`. The i18n sollution by Next.js _prevents that_.
+
+✅ **My solution**: Keep root layout and provide the locale parametr through custom header.
+<br />
+
 </details>
 
 <details>
-  <summary>Internalization (i18n)</summary>
-  More on that soon.
+  <summary><strong>Custom (and translated) 404 page</strong></summary>
+  <br />
+
+One of the solutions requiring the root layout. **No custom 404 page for you with the provided guide**. This includes localization itself - user of any language will see the error message only in english, not in the language of their choice. 🤷
+
+✅ **My solution**: Use root layout with custom header as described above.
+<br />
+
 </details>
 
 <details>
-  <summary>MDX administration</summary>
-  More on that soon.
+  <summary><strong>Unclear SEO for i18n</strong></summary>
+  <br />
+
+The provided solution makes the homepage ([https://www.cibulka.codes](https://www.cibulka.codes)) just a **contentless redirect** to the subpath with the suitable (negotiated) locale for the user ([https://www.cibulka.codes/en](https://www.cibulka.codes/en)).
+
+I'm still trying to figure out how hurtful is this for SEO. Currently I believe that it somewhat is (according to my reports in Google Search Console) and it can be fixed only with additional configuration:
+
+1. **Creating sitemap.xml** listing all language versions of your links
+2. Having correct metadata setup of **"lang alternates"**, listing the language versions of the site in the `<head />`: `<link rel="alternate" hreflang={YOUR_LANG} href={YOUR_LANG_URL} />`
+3. ... Maybe more things should be done?
+
+<br />
+
 </details>
 
 <details>
-  <summary>PDF export</summary>
-  More on that soon.
+  <summary><strong>Slower TTFB</strong></summary>
+  <br />
+
+At least one, probably 2 redirects are happening on the first load.
+
+```
+cibulka.codes > www.cibulka.codes > www.cibulka.codes/en
+```
+
+Due to language negotiation this is **hard to cache** (if you want to avoid using the cookies as I do). The lag usually stays around 700ms - which is [not great not terrible](https://www.youtube.com/watch?v=Mg5HOnq7zD0), I suppose.
+
 </details>
 
-<details>
-  <summary>Intercepted routes</summary>
-  More on that soon.
 </details>
 
+<br />
+
 <details>
-  <summary>Custom video player</summary>
-  More on that soon.
+  <summary>✍️ <strong>MDX administration with Contentlayer</strong></summary>
+  <br />
+
+I love Markdown and I am _obssesed_ with MDX! Here's my reasoning:
+
+1. Even the raw format of your content is **easily readable** for both humans _and_ machines.
+2. Each piece of the content can be literally **a file in a folder**. You can query them through filesystem, which is usually quite simple and always very fast.
+3. MDX combines interactive JSX components with standard Markdown. This allows you to create **a sort of an API** for a content manager - giving them enough flexibility to use the tools you've prepared for them while limiting the complexity.
+4. Due to the simplicity of the format, it is incredibly **easy to convert it** to anything else you need.
+5. Let's cut out the middleman! There is **no need for CMS** with this sollution.
+
+A brilliant library [Contentlayer](https://www.contentlayer.dev) turns the MDX files to JSON files during the build step (and creates their TypeScript definitions right away). This works especially well with Next.js 13 and server components, which allows you to leave most of the bulk on the server (and send to the client only the actual content).
+
+</details>
+
+<br />
+
+<details>
+  <summary>📋 <strong>PDF export</strong></summary>
+  <br />
+
+Creating and maintaining one's CV can be a bit of pain. Duplication is one of the issues: Is your PDF portfolio in sync with your web CV? In all the language versions?
+
+For this reason I've created an [automated page generating my CV in print-friendly format](https://www.cibulka.codes/cv). The content comes from MDX files, that are shared between the website, public API and the CV.
+
+The PDF version of the CV is automated by [a Puppetteer-powered script](https://pptr.dev/). For now I run it manually through NPM script - and whenever I _finally_ learn the GIT actions, this will probably be automated as well. 💪
+
+</details>
+
+<br />
+
+<details>
+  <summary>🪟 <strong>Intercepted routes</strong></summary>
+  <br />
+
+One of the features of Next.js 13 is an ability to ["intercept routes"](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) - **the same URL can act differently** on direct load _or_ if requested from an app.
+
+This is especially useful for **modals**: You want to see a content from URL in the temporary dialogue (without resetting the state of the UI under it), but you want to allow the usage of back/forward buttons. Having separate URLs for the important pieces of content is obviously good for SEO as well.
+
+It was a bit tricky to implement for me: Most of the guides expect the existence of the root layout (which is incompatible with the guidelines for i18n, as written above). I also found the syntax a bit confusing. Ultimately I made it work nonetheless. :)
+
+</details>
+
+<br />
+
+<details>
+  <summary>🎥 <strong>Custom video player</strong></summary>
+  <br />
+  
+  Nothing special here, just wanted to have a bit more control on how the video is handled (and frankly it was just fun). There are however still some things to polish (allowing the user to change the time, for instance).
+</details>
+
+<br />
+
+<details>
+  <summary>🕹️ <strong>Tetris</strong></summary>
+  <br />
+  
+  My portfolio also contains my short at [Tetris game](https://www.cibulka.codes/tetris). Give it a try, eveng if it's a bit addictive! 🍭 Or check [the repo of the project](https://www.github.com/cibulka/react-tetris-ts).
 </details>
 
 ## 🔧  Install & Use
