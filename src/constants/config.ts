@@ -8,7 +8,6 @@ export const CONTACT = {
   EMAIL: 'cibulka.me@gmail.com',
   PHONE: '+420 776 695 975',
   GITHUB: 'https://www.github.com/cibulka',
-  LINKED_IN: '',
 };
 
 export const DATE_AVAILABILITY = '2023-10-06';
@@ -28,6 +27,7 @@ export const HOME_SECTIONS = {
 export const SOCIAL = {
   GITHUB: 'https://www.github.com/cibulka',
   LINKED_IN: 'https://www.linkedin.com/in/cibulkacodes',
+  STACK_OVERFLOW: 'https://stackoverflow.com/users/1872494/petr-cibulka',
 };
 
 export const REPO = {

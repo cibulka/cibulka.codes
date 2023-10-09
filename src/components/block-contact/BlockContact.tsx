@@ -10,6 +10,7 @@ import { IconLinkedIn } from '@/icons/IconLinkedIn';
 import { getClassNamePlausible } from '@/utils/plausible';
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 import { URLS } from '@/constants/url';
+import { IconStackOverflow } from '@/icons/IconStackOverflow';
 
 export function BlockContact(props: {
   className?: string;
@@ -68,6 +69,18 @@ export function BlockContact(props: {
               title="LinkedIn"
             >
               <IconLinkedIn />
+            </a>
+          </li>
+          <li>
+            <a
+              href={SOCIAL.STACK_OVERFLOW}
+              className={[
+                'flex w-8 h-8',
+                getClassNamePlausible(PLAUSIBLE_GOALS.STACK_OVERFLOW),
+              ].join(' ')}
+              title="Stack Overflow"
+            >
+              <IconStackOverflow />
             </a>
           </li>
         </ul>

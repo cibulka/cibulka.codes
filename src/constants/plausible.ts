@@ -15,6 +15,7 @@ export const PLAUSIBLE_GOALS = {
   VIDEO_AFTER_RUSSIA_FINISHED: 'VIDEO_AFTER_RUSSIA_FINISHED', // works
   GITHUB: 'GITHUB', // works
   LINKED_IN: 'LINKED_IN', // works
+  STACK_OVERFLOW: 'STACK_OVERFLOW',
 } as const;
 
 export type PlausibleGoal = (typeof PLAUSIBLE_GOALS)[keyof typeof PLAUSIBLE_GOALS];
