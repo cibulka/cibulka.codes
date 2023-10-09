@@ -105,7 +105,7 @@ export default async function Home(props: { params: { locale: Locale } }) {
                 {educations.map((education) => (
                   <li key={education.slug}>
                     <article>
-                      <ProjectHeader isYearsHidden locale={locale} project={education} />
+                      <ProjectHeader locale={locale} project={education} />
                       {education.www && <ChipLink href={education.www} />}
                     </article>
                   </li>

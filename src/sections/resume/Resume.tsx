@@ -6,6 +6,7 @@ import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ChipLocation } from '@/components/chip-location/ChipLocation';
 import { LayoutPaper } from '@/components/layout-paper/LayoutPaper';
 import { Name } from '@/components/name/Name';
+import { Position as PositionView } from '@/components/position/Position';
 import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
 import { Locale, REPO } from '@/constants/config';
@@ -78,18 +79,29 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
             {educations.length > 0 && (
               <div>
                 <h2 className="font-bold mb-2">{t('cv.sections.education')}</h2>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-4">
                   {educations.map((edu) => (
                     <li key={edu.slug}>
-                      <h3 className="font-semibold">
+                      <h3 className="font-semibold mb-2">
                         {edu.title} / {edu.excerpt}
                       </h3>
-                      {edu.positions &&
-                        edu.positions.length > 0 &&
-                        edu.positions.map(({ slug }, i) => {
-                          const position = positions.find((p) => p.slug === slug);
-                          return position ? <p key={i}>{position.title}</p> : undefined;
-                        })}
+                      {edu.positions && edu.positions.length > 0 && (
+                        <div className="flex flex-col gap-1">
+                          {edu.positions.map((job) => {
+                            const position = positions.find((p) => p.slug === job.slug);
+                            return position ? (
+                              <div key={job.slug} className="text-sm">
+                                <PositionView
+                                  classNameTitle="font-semibold"
+                                  position={position}
+                                  job={job}
+                                  locale={props.locale}
+                                />
+                              </div>
+                            ) : null;
+                          })}
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

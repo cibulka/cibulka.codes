@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { Education, Position, Project } from 'contentlayer/generated';
 
+import { Position as PositionView } from '@/components/position/Position';
 import { Locale } from '@/constants/config';
 import { getDocuments } from '@/content/getDocuments';
 import { getTranslationServer } from '@/utils/getTranslationServer';
@@ -13,7 +14,6 @@ export async function ProjectHeader(props: {
   locale: Locale;
   project: Project | Education;
   isJobsHidden?: boolean;
-  isYearsHidden?: boolean;
 }) {
   const { t } = await getTranslationServer('common', props.locale);
   const { positions, title, excerpt } = props.project;
@@ -44,23 +44,16 @@ export async function ProjectHeader(props: {
                   return dayjs(aStart).unix() - dayjs(bStart).unix();
                 })
                 .map((p) => {
-                  const { start, end } = positions?.find((pos) => pos.slug === p.slug) || {};
-                  const startYear = dayjs(start).format('YYYY');
-                  const endYear = dayjs(end).format('YYYY');
-                  return start ? (
-                    <li key={p.slug} className="flex items-center gap-1">
-                      <span className={!props.isYearsHidden ? 'font-bold' : undefined}>
-                        {p.title}
-                      </span>
-                      {!props.isYearsHidden && (
-                        <span>
-                          {startYear === endYear
-                            ? startYear
-                            : [startYear, end ? endYear : t('present')].join(' – ')}
-                        </span>
-                      )}
-                    </li>
-                  ) : null;
+                  const job = positions?.find((pos) => pos.slug === p.slug);
+                  return (
+                    <PositionView
+                      classNameTitle="font-bold"
+                      key={p.slug}
+                      position={p}
+                      job={job}
+                      locale={props.locale}
+                    />
+                  );
                 })}
             </ul>
           )}
