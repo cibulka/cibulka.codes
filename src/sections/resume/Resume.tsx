@@ -82,7 +82,7 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
                 <ul className="flex flex-col gap-4">
                   {educations.map((edu) => (
                     <li key={edu.slug}>
-                      <h3 className="font-semibold mb-2">
+                      <h3 className="font-semibold mb-2 leading-snug">
                         {edu.title} / {edu.excerpt}
                       </h3>
                       {edu.positions && edu.positions.length > 0 && (
