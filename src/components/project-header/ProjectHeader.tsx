@@ -46,13 +46,14 @@ export async function ProjectHeader(props: {
                 .map((p) => {
                   const job = positions?.find((pos) => pos.slug === p.slug);
                   return (
-                    <PositionView
-                      classNameTitle="font-bold"
-                      key={p.slug}
-                      position={p}
-                      job={job}
-                      locale={props.locale}
-                    />
+                    <div key={p.slug}>
+                      <PositionView
+                        classNameTitle="font-bold"
+                        position={p}
+                        job={job}
+                        locale={props.locale}
+                      />
+                    </div>
                   );
                 })}
             </ul>
