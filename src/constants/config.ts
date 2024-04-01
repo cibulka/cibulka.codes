@@ -10,7 +10,7 @@ export const CONTACT = {
   GITHUB: 'https://www.github.com/cibulka',
 };
 
-export const DATE_AVAILABILITY = '2023-10-06';
+export const DATE_AVAILABILITY = '2024-11-01';
 
 export const LOCALES = ['en', 'cs', 'ru'] as const;
 export type Locale = (typeof LOCALES)[number];

@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
-import Negotiator from 'negotiator';
 import { match } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
+import { NextRequest, NextResponse } from 'next/server';
 
-import { X_HEADER_LOCALE } from '@/constants/headers';
 import { LOCALES } from '@/constants/config';
+import { X_HEADER_LOCALE } from '@/constants/headers';
 import { isLocale } from '@/utils/typeguards';
 import { joinPathname } from '@/utils/url';
 
