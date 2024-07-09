@@ -5,12 +5,16 @@ import { IconCaseTvar } from '@/icons/IconCaseTvar';
 import { IconDrAbe } from '@/icons/IconDrAbe';
 import { IconEducationDamu } from '@/icons/IconEducationDamu';
 import { IconEducationMuni } from '@/icons/IconEducationMuni';
+import { IconEon } from '@/icons/IconEon';
 import { IconTetris } from '@/icons/IconTetris';
 
 function getIcon(slug: string) {
   switch (slug) {
     case 'after-russia':
       return <IconCaseAfterRussia />;
+    case 'apitree':
+    case 'eon':
+      return <IconEon />;
     case 'dotu':
       return <IconCaseDotu />;
     case 'dr-abe':

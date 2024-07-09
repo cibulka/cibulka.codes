@@ -49,6 +49,9 @@ export const Project = defineDocumentType(() => ({
     priority: {
       type: 'number',
     },
+    minor: {
+      type: 'boolean',
+    },
   },
   computedFields: {
     locale: {

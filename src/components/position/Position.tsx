@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 import { Job, Position as PositionType } from 'contentlayer/generated';
+import dayjs from 'dayjs';
 
 import { Locale } from '@/constants/config';
 import { getTranslationServer } from '@/utils/getTranslationServer';
@@ -20,7 +20,7 @@ export async function Position(props: {
       {startYear && (
         <>
           {` `}
-          <span>
+          <span className="whitespace-nowrap">
             {startYear === endYear
               ? startYear
               : [startYear, end ? endYear : t('present')].join(' – ')}

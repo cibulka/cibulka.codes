@@ -11,8 +11,8 @@ import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
 import { Locale, REPO } from '@/constants/config';
 import { getDocuments } from '@/content/getDocuments';
-import { getTranslationServer } from '@/utils/getTranslationServer';
 import { IconGitHub } from '@/icons/IconGitHub';
+import { getTranslationServer } from '@/utils/getTranslationServer';
 
 export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
   const { t } = await getTranslationServer('common', props.locale);
@@ -60,7 +60,7 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
               <ul>
                 <li>
                   <a className="flex gap-1 items-center pl-1" href={REPO.TETRIS}>
-                    <span className="w-6 h-6 text-text_fade">
+                    <span className="flex-shrink-0 w-6 h-6 text-text_fade">
                       <IconGitHub />
                     </span>
                     <ChipLink href={REPO.TETRIS} isInsideLink />
@@ -68,7 +68,7 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
                 </li>
                 <li>
                   <a className="flex gap-1 items-center pl-1" href={REPO.PORTFOLIO}>
-                    <span className="w-6 h-6 text-text_fade">
+                    <span className="flex-shrink-0 w-6 h-6 text-text_fade">
                       <IconGitHub />
                     </span>
                     <ChipLink href={REPO.PORTFOLIO} isInsideLink />
@@ -120,6 +120,7 @@ export async function Resume(props: { isRoute?: boolean; locale: Locale }) {
             <h2 className="text-xl font-bold mb-4">{t('cv.sections.experience')}</h2>
             <ul className="flex flex-col gap-4">
               {projects
+                .filter((project) => !props.isRoute || !project.minor)
                 .filter((project) => project.slug !== 'tetris')
                 .map((project) => (
                   <li key={project.slug}>
