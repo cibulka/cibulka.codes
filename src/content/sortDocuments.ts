@@ -1,5 +1,5 @@
+import { Project, Skill } from 'contentlayer2/generated';
 import dayjs from 'dayjs';
-import { Project, Skill } from 'contentlayer/generated';
 
 export function sortByPriority(a: Project, b: Project) {
   const aPriority = a.priority || 0;

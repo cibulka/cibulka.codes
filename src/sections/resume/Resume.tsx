@@ -1,4 +1,4 @@
-import { Education, Position, Project } from 'contentlayer/generated';
+import { Education, Position, Project } from 'contentlayer2/generated';
 
 import { BlockContact } from '@/components/block-contact/BlockContact';
 import { ChipAvailability } from '@/components/chip-availability/ChipAvailability';

@@ -1,12 +1,13 @@
-import { PropsWithChildren } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import PlausibleProvider from 'next-plausible';
-import { Analytics } from '@vercel/analytics/react';
+import { PropsWithChildren } from 'react';
 
 import { LOCALES } from '@/constants/config';
+import { DOMAIN } from '@/constants/url';
 import { AppContextWrap } from '@/context/App.context';
-import { getTranslationServer } from '@/utils/getTranslationServer';
 import { getAvailabilityStr } from '@/utils/getAvailability';
+import { getTranslationServer } from '@/utils/getTranslationServer';
 import { getAbsoluteUrl } from '@/utils/url';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -30,7 +31,6 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     metadataBase: new URL(homeUrl),
-    themeColor: '#ffffff',
     generator: t('name'),
     applicationName: t('name'),
     other: {
@@ -40,6 +40,10 @@ export async function generateMetadata(): Promise<Metadata> {
     manifest: '/site.webmanifest',
   };
 }
+
+export const viewport = {
+  themeColor: '#ffffff',
+};
 
 export function generateStaticParams() {
   const result = LOCALES.map((locale) => ({
@@ -52,7 +56,7 @@ export const dynamicParams = false;
 
 function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) {
   return (
-    <PlausibleProvider domain="cibulka.codes" taggedEvents>
+    <PlausibleProvider domain={DOMAIN} taggedEvents>
       {props.children}
       {props.isProduction && <Analytics />}
     </PlausibleProvider>

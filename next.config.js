@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require('next-contentlayer2')
 const NextBundleAnalyzer =  require('@next/bundle-analyzer');
 
 const nextConfig = {

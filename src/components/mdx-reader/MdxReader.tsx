@@ -1,4 +1,4 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 import { Locale } from '@/constants/config';
 import { getComponents } from '@/content/getComponents';

@@ -1,12 +1,11 @@
+import { LOCALES } from '@/constants/config';
 import {
+  allDocuments,
   DocumentTypeNames,
   DocumentTypes,
   Project,
   Skill,
-  allDocuments,
 } from 'contentlayer/generated';
-
-import { LOCALES } from '@/constants/config';
 import { sortByDate, sortByLevel, sortByPriority } from './sortDocuments';
 
 export function getDocuments(types: DocumentTypeNames[], locale: string) {

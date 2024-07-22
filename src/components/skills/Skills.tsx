@@ -1,4 +1,4 @@
-import { Skill } from 'contentlayer/generated';
+import { Skill } from 'contentlayer2/generated';
 
 import { Chip, ChipVariant } from '@/components/chip/Chip';
 import { getDocuments } from '@/content/getDocuments';

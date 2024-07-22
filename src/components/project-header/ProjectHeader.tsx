@@ -1,4 +1,4 @@
-import { Education, Position, Project } from 'contentlayer/generated';
+import { Education, Position, Project } from 'contentlayer2/generated';
 import dayjs from 'dayjs';
 
 import { Position as PositionView } from '@/components/position/Position';

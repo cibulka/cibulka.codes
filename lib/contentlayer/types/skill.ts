@@ -1,6 +1,6 @@
+import { Skill as SkillType } from 'contentlayer2/generated';
+import { defineDocumentType } from 'contentlayer2/source-files';
 import path from 'path';
-import { Skill as SkillType } from 'contentlayer/generated';
-import { defineDocumentType } from 'contentlayer/source-files';
 
 import { getLocale, getSlug, getUrl } from '../utils/locale';
 

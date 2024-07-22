@@ -1,8 +1,8 @@
-import { Project } from 'contentlayer/generated';
+import { Project } from 'contentlayer2/generated';
 
 import { ChipLink } from '@/components/chip-link/ChipLink';
-import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { MdxReader } from '@/components/mdx-reader/MdxReader';
+import { ProjectHeader } from '@/components/project-header/ProjectHeader';
 import { Skills } from '@/components/skills/Skills';
 import { Locale } from '@/constants/config';
 import { getPlausibleClassNameForLink } from '@/utils/plausible';

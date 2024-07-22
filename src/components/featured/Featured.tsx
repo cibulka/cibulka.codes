@@ -1,4 +1,4 @@
-import { Project } from 'contentlayer/generated';
+import { Project } from 'contentlayer2/generated';
 
 import { Button } from '@/components/button/Button';
 import { ChipLink } from '@/components/chip-link/ChipLink';

@@ -1,4 +1,4 @@
-import { Job, Position as PositionType } from 'contentlayer/generated';
+import { Job, Position as PositionType } from 'contentlayer2/generated';
 import dayjs from 'dayjs';
 
 import { Locale } from '@/constants/config';

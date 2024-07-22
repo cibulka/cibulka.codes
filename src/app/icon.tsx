@@ -1,6 +1,6 @@
 import { THEME_DARK } from '@/constants/colors';
 import { IconOnionAlt } from '@/icons/IconOnionAlt';
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 

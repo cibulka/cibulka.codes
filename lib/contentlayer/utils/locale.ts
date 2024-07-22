@@ -1,5 +1,5 @@
+import { DocumentTypes } from 'contentlayer2/generated';
 import path from 'path';
-import { DocumentTypes } from 'contentlayer/generated';
 
 function getSlugAndLocale(post: DocumentTypes) {
   const basename = path.basename(post._raw.sourceFileName, '.mdx');

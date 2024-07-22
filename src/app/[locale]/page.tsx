@@ -1,27 +1,27 @@
-import { Block, Education, Project } from 'contentlayer/generated';
+import { Block, Education, Project } from 'contentlayer2/generated';
 import { notFound } from 'next/navigation';
 
 import { BlockContactBar } from '@/components/block-contact-bar/BlockContactBar';
-import { ChipHireMe } from '@/components/chip-hire-me/ChipHireMe';
 import { ChipAvailability } from '@/components/chip-availability/ChipAvailability';
+import { ChipHireMe } from '@/components/chip-hire-me/ChipHireMe';
 import { ChipLink } from '@/components/chip-link/ChipLink';
 import { ChipLocation } from '@/components/chip-location/ChipLocation';
 import { Featured } from '@/components/featured/Featured';
-import { MenuLocale } from '@/components/menu-locale/MenuLocale';
 import { MdxReader } from '@/components/mdx-reader/MdxReader';
-import { Project as ProjectView } from '@/components/project/Project';
+import { MenuLocale } from '@/components/menu-locale/MenuLocale';
 import { ProjectHeader } from '@/components/project-header/ProjectHeader';
+import { Project as ProjectView } from '@/components/project/Project';
 import { Skills } from '@/components/skills/Skills';
 import { ThemeSwitch } from '@/components/theme-switch/ThemeSwitch';
-import { getDocuments } from '@/content/getDocuments';
 import { FEATURED, HOME_SECTIONS, LOCALES, Locale } from '@/constants/config';
+import { getDocuments } from '@/content/getDocuments';
 import { getAlternates } from '@/meta/getAlternates';
 import { getTranslationServer } from '@/utils/getTranslationServer';
 
-import { Sidebar } from './sidebar';
-import { HomeSection } from './section';
-import styles from './page.module.css';
 import { Footer } from './footer';
+import styles from './page.module.css';
+import { HomeSection } from './section';
+import { Sidebar } from './sidebar';
 
 // TODO: Tetris README (english)
 

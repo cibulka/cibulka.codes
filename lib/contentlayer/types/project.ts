@@ -1,4 +1,4 @@
-import { defineDocumentType, defineNestedType } from 'contentlayer/source-files';
+import { defineDocumentType, defineNestedType } from 'contentlayer2/source-files';
 
 import { getLocale, getSlug, getUrl } from '../utils/locale';
 
