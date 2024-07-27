@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
 import { ParamsWithLocale } from '@/types/params';
 
@@ -9,9 +9,8 @@ import { Sidebar } from './sidebar';
 
 export default async function LayoutWithSidebar({
   children,
-  modal,
   params: { locale },
-}: PropsWithChildren & ParamsWithLocale & { modal: ReactNode }) {
+}: PropsWithChildren & ParamsWithLocale) {
   return (
     <>
       <div className="relative">
@@ -28,7 +27,6 @@ export default async function LayoutWithSidebar({
         </div>
         <NavBar className={styles['contact-bar']} locale={locale} />
       </div>
-      {modal}
     </>
   );
 }
