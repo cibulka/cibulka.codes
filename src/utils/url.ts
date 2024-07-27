@@ -44,10 +44,7 @@ export function joinPathname(...parts: (string | undefined)[]) {
 }
 
 export function getAbsoluteUrl(pathname?: string) {
-  const previewUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null;
-  const baseUrl = process.env.BASE_URL || previewUrl || DOMAIN_FULL;
-  if (!baseUrl) throw new Error(`getAbsoluteUrl: Base URL not provided`);
-  return joinPathname(baseUrl, pathname || '');
+  return joinPathname(DOMAIN_FULL, pathname || '');
 }
 
 export function getUrlLabel(href: string) {
