@@ -1,4 +1,4 @@
-import { DocumentTypes } from 'contentlayer2/generated';
+import { DocumentTypes } from 'contentlayer/generated';
 import path from 'path';
 
 function getSlugAndLocale(post: DocumentTypes) {

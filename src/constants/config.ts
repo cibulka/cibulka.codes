@@ -1,8 +1,7 @@
-export const THEME_MODE = {
-  DARK: 'THEME_MODE_DARK',
-  LIGHT: 'THEME_MODE_LIGHT',
-  SYSTEM: 'THEME_MODE_SYSTEM',
-};
+export enum ThemeMode {
+  DARK = 'THEME_MODE_DARK',
+  LIGHT = 'THEME_MODE_LIGHT',
+}
 
 export const CONTACT = {
   EMAIL: 'cibulka.me@gmail.com',
@@ -10,19 +9,16 @@ export const CONTACT = {
   GITHUB: 'https://www.github.com/cibulka',
 };
 
-export const DATE_AVAILABILITY = '2024-11-01';
-
-export const LOCALES = ['en', 'cs', 'ru'] as const;
-export type Locale = (typeof LOCALES)[number];
-export const I18N_DEFAULT_NS = 'common' as const;
+export const DATE_AVAILABILITY = '2024-08-01';
 
 export const FEATURED = ['dotu', 'after-russia', 'tetris'];
+export const SKILL_CATEGORY = ['code', 'main', 'tool'];
 
-export const HOME_SECTIONS = {
-  EXPERIENCE: 'experience',
-  PROJECTS: 'projects',
-  EDUCATION: 'education',
-} as const;
+export enum HomeSectionId {
+  EXPERIENCE = 'experience',
+  PROJECTS = 'projects',
+  EDUCATION = 'education',
+}
 
 export const SOCIAL = {
   GITHUB: 'https://www.github.com/cibulka',
@@ -34,3 +30,5 @@ export const REPO = {
   PORTFOLIO: 'https://www.github.com/cibulka/cibulka.codes',
   TETRIS: 'https://www.github.com/cibulka/react-tetris-ts',
 };
+
+export const EXPERIENCE_START = '01-09-2013';

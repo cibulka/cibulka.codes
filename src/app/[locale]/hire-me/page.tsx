@@ -1,21 +1,15 @@
-import { Locale } from '@/constants/config';
-import { BusinessCard } from '@/sections/business-card/BusinessCard';
-import { getTranslationServer } from '@/utils/getTranslationServer';
+import { HireMe } from '@/modules/hire-me/page';
+import { getIntl } from '@/shared/i18n/get-intl';
+import { hireMeMessage } from '@/shared/messages';
+import { ParamsWithLocale } from '@/types/params';
 
-export async function generateMetadata(props: { params: { locale: Locale } }) {
-  const { t } = await getTranslationServer('common', props.params.locale);
+export async function generateMetadata(props: ParamsWithLocale) {
+  const { formatMessage } = await getIntl(props.params.locale);
   return {
-    title: t('hireMe.button'),
+    title: formatMessage(hireMeMessage),
   };
 }
 
-export default function HireMePage(props: { params: { locale: Locale } }) {
-  const { locale } = props.params;
-  return (
-    <div className={['absolute inset-0', 'flex items-center justify-center', 'p-4'].join(' ')}>
-      <div className="max-w-xl w-full rounded-md border border-button_shade p-4 bg-button">
-        <BusinessCard locale={locale} />
-      </div>
-    </div>
-  );
+export default function HireMePage({ params: { locale } }: ParamsWithLocale) {
+  return <HireMe locale={locale} />;
 }

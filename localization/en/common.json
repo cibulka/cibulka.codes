@@ -73,5 +73,9 @@
         "replay": "Replay",
         "volumeOn": "Volume on",
         "volumeOff": "Volume off"
+    },
+    "years": {
+        "one": "1 year",
+        "many": "{ count } years"
     }
 }

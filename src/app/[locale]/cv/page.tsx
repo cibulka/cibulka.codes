@@ -1,15 +1,17 @@
-import { Locale } from '@/constants/config';
-import { Resume } from '@/sections/resume/Resume';
-import { getTranslationServer } from '@/utils/getTranslationServer';
+import { Resume } from '@/modules/resume';
+import { getIntl } from '@/shared/i18n/get-intl';
+import { Locale } from '@/shared/i18n/types';
+
+import { messages } from './messages';
 
 export async function generateMetadata(props: { params: { locale: Locale } }) {
-  const { t } = await getTranslationServer('common', props.params.locale);
+  const { formatMessage } = await getIntl(props.params.locale);
   return {
-    title: t('cv.button'),
+    title: formatMessage(messages.button),
   };
 }
 
 export default function ResumePage(props: { params: { locale: Locale } }) {
   const { locale } = props.params;
-  return <Resume isRoute locale={locale} />;
+  return <Resume locale={locale} />;
 }

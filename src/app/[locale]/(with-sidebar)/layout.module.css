@@ -1,0 +1,50 @@
+.wrap {
+  min-width: 20em;
+}
+
+@screen bg {
+  .wrap {
+    @apply px-8;
+  }
+}
+
+@screen bgMax {
+  .wrap {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  .wrap {
+    @apply grid;
+    grid-template-columns: 9fr 16fr;
+    max-width: 68em;
+    @apply gap-20 bgMax:gap-12 mdMax:gap-8;
+  }
+  .header {
+    @apply sticky top-0 h-screen;
+    @apply py-12;
+  }
+  .content {
+    @apply py-12;
+  }
+  .contact-bar {
+    @apply hidden;
+  }
+}
+
+@media (orientation: portrait), (max-width: 767px) {
+  .wrap {
+    @apply flex flex-col pt-8;
+    @apply max-w-xl ml-auto mr-auto px-4;
+  }
+  .header {
+    @apply mb-8;
+  }
+  .header_info.header_info {
+    display: none;
+  }
+  .contact-bar {
+    @apply flex sticky bottom-0;
+  }
+}

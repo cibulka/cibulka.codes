@@ -73,5 +73,10 @@
         "replay": "Повтор",
         "volumeOn": "Со звуком",
         "volumeOff": "Без звука"
+    },
+    "years": {
+        "one": "1 год",
+        "few": "{ count } года",
+        "many": "{ count } лет"
     }
 }

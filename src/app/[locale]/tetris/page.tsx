@@ -1,12 +1,13 @@
-import { Locale } from '@/constants/config';
-import { getTranslationServer } from '@/utils/getTranslationServer';
+import { getIntl } from '@/shared/i18n/get-intl';
+import { Locale } from '@/shared/i18n/types';
 
 import { TetrisClient } from './client';
+import { messages } from './messages';
 
 export async function generateMetadata(props: { params: { locale: Locale } }) {
-  const { t } = await getTranslationServer('common', props.params.locale);
+  const { formatMessage } = await getIntl(props.params.locale);
   return {
-    title: t('tetris.button'),
+    title: formatMessage(messages.button),
   };
 }
 

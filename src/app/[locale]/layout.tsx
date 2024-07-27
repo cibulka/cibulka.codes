@@ -1,21 +1,22 @@
-import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
-import PlausibleProvider from 'next-plausible';
 import { PropsWithChildren } from 'react';
 
-import { LOCALES } from '@/constants/config';
-import { DOMAIN } from '@/constants/url';
-import { AppContextWrap } from '@/context/App.context';
-import { getAvailabilityStr } from '@/utils/getAvailability';
-import { getTranslationServer } from '@/utils/getTranslationServer';
+import { Providers } from '@/app/providers';
+import { LOCALES } from '@/shared/i18n/config';
+import { getIntl } from '@/shared/i18n/get-intl';
+import { metaMessages } from '@/shared/messages';
+import { ParamsWithLocale } from '@/types/params';
+import { getAvailabilityStr } from '@/utils/get-availability';
 import { getAbsoluteUrl } from '@/utils/url';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = LOCALES[0];
-  const { t } = await getTranslationServer('common', locale);
+  const { formatMessage } = await getIntl(locale);
   const availability = await getAvailabilityStr(locale);
 
-  const titleDefault = [t('name'), t('tagline')].join(' | ');
+  const titleDefault = [formatMessage(metaMessages.name), formatMessage(metaMessages.tagline)].join(
+    ' | ',
+  );
   const homeUrl = getAbsoluteUrl('');
 
   return {
@@ -23,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${titleDefault}`,
       default: titleDefault,
     },
-    description: [availability, t('location')].join(' | '),
+    description: [availability, formatMessage(metaMessages.location)].join(' | '),
     openGraph: {
       images: [
         { url: `/og_cibulka-codes.png`, width: 1200, height: 630 },
@@ -31,8 +32,8 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     metadataBase: new URL(homeUrl),
-    generator: t('name'),
-    applicationName: t('name'),
+    generator: formatMessage(metaMessages.name),
+    applicationName: formatMessage(metaMessages.name),
     other: {
       rel: 'mask-icon',
       href: '/safari-pinned-tab.svg',
@@ -54,22 +55,6 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-function ServicesProvider(props: PropsWithChildren & { isProduction: boolean }) {
-  return (
-    <PlausibleProvider domain={DOMAIN} taggedEvents>
-      {props.children}
-      {props.isProduction && <Analytics />}
-    </PlausibleProvider>
-  );
-}
-
-export default async function LocaleLayout(props: PropsWithChildren & { modal: JSX.Element }) {
-  return (
-    <ServicesProvider isProduction={Boolean(process.env.IS_PRODUCTION)}>
-      <AppContextWrap>
-        {props.children}
-        {props.modal}
-      </AppContextWrap>
-    </ServicesProvider>
-  );
+export default function LocaleLayout(props: PropsWithChildren & ParamsWithLocale) {
+  return <Providers locale={props.params.locale}>{props.children}</Providers>;
 }
