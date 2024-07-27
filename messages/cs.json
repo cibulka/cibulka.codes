@@ -17,12 +17,6 @@
   "26XxGn": {
     "defaultMessage": "visit the open-source repository on GitHub"
   },
-  "2kEhCS": {
-    "defaultMessage": "Featured projects"
-  },
-  "4UohyK": {
-    "defaultMessage": "Personal website"
-  },
   "4l6vz1": {
     "defaultMessage": "Copy"
   },
@@ -80,14 +74,8 @@
   "WkrNSk": {
     "defaultMessage": "English"
   },
-  "XHe2Cj": {
-    "defaultMessage": "My website"
-  },
   "Xm2UP7": {
     "defaultMessage": "My resumé"
-  },
-  "ZRZiCn": {
-    "defaultMessage": "Back to my website"
   },
   "asRUKl": {
     "defaultMessage": "Open-source projects"
@@ -143,9 +131,6 @@
   "tFFMkF": {
     "defaultMessage": "Pause"
   },
-  "vzezy3": {
-    "defaultMessage": "Download my resumé"
-  },
   "wO9wb5": {
     "defaultMessage": "GitHub"
   },
@@ -157,11 +142,5 @@
   },
   "yXRCnm": {
     "defaultMessage": "Hire me!"
-  },
-  "yi0GFo": {
-    "defaultMessage": "Resumé"
-  },
-  "zFegDD": {
-    "defaultMessage": "Contact"
   }
 }
