@@ -19,6 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
   );
   const homeUrl = getAbsoluteUrl('');
 
+  console.log({ homeUrl });
+
   return {
     title: {
       template: `%s | ${titleDefault}`,
