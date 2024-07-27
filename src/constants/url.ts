@@ -7,3 +7,5 @@ export const URLS = {
 } as const;
 
 export const DOMAIN = 'cibulka.codes';
+
+export const DOMAIN_FULL = 'https://www.cibulka.codes';

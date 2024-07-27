@@ -1,3 +1,5 @@
+import { DOMAIN_FULL } from '@/constants/url';
+
 export function isAbsoluteUrl(url: string) {
   // Create a regular expression to match absolute URLs
   const absoluteUrlRegex = /^(?:\w+:)?\/\/(\S+)$/;
@@ -42,7 +44,7 @@ export function joinPathname(...parts: (string | undefined)[]) {
 }
 
 export function getAbsoluteUrl(pathname?: string) {
-  const baseUrl = process.env.BASE_URL || process.env.VERCEL_URL;
+  const baseUrl = process.env.BASE_URL || process.env.VERCEL_URL || DOMAIN_FULL;
   if (!baseUrl) throw new Error(`getAbsoluteUrl: Base URL not provided`);
   return joinPathname(baseUrl, pathname || '');
 }
