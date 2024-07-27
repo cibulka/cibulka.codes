@@ -12,7 +12,6 @@ export default async function LayoutWithSidebar({
   modal,
   params: { locale },
 }: PropsWithChildren & ParamsWithLocale & { modal: ReactNode }) {
-  console.log({ modal });
   return (
     <>
       <div className="relative">
