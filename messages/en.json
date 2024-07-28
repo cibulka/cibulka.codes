@@ -29,6 +29,9 @@
   "68bdoH": {
     "defaultMessage": "Petr Cibulka"
   },
+  "APjdgy": {
+    "defaultMessage": "View my resumé"
+  },
   "Ag1oIB": {
     "defaultMessage": "Content not found"
   },
@@ -46,6 +49,9 @@
   },
   "EYEind": {
     "defaultMessage": "Senior front-end developer (React/Next.js)"
+  },
+  "FZBGji": {
+    "defaultMessage": "Full screen"
   },
   "GsBRWL": {
     "defaultMessage": "Languages"
@@ -70,6 +76,9 @@
   },
   "Rb/hb9": {
     "defaultMessage": "LinkedIn"
+  },
+  "W9355R": {
+    "defaultMessage": "Unmute"
   },
   "WkrNSk": {
     "defaultMessage": "English"
@@ -116,8 +125,11 @@
   "nfDMqm": {
     "defaultMessage": "<linkReadme>README</linkReadme> or <linkRepo>visit the open-source repository</linkRepo>"
   },
-  "p8fYF5": {
-    "defaultMessage": "Volume on"
+  "o+rdb8": {
+    "defaultMessage": "--:--"
+  },
+  "pABzAe": {
+    "defaultMessage": "Contact me"
   },
   "qR2TN8": {
     "defaultMessage": "README"
@@ -125,17 +137,26 @@
   "rSqomC": {
     "defaultMessage": "{itemCount, plural, =0 {0 years} =1 {1 year} other {# years}}"
   },
+  "rbrahO": {
+    "defaultMessage": "Close"
+  },
   "tFFMkF": {
     "defaultMessage": "Pause"
+  },
+  "tHM6Fy": {
+    "defaultMessage": "{ currentTime } / { duration }"
+  },
+  "vzezy3": {
+    "defaultMessage": "Download my resumé"
   },
   "wO9wb5": {
     "defaultMessage": "GitHub"
   },
+  "x82IOl": {
+    "defaultMessage": "Mute"
+  },
   "y0Omp7": {
     "defaultMessage": "Tetris"
-  },
-  "yOYa0/": {
-    "defaultMessage": "Volume off"
   },
   "yXRCnm": {
     "defaultMessage": "Hire me!"

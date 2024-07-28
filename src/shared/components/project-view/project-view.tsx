@@ -25,10 +25,10 @@ export function ProjectView(
   return (
     <article
       className={[
-        'md:rounded-md',
+        'sm:rounded-md',
         props.className,
-        props.isBorder && 'md:-ml-4 md:-mr-4 md:p-4 border-button_shade',
-        props.isBorder && 'md:border md:border-dotted',
+        props.isBorder && 'sm:-ml-4 sm:-mr-4 sm:p-4 sm:bg-paper border-button_shade',
+        props.isBorder && 'sm:border sm:border-dotted',
         props.isBorder && 'mdMax:border-b pb-8',
       ]
         .filter(Boolean)

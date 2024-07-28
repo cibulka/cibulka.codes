@@ -1,0 +1,6 @@
+.controls_bg {
+  content: '';
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  @apply absolute left-0 bottom-0;
+  @apply w-full h-20;
+}

@@ -1,144 +1,48 @@
 'use client';
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-
-import { PlausibleGoal } from '@/constants/plausible';
-import { Locale } from '@/shared/i18n/types';
-import { usePlausibleEvent } from '@/utils/plausible';
 
 import { VideoControls } from './components/controls';
 import { VideoFinished } from './components/finished';
-import { VIDEO_STATE, VideoState } from './constants';
-import { VideoPlayerLabels } from './types';
+import { useVideoContext } from './context';
+import { VideoPoster } from './poster';
+import { VideoPlayerProps, VideoPlayerState } from './types';
 
-// TODO: Use more recent implementation of video player that I did
-// TODO: Change time by clicking on the range
-
-export function VideoPlayerClient(props: {
-  labels: VideoPlayerLabels;
-  locale: Locale;
-  poster?: string;
-  plausible: {
-    onStart?: PlausibleGoal;
-    onFinish?: PlausibleGoal;
-  };
-  priority: boolean;
-  src: string;
-}) {
-  const [isRendered, setIsRendered] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isOpaque, setIsOpaque] = useState(true);
-  const [isReady, setIsReady] = useState(true);
-  const [isPlayRequested, setIsPlayRequested] = useState(false);
-  const [duration, setDuration] = useState<number | undefined>(undefined);
-  const [time, setTime] = useState(0);
-  const [playState, setPlayState] = useState<VideoState>(VIDEO_STATE.IDLE);
-
-  const onStart = usePlausibleEvent(props.plausible.onStart);
-  const onFinish = usePlausibleEvent(props.plausible.onFinish);
-
-  const ref = useRef<HTMLVideoElement>(null);
-  const isIdle = playState === VIDEO_STATE.IDLE;
-  const isFinished = playState === VIDEO_STATE.FINISHED;
-  const isPaused = playState === VIDEO_STATE.PAUSED;
-  const isPlaying = playState === VIDEO_STATE.PLAYING;
-
-  useEffect(() => {
-    setIsRendered(true);
-  }, []);
-
-  useEffect(() => {
-    if (isRendered) ref.current?.load();
-  }, [isRendered]);
-
-  const isPlay = isReady && isPlayRequested;
-  useEffect(() => {
-    if (isPlay) ref.current?.play();
-  }, [isPlay]);
+export function VideoPlayerClient(props: VideoPlayerProps) {
+  const { callbacks, isFullScreen, isPoster, ref, videoState } = useVideoContext();
 
   return (
-    <>
-      {isRendered && (
-        <video
-          className={[
-            'absolute top-0 left-0',
-            'w-full h-full',
-            'object-contain object-center',
-            'transition-opacity',
-            isIdle ? 'opacity-0' : 'opacity-100',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-          muted={isMuted}
-          onCanPlay={() => setIsReady(true)}
-          onEnded={() => {
-            setIsOpaque(true);
-            setPlayState(VIDEO_STATE.FINISHED);
-            if (onFinish) onFinish();
-          }}
-          onError={() => setPlayState(VIDEO_STATE.ERRORED)}
-          onLoadedMetadata={(e) => {
-            setDuration(Math.ceil(e.currentTarget.duration));
-          }}
-          onPause={() => setPlayState(VIDEO_STATE.PAUSED)}
-          onPlay={() => {
-            setPlayState(VIDEO_STATE.PLAYING);
-            if (onStart) onStart();
-          }}
-          onTimeUpdate={(e) => {
-            setTime(Math.ceil(e.currentTarget.currentTime));
-          }}
-          preload="auto"
-          ref={ref}
-          src={props.src}
-        />
+    <div
+      className={[
+        'bg-black',
+        // TODO: Allow different aspect ratios
+        !isFullScreen && 'aspect-video relative',
+        isFullScreen && 'fixed inset-0 z-50',
+      ].join(' ')}
+    >
+      {isPoster ? (
+        <>
+          {/* TODO: Add proper alt */}
+          <VideoPoster alt="" src={props.poster} />
+        </>
+      ) : (
+        <>
+          <video
+            autoPlay
+            className="absolute top-0 left-0 w-full h-full object-contain"
+            onCanPlay={callbacks?.onCanPlay}
+            onEnded={callbacks?.onEnded}
+            onLoadedMetadata={callbacks?.onLoadedMetadata}
+            onPause={callbacks?.onPause}
+            onPlay={callbacks?.onPlay}
+            onSeeking={callbacks?.onSeek}
+            onProgress={callbacks?.onProgress}
+            onTimeUpdate={callbacks?.onTimeUpdate}
+            ref={ref}
+            src={props.src}
+          />
+          <VideoControls />
+        </>
       )}
-      {props.poster && (
-        <Image
-          alt="Video"
-          src={props.poster}
-          fill
-          className={[
-            'transition-opacity transition-700',
-            isPlaying || isPaused ? 'opacity-0' : isOpaque ? 'opacity-50' : 'opacity-100',
-          ].join(' ')}
-          placeholder="blur"
-          blurDataURL={props.poster}
-          // TODO: True sizes here pls
-          sizes="80vw"
-          priority={props.priority}
-        />
-      )}
-
-      {isFinished && (
-        <VideoFinished
-          labels={props.labels}
-          locale={props.locale}
-          onReplay={() => ref.current?.play()}
-        />
-      )}
-
-      <VideoControls
-        duration={duration}
-        isFinished={isFinished}
-        isMuted={isMuted}
-        isPlaying={isPlaying}
-        isRendered={isRendered}
-        labels={props.labels}
-        onToggleMute={() => setIsMuted((old) => !old)}
-        onTogglePlay={() => {
-          setIsOpaque(false);
-          if (isPlaying) {
-            ref.current?.pause();
-          } else if (isReady) {
-            ref.current?.play();
-            // if (ref.current) ref.current.currentTime = 148;
-          } else {
-            setIsPlayRequested(true);
-          }
-        }}
-        time={time}
-      />
-    </>
+      {videoState === VideoPlayerState.FINISHED && <VideoFinished />}
+    </div>
   );
 }

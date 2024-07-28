@@ -42,9 +42,9 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
 
       <HomeSection id={HomeSectionId.PROJECTS} label={formatMessage(sectionMessages.projects)}>
         <ul className="flex flex-col gap-8">
-          {featured.map((f, i) => (
+          {featured.map((f) => (
             <li key={f.slug}>
-              <Featured isFirst={i === 0} locale={locale} project={f} />
+              <Featured locale={locale} project={f} />
             </li>
           ))}
         </ul>
@@ -53,7 +53,7 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
         <ul className="flex flex-col gap-8">
           {projects.map((project) => (
             <li key={project.slug}>
-              <ProjectView className="bg-button" isBorder locale={locale} project={project} />
+              <ProjectView isBorder locale={locale} project={project} />
             </li>
           ))}
         </ul>

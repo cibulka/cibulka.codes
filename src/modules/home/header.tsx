@@ -13,7 +13,8 @@ import { ChipAvailability } from '@/shared/components/chip-availability';
 import { ChipLocation } from '@/shared/components/chip-location';
 import { ContactPhone } from '@/shared/components/contact';
 import { MdxReader } from '@/shared/mdx-reader';
-import { darkModeMessages } from './messages';
+import { downloadResumeMessage } from '@/shared/messages';
+import { darkModeMessages, headerMessages } from './messages';
 
 export async function HomePageHeader({ locale }: PropsWithLocale) {
   const { formatMessage } = await getIntl(locale);
@@ -49,16 +50,16 @@ export async function HomePageHeader({ locale }: PropsWithLocale) {
       </div>
       <div className={['flex flex-col gap-8', 'md:grid md:grid-cols-2'].join(' ')}>
         <div>
-          <h2 className="text-xl font-bold mb-4">My resumé</h2>
+          <h2 className="text-xl font-bold mb-4">{formatMessage(headerMessages.resume)}</h2>
           <ButtonBig
             className="-ml-2 -mr-2"
             href={URLS.CV_PDF}
-            label="Download my resumé"
+            label={formatMessage(downloadResumeMessage)}
             icon={<IconDownload />}
           />
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-4">Contact me</h2>
+          <h2 className="text-xl font-bold mb-4">{formatMessage(headerMessages.contactMe)}</h2>
           <ContactPhone locale={locale} />
         </div>
       </div>

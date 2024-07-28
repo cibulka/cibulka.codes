@@ -8,7 +8,7 @@ import { ChipLink } from '@/shared/components/chip-link';
 import { ProjectIcon } from '@/shared/components/project-header/icon';
 import { Skills } from '@/shared/components/skills';
 import { TetrisBg } from '@/shared/components/tetris-bg';
-import { VideoPlayer } from '@/shared/components/video-player';
+import { VideoPlayer as VideoPlayerCustom } from '@/shared/components/video-player';
 import { getIntl } from '@/shared/i18n/get-intl';
 import { getDocuments } from '@/shared/mdx-reader/get-documents';
 import { PropsWithLocale } from '@/types/params';
@@ -19,9 +19,7 @@ import { featuredMessages } from './messages';
 export async function Featured({
   locale,
   project,
-  isFirst,
 }: PropsWithLocale<{
-  isFirst?: boolean;
   project: Project;
 }>) {
   const { formatMessage } = await getIntl(locale);
@@ -67,12 +65,10 @@ export async function Featured({
           </div>
         )}
         {project.video && (
-          <VideoPlayer
-            locale={locale}
-            priority={Boolean(isFirst)}
+          <VideoPlayerCustom
             src={project.video}
-            poster={project.video_poster}
-            project={project.slug}
+            locale={locale}
+            poster={project.video_poster as string}
           />
         )}
       </div>

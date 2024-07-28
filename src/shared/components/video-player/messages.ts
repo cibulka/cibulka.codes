@@ -1,24 +1,49 @@
-import { defineMessages } from '@formatjs/intl';
+import { defineMessage, defineMessages } from '@formatjs/intl';
 
-export const videoMessages = defineMessages({
-  pause: {
-    defaultMessage: 'Pause',
-    id: 'tFFMkF',
-  },
-  play: {
-    defaultMessage: 'Play',
-    id: 'J3ca41',
-  },
-  replay: {
-    defaultMessage: 'Replay',
-    id: '5yUsUe',
-  },
-  volumeOn: {
-    defaultMessage: 'Volume on',
-    id: 'p8fYF5',
-  },
-  volumeOff: {
-    defaultMessage: 'Volume off',
-    id: 'yOYa0/',
-  },
+export const videoControlMessages = {
+  fullScreen: defineMessages({
+    on: {
+      defaultMessage: 'Full screen',
+      id: 'FZBGji',
+    },
+    off: {
+      defaultMessage: 'Close',
+      id: 'rbrahO',
+    },
+  }),
+  mute: defineMessages({
+    on: {
+      defaultMessage: 'Mute',
+      id: 'x82IOl',
+    },
+    off: {
+      defaultMessage: 'Unmute',
+      id: 'W9355R',
+    },
+  }),
+  play: defineMessages({
+    on: {
+      defaultMessage: 'Play',
+      id: 'J3ca41',
+    },
+    off: {
+      defaultMessage: 'Pause',
+      id: 'tFFMkF',
+    },
+  }),
+};
+
+export const emptyTimeMessage = defineMessage({
+  defaultMessage: '--:--',
+  id: 'o+rdb8',
+});
+
+export const timeMessage = defineMessage({
+  defaultMessage: '{ currentTime } / { duration }',
+  id: 'tHM6Fy',
+});
+
+export const replayMessage = defineMessage({
+  defaultMessage: 'Replay',
+  id: '5yUsUe',
 });

@@ -29,4 +29,13 @@ export const footerMessages = defineMessages({
   },
 });
 
-export const navBarMessages = defineMessages({});
+export const headerMessages = defineMessages({
+  contactMe: {
+    defaultMessage: 'Contact me',
+    id: 'pABzAe',
+  },
+  resume: {
+    defaultMessage: 'My resumé',
+    id: 'Xm2UP7',
+  },
+});

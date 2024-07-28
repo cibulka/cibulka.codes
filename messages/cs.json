@@ -1,143 +1,164 @@
 {
   "/O1HwX": {
-    "defaultMessage": "Dostupný od { month } { year }"
+    "defaultMessage": "Available from { month } { year }"
   },
   "16fXfV": {
-    "defaultMessage": "Co jsem používal"
+    "defaultMessage": "What I used"
   },
   "1HohzV": {
-    "defaultMessage": "Chyba 404"
+    "defaultMessage": "Error 404"
   },
   "1db7Pm": {
-    "defaultMessage": "Zahrajte si Tetris!"
+    "defaultMessage": "Play Tetris!"
   },
   "1m+iG7": {
-    "defaultMessage": "Praha & Remote"
+    "defaultMessage": "Prague & Remote"
   },
   "26XxGn": {
-    "defaultMessage": "navštivte open-source repository na GitHubu"
+    "defaultMessage": "visit the open-source repository on GitHub"
   },
   "4l6vz1": {
-    "defaultMessage": "Kopírovat"
+    "defaultMessage": "Copy"
   },
   "5HARsj": {
-    "defaultMessage": "Napište mi"
+    "defaultMessage": "E-mail me"
   },
   "5yUsUe": {
-    "defaultMessage": "Přehrát znovu"
+    "defaultMessage": "Replay"
   },
   "68bdoH": {
     "defaultMessage": "Petr Cibulka"
   },
+  "APjdgy": {
+    "defaultMessage": "View my resumé"
+  },
   "Ag1oIB": {
-    "defaultMessage": "Obsah nenalezen"
+    "defaultMessage": "Content not found"
   },
   "Bn8Xb/": {
-    "defaultMessage": "Zahrát si hru"
+    "defaultMessage": "Play a game"
   },
   "C5wyCr": {
-    "defaultMessage": "Co se učím"
+    "defaultMessage": "What I'm learning"
   },
   "CACPC+": {
-    "defaultMessage": "Česky"
+    "defaultMessage": "Czech"
   },
   "EJSVsO": {
-    "defaultMessage": "Co umím"
+    "defaultMessage": "Skills"
   },
   "EYEind": {
     "defaultMessage": "Senior front-end developer (React/Next.js)"
   },
+  "FZBGji": {
+    "defaultMessage": "Full screen"
+  },
   "GsBRWL": {
-    "defaultMessage": "Jazyky"
+    "defaultMessage": "Languages"
   },
   "HKfQJX": {
-    "defaultMessage": "Zahrajte si Tetris"
+    "defaultMessage": "Play Tetris"
   },
   "J3ca41": {
-    "defaultMessage": "Hrát"
+    "defaultMessage": "Play"
   },
   "KN7zKn": {
-    "defaultMessage": "Chyba"
+    "defaultMessage": "Error"
   },
   "N6BKP7": {
     "defaultMessage": "Stack Overflow"
   },
   "Oar0W0": {
-    "defaultMessage": "Aktuálně"
+    "defaultMessage": "Present"
   },
   "Q7dLbA": {
-    "defaultMessage": "Světlý režim"
+    "defaultMessage": "Light mode"
   },
   "Rb/hb9": {
     "defaultMessage": "LinkedIn"
   },
+  "W9355R": {
+    "defaultMessage": "Unmute"
+  },
   "WkrNSk": {
-    "defaultMessage": "Anglicky"
+    "defaultMessage": "English"
   },
   "Xm2UP7": {
-    "defaultMessage": "Můj životopis"
+    "defaultMessage": "My resumé"
   },
   "asRUKl": {
-    "defaultMessage": "Open-source projekty"
+    "defaultMessage": "Open-source projects"
   },
   "c9BiAc": {
-    "defaultMessage": "Ocením když mi dáte vědět."
+    "defaultMessage": "I'd appreciate if you let me know."
   },
   "cyR7Kh": {
-    "defaultMessage": "Zpět"
+    "defaultMessage": "Back"
   },
   "eVlu1R": {
-    "defaultMessage": "Vybrat jazyk"
+    "defaultMessage": "Select language"
   },
   "g+Zopf": {
-    "defaultMessage": "Co používám"
+    "defaultMessage": "What I use now"
   },
   "geEJbe": {
-    "defaultMessage": "Zavolat"
+    "defaultMessage": "Call me"
   },
   "gzf3zK": {
-    "defaultMessage": "Hobby"
+    "defaultMessage": "Hobbies"
   },
   "hMUQH5": {
-    "defaultMessage": "Tmavý režim"
+    "defaultMessage": "Dark mode"
   },
   "jtygmI": {
-    "defaultMessage": "Vzdělání"
+    "defaultMessage": "Education"
   },
   "k4Oex8": {
-    "defaultMessage": "Relevantní zkušenosti"
+    "defaultMessage": "Relevant experience"
   },
   "lAX+xB": {
-    "defaultMessage": "Vybrané projekty"
+    "defaultMessage": "Selected projects"
   },
   "nUT0Lv": {
-    "defaultMessage": "Nástroje"
+    "defaultMessage": "Tools"
   },
   "nfDMqm": {
-    "defaultMessage": "<linkReadme>README</linkReadme> nebo <linkRepo>navštivte open-source repository</linkRepo>"
+    "defaultMessage": "<linkReadme>README</linkReadme> or <linkRepo>visit the open-source repository</linkRepo>"
   },
-  "p8fYF5": {
-    "defaultMessage": "Zapnout zvuk"
+  "o+rdb8": {
+    "defaultMessage": "--:--"
+  },
+  "pABzAe": {
+    "defaultMessage": "Contact me"
   },
   "qR2TN8": {
     "defaultMessage": "README"
   },
   "rSqomC": {
-    "defaultMessage": "{itemCount, plural, =0 {0 let} =1 {1 rok} few {# roky} other {# let}}"
+    "defaultMessage": "{itemCount, plural, =0 {0 years} =1 {1 year} other {# years}}"
+  },
+  "rbrahO": {
+    "defaultMessage": "Close"
   },
   "tFFMkF": {
-    "defaultMessage": "Pauza"
+    "defaultMessage": "Pause"
+  },
+  "tHM6Fy": {
+    "defaultMessage": "{ currentTime } / { duration }"
+  },
+  "vzezy3": {
+    "defaultMessage": "Download my resumé"
   },
   "wO9wb5": {
     "defaultMessage": "GitHub"
   },
+  "x82IOl": {
+    "defaultMessage": "Mute"
+  },
   "y0Omp7": {
     "defaultMessage": "Tetris"
   },
-  "yOYa0/": {
-    "defaultMessage": "Vypnout zvuk"
-  },
   "yXRCnm": {
-    "defaultMessage": "Spolupracujme!"
+    "defaultMessage": "Hire me!"
   }
 }

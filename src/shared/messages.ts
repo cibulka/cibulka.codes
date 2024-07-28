@@ -101,3 +101,13 @@ export const hireMeMessage = defineMessage({
   defaultMessage: 'Hire me!',
   id: 'yXRCnm',
 });
+
+export const downloadResumeMessage = defineMessage({
+  defaultMessage: 'Download my resumé',
+  id: 'vzezy3',
+});
+
+export const viewResumeMessage = defineMessage({
+  defaultMessage: 'View my resumé',
+  id: 'APjdgy',
+});
