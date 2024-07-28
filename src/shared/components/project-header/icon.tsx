@@ -17,7 +17,7 @@ const projectIcons = {
   freelance: IconBriefcase,
   tetris: IconTetris,
   tvar: IconCaseTvar,
-  dame: IconEducationDamu,
+  damu: IconEducationDamu,
   muni: IconEducationMuni,
 };
 
