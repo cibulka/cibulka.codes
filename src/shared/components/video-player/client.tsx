@@ -7,7 +7,7 @@ import { VideoPoster } from './poster';
 import { VideoPlayerProps, VideoPlayerState } from './types';
 
 export function VideoPlayerClient(props: VideoPlayerProps) {
-  const { callbacks, isFullScreen, isHover, isPoster, ref, videoState } = useVideoContext();
+  const { callbacks, isFullScreen, isPoster, ref, videoState } = useVideoContext();
 
   return (
     <div
@@ -28,7 +28,8 @@ export function VideoPlayerClient(props: VideoPlayerProps) {
           <video
             autoPlay
             className="absolute top-0 left-0 w-full h-full object-contain"
-            controls={isHover === false}
+            // controls={isHover === false}
+            controls={false}
             onCanPlay={callbacks?.onCanPlay}
             onEnded={callbacks?.onEnded}
             onLoadedMetadata={callbacks?.onLoadedMetadata}

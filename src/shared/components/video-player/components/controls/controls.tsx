@@ -34,8 +34,7 @@ export function VideoControls() {
     <div
       className={[
         'absolute top-0 left-0 w-full h-full',
-        isHover ? 'flex' : 'hidden',
-        'flex-col',
+        'flex flex-col',
         isVisible ? 'opacity-100' : 'opacity-0',
         'transition-opacity text-white',
       ].join(' ')}

@@ -7,10 +7,12 @@ export function renderThumb({ props }: { props: IThumbProps }) {
   return (
     <div
       {...props}
-      className={['w-4 h-4', 'rounded-full bg-chip'].join(' ')}
+      className={['w-6 h-6 flex items-center justify-center'].join(' ')}
       key={props.key}
       style={props.style}
-    />
+    >
+      <div className="w-3 h-3 rounded-full bg-chip" />
+    </div>
   );
 }
 
@@ -26,7 +28,7 @@ export function renderTrack({
   played: number;
 }) {
   return (
-    <div {...props} className="relative flex items-center h-4" style={props.style}>
+    <div {...props} className="relative flex items-center h-6" style={props.style}>
       <TrackLine className="bg-neutral-500" />
       <TrackLine className="bg-neutral-300" scale={loaded} />
       <TrackLine className="bg-neutral-100" scale={played} />

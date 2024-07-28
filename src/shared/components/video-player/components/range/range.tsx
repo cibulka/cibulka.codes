@@ -20,14 +20,16 @@ export function TimeRange() {
   );
 
   return (
-    <Range
-      min={0}
-      max={duration || undefined}
-      onChange={onChange}
-      step={1}
-      values={[currentTime]}
-      renderThumb={renderThumb}
-      renderTrack={renderTrack}
-    />
+    <div className="px-2">
+      <Range
+        min={0}
+        max={duration || undefined}
+        onChange={onChange}
+        step={1}
+        values={[currentTime]}
+        renderThumb={renderThumb}
+        renderTrack={renderTrack}
+      />
+    </div>
   );
 }
