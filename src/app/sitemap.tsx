@@ -1,6 +1,7 @@
-import { LOCALES } from '@/constants/config';
-import { getAbsoluteUrl } from '@/utils/url';
 import { MetadataRoute } from 'next';
+
+import { LOCALES } from '@/shared/i18n/config';
+import { getAbsoluteUrl } from '@/utils/url';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   let result: MetadataRoute.Sitemap = [];

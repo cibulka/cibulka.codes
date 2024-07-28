@@ -1,4 +1,4 @@
-import { Locale } from '@/constants/config';
+import { DOMAIN_FULL } from '@/constants/url';
 
 export function isAbsoluteUrl(url: string) {
   // Create a regular expression to match absolute URLs
@@ -44,27 +44,18 @@ export function joinPathname(...parts: (string | undefined)[]) {
 }
 
 export function getAbsoluteUrl(pathname?: string) {
-  const baseUrl = process.env.BASE_URL || process.env.VERCEL_URL;
-  if (!baseUrl) throw new Error(`getAbsoluteUrl: Base URL not provided`);
-  return joinPathname(baseUrl, pathname || '');
+  return joinPathname(DOMAIN_FULL, pathname || '');
 }
 
 export function getUrlLabel(href: string) {
   try {
     const url = new URL(href);
-    return (
-      [url.hostname, url.pathname]
-        .map((str) => str.replace(/^\/+/, ''))
-        .map((str) => str.replace(/\/+$/, ''))
-        // .map((str) => str.replace(/^www./, ''))
-        .filter(Boolean)
-        .join('/')
-    );
+    return [url.hostname, url.pathname]
+      .map((str) => str.replace(/^\/+/, ''))
+      .map((str) => str.replace(/\/+$/, ''))
+      .filter(Boolean)
+      .join('/');
   } catch (e) {
     return `Invalid url ${href}.`;
   }
-}
-
-export function getLocalizedHref(href: string, locale: Locale) {
-  return href.startsWith(`/${locale}`) ? href : `/${joinPathname(locale, href)}`;
 }

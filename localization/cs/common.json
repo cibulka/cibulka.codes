@@ -73,5 +73,10 @@
         "replay": "Přehrát znovu",
         "volumeOn": "Zapnout zvuk",
         "volumeOff": "Vypnout zvuk"
+    },
+    "years": {
+        "one": "1 rok",
+        "few": "{ count } roky",
+        "many": "{ count } let"
     }
 }

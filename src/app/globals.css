@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~csshake';
+
 html {
   font-size: 14px;
   scroll-behavior: smooth;
@@ -27,9 +29,11 @@ body {
 *:focus,
 .is-focusable:focus,
 .has-focusable:focus .focusable {
-  outline: dashed 3px theme('colors.outline');
+  outline: dashed 2px theme('colors.outline');
   outline-offset: 2px;
-  @apply rounded-md;
+  @apply scale-105;
+  @apply transition-transform;
+  @apply rounded-sm;
 }
 
 .text p,

@@ -1,4 +1,4 @@
-import { Skill as SkillType } from 'contentlayer2/generated';
+import { Skill as SkillType } from 'contentlayer/generated';
 import { defineDocumentType } from 'contentlayer2/source-files';
 import path from 'path';
 
@@ -15,11 +15,9 @@ export const Skill = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
-    past: {
-      type: 'boolean',
-    },
-    future: {
-      type: 'boolean',
+    status: {
+      type: 'enum',
+      options: ['future', 'past'],
     },
     priority: {
       type: 'number',
