@@ -1,4 +1,6 @@
 import { DOMAIN_FULL } from '@/constants/url';
+import { LOCALES } from '@/shared/i18n/config';
+import { Locale } from '@/shared/i18n/types';
 
 export function isAbsoluteUrl(url: string) {
   // Create a regular expression to match absolute URLs
@@ -58,4 +60,19 @@ export function getUrlLabel(href: string) {
   } catch (e) {
     return `Invalid url ${href}.`;
   }
+}
+
+export function stripLocaleFromHref(href: string) {
+  let result = href;
+
+  // Strip leading slash
+  result = result.replace(/^\//, '');
+
+  // Strip locale
+  const regex = new RegExp(`^(?:${LOCALES.join('|')})\\s*`, 'i');
+  return result.replace(regex, '');
+}
+
+export function getLocalizedUrl(href: string, locale: Locale) {
+  return `/${locale}/${stripLocaleFromHref(href)}`;
 }

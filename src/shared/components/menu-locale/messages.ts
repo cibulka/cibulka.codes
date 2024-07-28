@@ -10,10 +10,6 @@ export const localeMessages = defineMessages({
     defaultMessage: 'English',
     id: 'WkrNSk',
   },
-  [Locales.RU]: {
-    defaultMessage: 'Russian',
-    id: 'kTt/ND',
-  },
 });
 
 export const placeholderMessage = defineMessage({
