@@ -26,7 +26,7 @@ function secondsToTimeString(seconds: number) {
 export function VideoControls() {
   const intl = useIntl();
 
-  const { actions, duration, currentTime, isLoading } = useVideoContext();
+  const { actions, duration, currentTime, isHover, isLoading } = useVideoContext();
   const { fullScreenLabel, muteLabel, playLabel } = useControlLabels();
   const { isVisible, ref } = useControlsVisibility();
 
@@ -34,7 +34,8 @@ export function VideoControls() {
     <div
       className={[
         'absolute top-0 left-0 w-full h-full',
-        'flex flex-col',
+        isHover ? 'flex' : 'hidden',
+        'flex-col',
         isVisible ? 'opacity-100' : 'opacity-0',
         'transition-opacity text-white',
       ].join(' ')}

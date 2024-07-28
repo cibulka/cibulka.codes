@@ -20,6 +20,7 @@ const initial = {
   duration: null,
   ref: null,
   isFullScreen: false,
+  isHover: undefined,
   isLoading: true,
   isMuted: false,
   isPoster: true,
@@ -33,6 +34,7 @@ export const VideoContext = createContext<VideoContextValue>(initial);
 
 export const VideoContextProvider = (props: PropsWithChildren) => {
   const [videoState, setVideoState] = useState(initial.videoState);
+  const [isHover, setIsHover] = useState<boolean | undefined>(initial.isHover);
   const [isFullScreen, setIsFullScreen] = useState(initial.isFullScreen);
   const [isLoading, setIsLoading] = useState(initial.isLoading);
   const [isMuted, setIsMuted] = useState(initial.isMuted);
@@ -119,6 +121,10 @@ export const VideoContextProvider = (props: PropsWithChildren) => {
     };
   }, []);
 
+  useEffect(() => {
+    setIsHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
+
   return (
     <VideoContext.Provider
       value={{
@@ -129,6 +135,7 @@ export const VideoContextProvider = (props: PropsWithChildren) => {
         loaded,
         ref: videoRef,
         isFullScreen,
+        isHover,
         isLoading,
         isMuted,
         isPoster,
