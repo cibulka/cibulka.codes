@@ -40,10 +40,10 @@ export async function Resume(props: PropsWithLocale) {
   const skillsHobbies = skills.filter(({ category }) => category === 'hobby');
 
   return (
-    <Paper isCentered>
+    <Paper isCentered isSinglePage>
       <div className="flex gap-8 h-full">
         <div className="flex flex-col gap-8 relative" style={{ width: '21em' }}>
-          <aside className="flex flex-col gap-2 mb-4">
+          <aside className="flex flex-col gap-2">
             <Link
               className={[
                 'w-2/5 mb-4 aspect-square',
@@ -60,19 +60,15 @@ export async function Resume(props: PropsWithLocale) {
                 fill
                 alt="Photo"
                 className="absolute top-0 left-0 object-cover"
-                sizes="6em"
+                sizes="100vw"
               />
             </Link>
             <Name className="text-4xl" locale={props.locale} />
             <p className="max-w-xs text-lg leading-snug">{formatMessage(metaMessages.tagline)}</p>
           </aside>
-          <div className="flex gap-4">
-            <div className="flex-1">
-              <ChipLocation locale={props.locale} />
-            </div>
-            <div className="flex-1">
-              <ChipAvailability locale={props.locale} />
-            </div>
+          <div className="flex flex-col gap-1">
+            <ChipLocation locale={props.locale} />
+            <ChipAvailability locale={props.locale} />
           </div>
 
           <div>
@@ -148,11 +144,12 @@ export async function Resume(props: PropsWithLocale) {
             <Skills locale={props.locale} skills={skillsHobbies} />
           </div>
           <div className="flex-1" />
-          <div className={['sticky bottom-0', 'bg-white', 'pb-4', 'pt-4 border-t'].join(' ')}>
+          <div className={['sticky bottom-0', 'bg-white', 'pb-4'].join(' ')}>
             <Contacts locale={props.locale} />
           </div>
         </div>
-        <section className="flex-1">
+        <section className="flex flex-col">
+          <div className="flex-1" />
           <h2 className="text-xl font-bold mb-4">{formatMessage(sectionMessages.experience)}</h2>
           <ul className="flex flex-col gap-4">
             {projects
@@ -164,6 +161,8 @@ export async function Resume(props: PropsWithLocale) {
                 </li>
               ))}
           </ul>
+          <div className="flex-1" />
+          <div className="flex-1" />
         </section>
       </div>
     </Paper>

@@ -9,6 +9,7 @@ export function AppCssVars() {
     <style>{`
         :root {
             --action: ${getColor('action')};
+            --action_light: ${getColor('action_light')};
             --background: ${getColor('background')};
             --button:${getColor('button')};
             --button_shade:${getColor('button_shade')};

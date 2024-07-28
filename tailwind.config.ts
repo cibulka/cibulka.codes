@@ -16,6 +16,7 @@ const config: Config = {
       },
       colors: {
         action: `var(--action)`,
+        action_light: `var(--action_light)`,
         background: `var(--background)`,
         button: `var(--button)`,
         button_shade: `var(--button_shade)`,

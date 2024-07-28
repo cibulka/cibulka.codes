@@ -1,5 +1,6 @@
 export const THEME_DARK = {
   action: '#10b981',
+  action_light: '#047857',
   background: '#1f2937',
   button: '#475569',
   button_shade: '#030712',
@@ -16,6 +17,7 @@ export const THEME_DARK = {
 
 export const THEME_LIGHT = {
   ...THEME_DARK,
+  action_light: '#6ee7b7',
   background: '#f5f5f5',
   button: '#ffffff',
   button_shade: '#a3a3a3',

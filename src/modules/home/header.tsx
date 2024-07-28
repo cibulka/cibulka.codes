@@ -9,6 +9,7 @@ import { PropsWithLocale } from '@/types/params';
 import { URLS } from '@/constants/url';
 import { IconDownload } from '@/icons/IconDownload';
 import { ButtonBig } from '@/shared/components/button-big';
+import { ChipAvailability } from '@/shared/components/chip-availability';
 import { ChipLocation } from '@/shared/components/chip-location';
 import { ContactPhone } from '@/shared/components/contact';
 import { MdxReader } from '@/shared/mdx-reader';
@@ -43,6 +44,9 @@ export async function HomePageHeader({ locale }: PropsWithLocale) {
           <MdxReader locale={locale} mdx={intro_2.body.code} />
         </div>
       )}
+      <div className="-mt-2 mb-6">
+        <ChipAvailability locale={locale} />
+      </div>
       <div className={['flex flex-col gap-8', 'md:grid md:grid-cols-2'].join(' ')}>
         <div>
           <h2 className="text-xl font-bold mb-4">My resumé</h2>

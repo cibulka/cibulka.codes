@@ -1,7 +1,6 @@
 export enum Locales {
   CS = 'cs',
   EN = 'en',
-  RU = 'ru',
 }
 
 export const LOCALES = Object.values(Locales);

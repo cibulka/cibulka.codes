@@ -33,10 +33,11 @@ export function Chip(
     <Wrap
       className={[
         props.className,
-        'inline-flex items-center gap-1',
+        'inline-flex items-center gap-2',
         'rounded-md text-sm',
         variant === ChipVariant.BASIC && 'bg-chip border border-chip_dark',
         variant === ChipVariant.PRIMARY && 'bg-action px-2 py-1',
+        variant === ChipVariant.SECONDARY && 'bg-action_light px-2 py-1',
         variant !== ChipVariant.TRANSPARENT && 'px-1',
       ]
         .filter(Boolean)
