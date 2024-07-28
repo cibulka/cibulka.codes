@@ -10,7 +10,7 @@ export function ContactPhone(props: PropsWithLocale) {
       locale={props.locale}
       value={CONTACT.PHONE}
       icon={<IconPhone />}
-      href={`call:${CONTACT.PHONE}`}
+      href={`tel:${CONTACT.PHONE}`}
     />
   );
 }

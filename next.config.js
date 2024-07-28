@@ -10,13 +10,6 @@ const nextConfig = {
         destination: '/cv-petr_cibulka-:locale.pdf',
         permanent: true,
       },
-      /*
-      {
-        source: '/cv',
-        destination: '/cv-petr_cibulka-en.pdf',
-        permanent: true,
-      },
-      */
       {
         source: '/cv.pdf',
         destination: '/cv-petr_cibulka-en.pdf',
