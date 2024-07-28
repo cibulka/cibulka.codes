@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
 
 import { CONTACT } from '@/constants/config';
@@ -10,10 +9,11 @@ import { IconTetris } from '@/icons/IconTetris';
 import { getIntl } from '@/shared/i18n/get-intl';
 import { Locale } from '@/shared/i18n/types';
 
+import { getLinkComponent } from '@/utils/url';
 import { navBarMessages } from './messages';
 
 function NavBarIcon(props: { href: string; icon: ReactNode; label: string }) {
-  const LinkUsed = props.href.startsWith('/') ? Link : 'a';
+  const LinkUsed = getLinkComponent(props.href);
   return (
     <LinkUsed href={props.href} className="flex flex-col items-center justify-center flex-1">
       <span className="w-8 h-8 text-text_fade">{props.icon}</span>

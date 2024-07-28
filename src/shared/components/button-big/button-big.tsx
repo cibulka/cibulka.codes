@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { getLinkComponent } from '@/utils/url';
 import { ReactNode } from 'react';
 
 export const ButtonBig = (props: {
@@ -7,7 +7,7 @@ export const ButtonBig = (props: {
   label: string;
   href: string;
 }) => {
-  const Root = props.href.startsWith('/') ? Link : 'a';
+  const Root = getLinkComponent(props.href);
   return (
     <Root
       href={props.href}

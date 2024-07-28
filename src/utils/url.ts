@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { DOMAIN_FULL } from '@/constants/url';
 import { LOCALES } from '@/shared/i18n/config';
 import { Locale } from '@/shared/i18n/types';
@@ -75,4 +77,15 @@ export function stripLocaleFromHref(href: string) {
 
 export function getLocalizedUrl(href: string, locale: Locale) {
   return `/${locale}/${stripLocaleFromHref(href)}`;
+}
+
+export function isRoute(href: string) {
+  const isRelative = href.startsWith('/');
+  const isFile = href.includes('.');
+  const isHash = href.startsWith('#');
+  return isRelative && !isFile && !isHash;
+}
+
+export function getLinkComponent(href: string) {
+  return isRoute(href) ? Link : 'a';
 }

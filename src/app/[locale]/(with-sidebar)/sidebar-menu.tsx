@@ -1,6 +1,7 @@
 'use client';
 
 import { useAppContext } from '@/context/app/hooks';
+import { isRoute } from '@/utils/url';
 
 type SidebarMenuOption = {
   className?: string;
@@ -18,7 +19,6 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
       {props.options.map((item, i) => {
         const isSelected =
           `#${activeHomeSections[0]}` === item.href || (activeHomeSections.length === 0 && i === 0);
-        const isScrollLink = item.href.startsWith('#');
         return (
           <li
             key={item.href}
@@ -38,7 +38,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
                 .filter(Boolean)
                 .join(' ')}
               onClick={(e) => {
-                if (isScrollLink && document) {
+                if (!isRoute(item.href) && document) {
                   e.preventDefault();
                   const id = e.currentTarget.href.split('#')[1];
                   const el = document.getElementById(id);
