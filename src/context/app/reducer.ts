@@ -4,10 +4,15 @@ import { AppContextValue } from './provider';
 export function appReducer(state: AppContextValue, action: AppAction): AppContextValue {
   switch (action.type) {
     // Theme
-    case AppActionType.THEME_MODE:
+    case AppActionType.THEME_USER:
       return {
         ...state,
-        theme: action.payload,
+        themeUser: action.payload,
+      };
+    case AppActionType.THEME_SYSTEM:
+      return {
+        ...state,
+        themeSystem: action.payload,
       };
     case AppActionType.HOME_SECTION_ACTIVE_ADD:
       return {

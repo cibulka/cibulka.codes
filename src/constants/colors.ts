@@ -1,3 +1,5 @@
+import { ThemeMode } from './config';
+
 export const THEME_DARK = {
   action: '#10b981',
   action_light: '#047857',
@@ -29,3 +31,8 @@ export const THEME_LIGHT = {
   text: '#1e293b',
   text_fade: '#475569',
 } as const;
+
+export const THEMES = {
+  [ThemeMode.DARK]: THEME_DARK,
+  [ThemeMode.LIGHT]: THEME_LIGHT,
+};

@@ -16,9 +16,9 @@ export function HomeSection(props: PropsWithChildren & { id: HomeSectionId; labe
     function handler(entries: IntersectionObserverEntry[]) {
       const [entry] = entries;
       if (entry.isIntersecting) {
-        dispatch({ type: AppActionType.HOME_SECTION_ACTIVE_ADD, payload: props.id });
+        dispatch?.({ type: AppActionType.HOME_SECTION_ACTIVE_ADD, payload: props.id });
       } else {
-        dispatch({ type: AppActionType.HOME_SECTION_ACTIVE_REMOVE, payload: props.id });
+        dispatch?.({ type: AppActionType.HOME_SECTION_ACTIVE_REMOVE, payload: props.id });
       }
     }
 

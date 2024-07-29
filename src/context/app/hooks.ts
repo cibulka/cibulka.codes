@@ -1,7 +1,7 @@
 'use client';
 import { useContext } from 'react';
 
-import { THEME_DARK, THEME_LIGHT } from '@/constants/colors';
+import { THEMES } from '@/constants/colors';
 import { ThemeMode } from '@/constants/config';
 
 import { ThemeColor } from './action-types';
@@ -13,11 +13,14 @@ export function useAppContext() {
   return appContext;
 }
 
+export function useLightMode() {
+  const { state } = useContext(AppContext);
+  return state.themeUser || state.themeSystem || ThemeMode.LIGHT;
+}
+
 export function useGetColor() {
-  const appContext = useAppContext();
+  const mode = useLightMode();
   return function getColor(color: ThemeColor) {
-    const isLight = appContext.state.theme === ThemeMode.LIGHT;
-    const theme = isLight ? THEME_LIGHT : THEME_DARK;
-    return theme[color];
+    return THEMES[mode][color];
   };
 }
