@@ -23,11 +23,9 @@ export async function Sidebar(props: {
 
   return (
     <div
-      className={[
-        props.className,
-        'flex items-center gap-4',
-        'md:flex-col md:items-start md:gap-0',
-      ].join(' ')}
+      className={[props.className, 'flex items-center gap-4', 'md:flex-col md:items-start'].join(
+        ' ',
+      )}
     >
       <Link
         className={[
@@ -80,7 +78,7 @@ export async function Sidebar(props: {
         />
         <div className="flex-1" />
         <div className="flex-1" />
-        <Contacts className="bgMax:flex-col" locale={props.locale} />
+        <Contacts className="mt-8 bgMax:flex-col" locale={props.locale} />
       </div>
     </div>
   );
