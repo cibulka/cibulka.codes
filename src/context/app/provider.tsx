@@ -18,8 +18,6 @@ export type AppContextValue = {
 
 /* Context */
 
-// TODO: Dark mode - Respect system setting
-
 const initialState: AppContextValue = {
   activeHomeSections: [],
   themeSystem: undefined,
