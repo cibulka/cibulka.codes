@@ -9,6 +9,7 @@ export function Skills(
     classNameList?: string;
     classNameTitle?: string;
     skills: Skill[];
+    skillsFeatured?: string[];
     title?: string;
     variant?: ChipVariant;
   }>,
@@ -27,15 +28,14 @@ export function Skills(
           .filter(Boolean)
           .join(' ')}
       >
-        {props.skills.map((skill) => (
-          <li key={skill.slug}>
-            {props.variant === ChipVariant.NAKED ? (
-              <span className="font-semibold text-sm">{skill.title}</span>
-            ) : (
-              <Chip variant={props.variant}>{skill.title}</Chip>
-            )}
-          </li>
-        ))}
+        {props.skills.map((skill) => {
+          const isFeatured = props.skillsFeatured?.includes(skill.slug);
+          return (
+            <li key={skill.slug}>
+              <Chip variant={isFeatured ? ChipVariant.BASIC : props.variant}>{skill.title}</Chip>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

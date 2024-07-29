@@ -25,17 +25,23 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
   const skills = (getDocuments(['Skill'], locale) as Skill[]).filter((skill) => {
     return SKILL_CATEGORY.includes(skill.category);
   });
+  const skillsPast = skills.filter((s) => s.status === 'past');
   const skillsFuture = skills.filter((s) => s.status === 'future');
   const skillsPresent = skills.filter((s) => !s.status);
-  const skillsPast = skills.filter((s) => s.status === 'past');
+  const skillsMain = skillsPresent.filter((s) => s.category === 'main');
+  const skillsCode = skillsPresent
+    .filter((s) => s.category === 'code')
+    .sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  const skillsTools = skillsPresent.filter((s) => s.category === 'tool');
 
   return (
     <>
       <HomePageHeader locale={locale} />
 
       <Skills
+        skillsFeatured={skillsMain.map((s) => s.slug)}
         title={formatMessage(toolsMessages.present)}
-        skills={skillsPresent}
+        skills={[...skillsMain, ...skillsCode, ...skillsTools]}
         locale={locale}
         variant={ChipVariant.NAKED}
       />

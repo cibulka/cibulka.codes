@@ -7,6 +7,7 @@ import { getDocuments } from '@/shared/mdx-reader/get-documents';
 import { PropsWithLocale } from '@/types/params';
 
 import { URLS } from '@/constants/url';
+import { IconCV } from '@/icons/IconCV';
 import { IconDownload } from '@/icons/IconDownload';
 import { ButtonBig } from '@/shared/components/button-big';
 import { ChipAvailability } from '@/shared/components/chip-availability';
@@ -24,36 +25,48 @@ export async function HomePageHeader({ locale }: PropsWithLocale) {
   const intro_2 = blocks.find((b) => b.slug === 'intro-2');
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <div className="w-20">
-          <MenuLocale locale={locale} />
+    <>
+      <div className="flex flex-col gap-4">
+        <div className="flex justify-between items-center">
+          <div className="w-20">
+            <MenuLocale locale={locale} />
+          </div>
+          <ChipLocation locale={locale} />
+          <div className="flex justify-end w-20">
+            <ThemeSwitch
+              labels={{
+                dark: formatMessage(darkModeMessages.dark),
+                light: formatMessage(darkModeMessages.light),
+              }}
+            />
+          </div>
         </div>
-        <ChipLocation locale={locale} />
-        <div className="flex justify-end w-20">
-          <ThemeSwitch
-            labels={{
-              dark: formatMessage(darkModeMessages.dark),
-              light: formatMessage(darkModeMessages.light),
-            }}
-          />
+        {intro_1 && intro_2 && (
+          <div className="text md:text-xl md:leading-normal">
+            <MdxReader locale={locale} mdx={intro_1.body.code} />
+            <MdxReader locale={locale} mdx={intro_2.body.code} />
+          </div>
+        )}
+        <div className="-mt-2 mb-6">
+          <ChipAvailability locale={locale} />
         </div>
       </div>
-      {intro_1 && intro_2 && (
-        <div className="text md:text-xl md:leading-normal">
-          <MdxReader locale={locale} mdx={intro_1.body.code} />
-          <MdxReader locale={locale} mdx={intro_2.body.code} />
-        </div>
-      )}
-      <div className="-mt-2 mb-6">
-        <ChipAvailability locale={locale} />
-      </div>
-      <div className={['flex flex-col gap-8', 'md:grid md:grid-cols-2'].join(' ')}>
+      <div
+        className={[
+          'md:sticky md:top-0 md:z-10',
+          'p-4 -mt-12 -mb-4 -ml-4 -mr-4 bg-background',
+          'flex flex-col gap-8',
+          'md:grid md:grid-cols-2',
+        ].join(' ')}
+      >
         <div>
-          <h2 className="text-xl font-bold mb-4">{formatMessage(headerMessages.resume)}</h2>
+          <div className="flex gap-2 items-center mb-4">
+            <IconCV className="text-action w-6 h-6 sm:-ml-8" />
+            <h2 className="text-xl font-bold">{formatMessage(headerMessages.resume)}</h2>
+          </div>
           <ButtonBig
             className="-ml-2 -mr-2"
-            href={URLS.CV_PDF}
+            href={`/${locale}/${URLS.CV_PDF}`}
             label={formatMessage(downloadResumeMessage)}
             icon={<IconDownload />}
           />
@@ -63,6 +76,6 @@ export async function HomePageHeader({ locale }: PropsWithLocale) {
           <ContactPhone locale={locale} />
         </div>
       </div>
-    </div>
+    </>
   );
 }

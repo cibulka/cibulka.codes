@@ -40,7 +40,7 @@ export async function NavBar(props: { className: string; locale: Locale }) {
           label={formatMessage(navBarMessages.email)}
         />
         <NavBarIcon
-          href={`phone:${CONTACT.PHONE}`}
+          href={`call:${CONTACT.PHONE}`}
           icon={<IconPhone />}
           label={formatMessage(navBarMessages.phone)}
         />

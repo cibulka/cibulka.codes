@@ -37,7 +37,7 @@ export function VideoFinished() {
       <FinishedButton
         icon={<IconCV />}
         label={intl.formatMessage(viewResumeMessage)}
-        href={URLS.CV}
+        href={URLS.CV_PDF}
       />
     </div>
   );

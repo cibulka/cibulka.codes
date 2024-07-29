@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { HomeSectionId } from '@/constants/config';
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 import { URLS } from '@/constants/url';
-import { IconCV } from '@/icons/IconCV';
 import { IconTetris } from '@/icons/IconTetris';
 import { Contacts } from '@/shared/components/contacts';
 import { Name } from '@/shared/components/name';
@@ -71,11 +70,6 @@ export async function Sidebar(props: {
               className: getClassNamePlausible(PLAUSIBLE_GOALS.EDUCATION),
               label: formatMessage(sectionMessages.education),
               href: `#${HomeSectionId.EDUCATION}`,
-            },
-            {
-              label: formatMessage(sectionMessages.resume),
-              href: URLS.CV,
-              icon: <IconCV className="fill-action flex transform scale-125" />,
             },
             {
               label: formatMessage(sectionMessages.tetris),

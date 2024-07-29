@@ -46,7 +46,7 @@ export function SidebarMenu(props: { className?: string; options: SidebarMenuOpt
                 }
               }}
             >
-              {item.icon && <span className="w-6 h-6">{item.icon}</span>}
+              {item.icon && <span className="w-6 h-6 md:-ml-8">{item.icon}</span>}
               {item.label}
             </a>
           </li>
