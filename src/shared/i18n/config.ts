@@ -9,4 +9,4 @@ export const i18nConfig = {
   locales: Object.values(Locales),
   defaultLocale: Locales.EN,
   serverSetCookie: 'never',
-};
+} as const;
