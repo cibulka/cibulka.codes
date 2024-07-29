@@ -36,10 +36,10 @@
 ## 📦  Features
 
 <details>
-  <summary>🚧 <strong>Next.js 13</strong> (server components)</summary>
+  <summary>🚧 <strong>Next.js app router</strong></summary>
   <br />
 
-Next.js 13 is a [significant update](https://nextjs.org/blog/next-13), introducing the "app directory" with React server components. It packs **very powerful features** focused on performance and security, but was also _relatively unstable_ for some time with a slight learning curve.
+The "app router" opens Next.js to React server components. It packs **very powerful features** focused on performance and security, but had some learning curve and also was _relatively unstable_ for some time.
 
 The update allows me to handle a lot of things server-side (image generation, fetching and prefetching data, localization), making things faster and more secure. Like in good old PHP days. 🐘
 
@@ -53,66 +53,11 @@ Certain aspects of the sollution still leaves me _somewhat frustrated_ (the lack
   <summary>🌐 <strong>Internalization</strong> (i18n)</summary>
   <br />
   
-  A point of frustration with Next.js 13. **The previous versions had an in-built solution** for providing multiple language versions of your site - it worked out of the box and very well. 
+  A point of frustration with Next.js app router. **The pages router had an in-built solution** for providing multiple language versions of your site - it worked out of the box and very well. 
   
   Next.js 13, however, listed i18n as a "not planned feature". This prompted the community to find its own sollutions, leading to further instability and breaking updates. 
   
-  After some months the team finally shared [a guide on how you can implement i18n on your own](https://nextjs.org/docs/app/building-your-application/routing/internationalization). Unfortunately I still find it quite incomplete.
-
-Here's the list of things I miss from the guide:
-
-<details>
-  <summary><strong>Root layout</strong></summary>
-  <br />
-
-Majority of Next.js sollutions (including the official ones) **expects a "root layout"** directly under the app folder that includes at least the `<html />`. The i18n sollution by Next.js _prevents that_.
-
-✅ **My solution**: Keep root layout and provide the locale parametr through custom header.
-<br />
-
-</details>
-
-<details>
-  <summary><strong>Custom (and translated) 404 page</strong></summary>
-  <br />
-
-One of the solutions requiring the root layout. **No custom 404 page for you with the provided guide**. This includes localization itself - user of any language will see the error message only in english, not in the language of their choice. 🤷
-
-✅ **My solution**: Use root layout with custom header as described above.
-<br />
-
-</details>
-
-<details>
-  <summary><strong>Unclear SEO for i18n</strong></summary>
-  <br />
-
-The provided solution makes the homepage ([https://www.cibulka.codes](https://www.cibulka.codes)) just a **contentless redirect** to the subpath with the suitable (negotiated) locale for the user ([https://www.cibulka.codes/en](https://www.cibulka.codes/en)).
-
-I'm still trying to figure out how hurtful is this for SEO. Currently I believe that it somewhat is (according to my reports in Google Search Console) and it can be fixed only with additional configuration:
-
-1. **Creating sitemap.xml** listing all language versions of your links
-2. Having correct metadata setup of **"lang alternates"**, listing the language versions of the site in the `<head />`: `<link rel="alternate" hreflang={YOUR_LANG} href={YOUR_LANG_URL} />`
-3. ... Maybe more things should be done?
-
-<br />
-
-</details>
-
-<details>
-  <summary><strong>Slower TTFB</strong></summary>
-  <br />
-
-At least one, probably 2 redirects are happening on the first load.
-
-```
-cibulka.codes > www.cibulka.codes > www.cibulka.codes/en
-```
-
-Due to language negotiation this is **hard to cache** (if you want to avoid using the cookies as I do). The lag usually stays around 700ms - which is [not great not terrible](https://www.youtube.com/watch?v=Mg5HOnq7zD0), I suppose.
-
-</details>
-
+  After some months the team finally shared [a guide on how you can implement i18n on your own](https://nextjs.org/docs/app/building-your-application/routing/internationalization), also community created a useful router plugin [next-i18n-router](https://github.com/i18nexus/next-i18n-router).
 </details>
 
 <br />
