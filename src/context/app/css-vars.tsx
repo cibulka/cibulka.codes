@@ -43,7 +43,7 @@ export function AppCssVars() {
       `;
     }
 
-    return result;
+    return result.replace(/\s+/g, '');
   }, [getDefaultColor, themeUser]);
 
   return <style>{style}</style>;
