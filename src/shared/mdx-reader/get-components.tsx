@@ -27,6 +27,9 @@ export function getComponents(locale: Locale) {
 
       return isParagraph ? <p>{p.children}</p> : <>{p.children}</>;
     },
+    pre: (p: PropsWithChildren) => {
+      return <pre className="w-full overflow-auto">{p.children}</pre>;
+    },
     NoWrap: (p: PropsWithChildren) => {
       return <span className="whitespace-nowrap">{p.children}</span>;
     },

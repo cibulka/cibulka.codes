@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { REPO } from '@/constants/config';
-import { URLS } from '@/constants/url';
 import { IconGitHub } from '@/icons/IconGitHub';
+import { ChipVariant } from '@/shared/components/chip';
 import { ChipAvailability } from '@/shared/components/chip-availability';
 import { ChipLink } from '@/shared/components/chip-link';
 import { ChipLocation } from '@/shared/components/chip-location';
@@ -19,7 +19,6 @@ import { getDocuments } from '@/shared/mdx-reader/get-documents';
 import { metaMessages, sectionMessages, toolsMessages } from '@/shared/messages';
 import { PropsWithLocale } from '@/types/params';
 
-import { ChipVariant } from '@/shared/components/chip';
 import './resume.css';
 
 export async function Resume(props: PropsWithLocale) {
@@ -52,7 +51,7 @@ export async function Resume(props: PropsWithLocale) {
               ]
                 .filter(Boolean)
                 .join(' ')}
-              href={URLS.READ_ME}
+              href="/"
               locale={props.locale}
             >
               <Image

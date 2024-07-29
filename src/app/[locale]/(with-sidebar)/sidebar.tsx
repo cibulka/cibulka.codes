@@ -38,7 +38,7 @@ export async function Sidebar(props: {
         ]
           .filter(Boolean)
           .join(' ')}
-        href={URLS.READ_ME}
+        href="/"
         locale={props.locale}
       >
         <Image

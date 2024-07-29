@@ -1,5 +1,6 @@
 .max-w-paper {
-  max-width: 21cm;
+  width: 21cm;
+  max-width: calc(100vw - 2em);
 }
 
 .container {
