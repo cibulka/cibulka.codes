@@ -8,18 +8,18 @@ import { IconPlay } from '@/icons/IconPlay';
 
 import { useIntl } from 'react-intl';
 import { useVideoContext } from './context';
-import { videoControlMessages } from './messages';
+import { posterAltMessage, videoControlMessages } from './messages';
 
-export function VideoPoster(props: { alt: string; src: string }) {
+export function VideoPoster(props: { src: string; title: string }) {
   const Image = props.src.startsWith('/') ? NextImage : 'img';
 
   const { state } = useAppContext();
   const { showVideo } = useVideoContext();
-  const intl = useIntl();
+  const { formatMessage } = useIntl();
 
   return (
     <>
-      <Image fill src={props.src} alt={props.alt} className="object-cover" />
+      <Image fill src={props.src} alt={formatMessage(posterAltMessage)} className="object-cover" />
       {showVideo && (
         <button
           type="button"
@@ -28,7 +28,7 @@ export function VideoPoster(props: { alt: string; src: string }) {
             'flex items-center justify-center',
           ].join(' ')}
           onClick={showVideo}
-          aria-label={intl.formatMessage(videoControlMessages.play.on)}
+          aria-label={formatMessage(videoControlMessages.play.on)}
         >
           <span
             className={[

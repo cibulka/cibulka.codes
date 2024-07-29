@@ -64,11 +64,12 @@ export async function Featured({
             </Button>
           </div>
         )}
-        {project.video && (
+        {project.video && project.video_poster && (
           <VideoPlayerCustom
             src={project.video}
             locale={locale}
-            poster={project.video_poster as string}
+            poster={project.video_poster}
+            title={project.title}
           />
         )}
       </div>

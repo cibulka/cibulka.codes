@@ -47,3 +47,8 @@ export const replayMessage = defineMessage({
   defaultMessage: 'Replay',
   id: '5yUsUe',
 });
+
+export const posterAltMessage = defineMessage({
+  defaultMessage: 'Video { title }',
+  id: '1okg3h',
+});

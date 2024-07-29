@@ -9,6 +9,8 @@ export enum VideoPlayerState {
 }
 
 export type VideoPlayerProps = PropsWithLocale<{
+  aspectRatio?: string | { width: number; height: number };
   poster: string;
   src: string;
+  title: string;
 }>;

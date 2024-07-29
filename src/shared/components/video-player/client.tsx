@@ -6,23 +6,40 @@ import { useVideoContext } from './context';
 import { VideoPoster } from './poster';
 import { VideoPlayerProps, VideoPlayerState } from './types';
 
+function getAspectRatioStyles({ aspectRatio }: Pick<VideoPlayerProps, 'aspectRatio'>) {
+  const className = !aspectRatio
+    ? 'aspect-video'
+    : typeof aspectRatio === 'string'
+    ? aspectRatio
+    : undefined;
+
+  const style =
+    typeof aspectRatio === 'object'
+      ? { paddingBottom: `${(aspectRatio.height / aspectRatio.width) * 100}%` }
+      : undefined;
+
+  return { className, style };
+}
+
 export function VideoPlayerClient(props: VideoPlayerProps) {
   const { callbacks, isFullScreen, isPoster, ref, videoState } = useVideoContext();
+
+  const aspectRatio = getAspectRatioStyles({
+    aspectRatio: props.aspectRatio,
+  });
 
   return (
     <div
       className={[
         'bg-black',
-        // TODO: Allow different aspect ratios
-        !isFullScreen && 'aspect-video relative',
+        !isFullScreen && 'relative',
         isFullScreen && 'fixed inset-0 z-50',
+        !isFullScreen && aspectRatio?.className,
       ].join(' ')}
+      style={isFullScreen ? undefined : aspectRatio?.style}
     >
       {isPoster ? (
-        <>
-          {/* TODO: Add proper alt */}
-          <VideoPoster alt="" src={props.poster} />
-        </>
+        <VideoPoster title={props.title} src={props.poster} />
       ) : (
         <>
           <video
