@@ -26,7 +26,7 @@ function secondsToTimeString(seconds: number) {
 export function VideoControls() {
   const intl = useIntl();
 
-  const { actions, duration, currentTime, isHover, isLoading } = useVideoContext();
+  const { actions, duration, currentTime, isLoading } = useVideoContext();
   const { fullScreenLabel, muteLabel, playLabel } = useControlLabels();
   const { isVisible, ref } = useControlsVisibility();
 

@@ -18,17 +18,6 @@ export const featuredMessages = defineMessages({
   },
 });
 
-export const footerMessages = defineMessages({
-  readme: {
-    defaultMessage: 'README',
-    id: 'qR2TN8',
-  },
-  github: {
-    defaultMessage: 'visit the open-source repository on GitHub',
-    id: '26XxGn',
-  },
-});
-
 export const headerMessages = defineMessages({
   contactMe: {
     defaultMessage: 'Contact me',

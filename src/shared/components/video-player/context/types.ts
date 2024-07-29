@@ -26,7 +26,6 @@ export type VideoContextValue = {
   duration: null | number;
   loaded: number;
   isFullScreen: boolean;
-  isHover: undefined | boolean;
   isLoading: boolean;
   isMuted: boolean;
   isPoster: boolean;

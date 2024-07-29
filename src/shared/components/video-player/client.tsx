@@ -28,7 +28,6 @@ export function VideoPlayerClient(props: VideoPlayerProps) {
           <video
             autoPlay
             className="absolute top-0 left-0 w-full h-full object-contain"
-            // controls={isHover === false}
             controls={false}
             onCanPlay={callbacks?.onCanPlay}
             onEnded={callbacks?.onEnded}
