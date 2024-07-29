@@ -150,20 +150,6 @@ The PDF version of the CV is automated by [a Puppetteer-powered script](https://
 <br />
 
 <details>
-  <summary>🪟 <strong>Intercepted routes</strong></summary>
-  <br />
-
-One of the features of Next.js 13 is an ability to ["intercept routes"](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) - **the same URL can act differently** on direct load _or_ if requested from an app.
-
-This is especially useful for **modals**: You want to see a content from URL in the temporary dialogue (without resetting the state of the UI under it), but you want to allow the usage of back/forward buttons. Having separate URLs for the important pieces of content is obviously good for SEO as well.
-
-It was a bit tricky to implement for me: Most of the guides expect the existence of the root layout (which is incompatible with the guidelines for i18n, as written above). I also found the syntax a bit confusing. Ultimately I made it work nonetheless. :)
-
-</details>
-
-<br />
-
-<details>
   <summary>🎥 <strong>Custom video player</strong></summary>
   <br />
   
