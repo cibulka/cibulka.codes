@@ -31,7 +31,8 @@ export function HomeSection(props: PropsWithChildren & { id: HomeSectionId; labe
   }, [dispatch, props.id]);
 
   return (
-    <section className="relative -mt-4 pt-4" id={props.id} ref={ref}>
+    <section className="relative -mt-4 pt-4" ref={ref}>
+      <span id={props.id} className="absolute top-0 md:-mt-28" />
       <h2 className="text-xl font-bold mb-4">{props.label}</h2>
       {props.children}
     </section>
