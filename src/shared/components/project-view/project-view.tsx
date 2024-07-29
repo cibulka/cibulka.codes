@@ -45,7 +45,13 @@ export function ProjectView(
         />
       )}
       {!props.isSkillsHidden && projectSkills?.length > 0 && (
-        <Skills className="mt-4" locale={props.locale} skills={projectSkills} />
+        <Skills
+          className="mt-4"
+          classNameList="text-sm mt-0.5"
+          isIcon
+          locale={props.locale}
+          skills={projectSkills}
+        />
       )}
     </article>
   );
