@@ -31,4 +31,4 @@ export const REPO = {
   TETRIS: 'https://www.github.com/cibulka/react-tetris-ts',
 };
 
-export const EXPERIENCE_START = '01-09-2013';
+export const EXPERIENCE_START = '2013-09-01';
