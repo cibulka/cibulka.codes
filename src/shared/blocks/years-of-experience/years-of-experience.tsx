@@ -11,5 +11,9 @@ const years = dayjs(new Date()).diff(new Date(EXPERIENCE_START), 'years');
 
 export function YearsOfExperience() {
   const { formatMessage } = useIntl();
-  return <>{formatMessage(yearMessage, { itemCount: years, plural: years })}</>;
+  return (
+    <>
+      {years} {formatMessage(yearMessage, { itemCount: years, plural: years })}
+    </>
+  );
 }
