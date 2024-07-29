@@ -25,7 +25,7 @@ export function useControlLabels() {
 
   const muteLabel = useMemo(() => {
     const label = intl.formatMessage(videoControlMessages.play[isMuted ? 'on' : 'off']);
-    const icon = isMuted ? <IconVolumeOn /> : <IconVolumeOff />;
+    const icon = isMuted ? <IconVolumeOff /> : <IconVolumeOn />;
     return { label, icon };
   }, [intl, isMuted]);
 
