@@ -1,7 +1,7 @@
 import { Project, Skill } from 'contentlayer/generated';
 import dayjs from 'dayjs';
 
-export function sortByPriority(a: Project, b: Project) {
+export function sortByPriority(a: Project | Skill, b: Project | Skill) {
   const aPriority = a.priority || 0;
   const bPriority = b.priority || 0;
   return bPriority - aPriority;

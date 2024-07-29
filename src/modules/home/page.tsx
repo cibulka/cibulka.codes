@@ -29,9 +29,7 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
   const skillsFuture = skills.filter((s) => s.status === 'future');
   const skillsPresent = skills.filter((s) => !s.status);
   const skillsMain = skillsPresent.filter((s) => s.category === 'main');
-  const skillsCode = skillsPresent
-    .filter((s) => s.category === 'code')
-    .sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  const skillsCode = skillsPresent.filter((s) => s.category === 'code');
   const skillsTools = skillsPresent.filter((s) => s.category === 'tool');
 
   return (

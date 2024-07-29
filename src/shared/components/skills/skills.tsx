@@ -1,6 +1,7 @@
 import { Skill } from 'contentlayer/generated';
 
 import { Chip, ChipVariant } from '@/shared/components/chip';
+import { sortByPriority } from '@/shared/mdx-reader/sort-documents';
 import { PropsWithLocale } from '@/types/params';
 
 export function Skills(
@@ -14,6 +15,7 @@ export function Skills(
     variant?: ChipVariant;
   }>,
 ) {
+  const skillsSorted = props.skills.sort(sortByPriority);
   return (
     <section className={props.className}>
       {props.title && (
@@ -28,7 +30,7 @@ export function Skills(
           .filter(Boolean)
           .join(' ')}
       >
-        {props.skills.map((skill) => {
+        {skillsSorted.map((skill) => {
           const isFeatured = props.skillsFeatured?.includes(skill.slug);
           return (
             <li key={skill.slug}>
