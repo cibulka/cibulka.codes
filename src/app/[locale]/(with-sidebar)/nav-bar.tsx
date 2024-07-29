@@ -17,7 +17,7 @@ function NavBarIcon(props: { href: string; icon: ReactNode; label: string }) {
   return (
     <LinkUsed href={props.href} className="flex flex-col items-center justify-center flex-1">
       <span className="w-8 h-8 text-text_fade">{props.icon}</span>
-      <span>{props.label}</span>
+      <span className="mt-1 text-sm">{props.label}</span>
     </LinkUsed>
   );
 }
