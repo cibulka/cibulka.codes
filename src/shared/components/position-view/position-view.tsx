@@ -19,11 +19,11 @@ export async function PositionView(
   const endYear = end ? dayjs(end).format('YYYY') : undefined;
   return (
     <>
-      <span className="font-bold">{props.position.title}</span>
+      <span className="text-sm font-semibold">{props.position.title}</span>
       {startYear && (
         <>
           {` `}
-          <span className="whitespace-nowrap">
+          <span className="text-sm whitespace-nowrap">
             {startYear === endYear
               ? startYear
               : [startYear, end ? endYear : formatMessage(presentMessage)].join(' – ')}

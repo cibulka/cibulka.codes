@@ -48,23 +48,24 @@ export function ProjectHeader(props: {
                 .map((p) => {
                   const job = positions?.find((pos) => pos.slug === p.slug);
                   return (
-                    <div key={p.slug}>
+                    <li key={p.slug}>
                       <PositionView
                         classNameTitle="font-bold"
                         position={p}
                         job={job}
                         locale={props.locale}
                       />
-                    </div>
+                    </li>
                   );
                 })}
             </ul>
           )}
         </div>
         <ProjectIcon
-          className={['text-action', props.project.slug === 'eon' ? 'w-12 h-6' : 'w-6 h-6'].join(
-            ' ',
-          )}
+          className={[
+            'text-action',
+            props.project.slug === 'eon' ? '-mt-2 w-12 h-12' : 'w-6 h-6',
+          ].join(' ')}
           slug={props.project.slug}
         />
       </div>

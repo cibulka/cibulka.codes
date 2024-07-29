@@ -23,10 +23,17 @@ export async function Sidebar(props: {
   const { formatMessage } = await getIntl(props.locale);
 
   return (
-    <div className={[props.className, 'flex flex-col'].join(' ')}>
+    <div
+      className={[
+        props.className,
+        'flex items-center gap-4',
+        'md:flex-col md:items-start md:gap-0',
+      ].join(' ')}
+    >
       <Link
         className={[
-          'w-1/2 mb-4 aspect-square',
+          'w-32 md:w-1/2 md:mb-4',
+          'aspect-square',
           'relative overflow-hidden rounded-md',
           'bg-chip_fade',
         ]
@@ -40,7 +47,7 @@ export async function Sidebar(props: {
           fill
           alt="Photo"
           className="absolute top-0 left-0 object-cover"
-          sizes="6em"
+          sizes="12em"
         />
       </Link>
       <header className="relative flex flex-col gap-1">

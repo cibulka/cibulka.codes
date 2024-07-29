@@ -6,13 +6,16 @@ import { ThemeMode } from '@/constants/config';
 import { useAppContext } from '@/context/app/hooks';
 import { IconPlay } from '@/icons/IconPlay';
 
+import { useIntl } from 'react-intl';
 import { useVideoContext } from './context';
+import { videoControlMessages } from './messages';
 
 export function VideoPoster(props: { alt: string; src: string }) {
   const Image = props.src.startsWith('/') ? NextImage : 'img';
 
   const { state } = useAppContext();
   const { showVideo } = useVideoContext();
+  const intl = useIntl();
 
   return (
     <>
@@ -25,6 +28,7 @@ export function VideoPoster(props: { alt: string; src: string }) {
             'flex items-center justify-center',
           ].join(' ')}
           onClick={showVideo}
+          aria-label={intl.formatMessage(videoControlMessages.play.on)}
         >
           <span
             className={[
