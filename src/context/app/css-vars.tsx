@@ -1,9 +1,8 @@
 'use client';
 import { useMemo } from 'react';
 
-import { THEME_DARK } from '@/constants/colors';
+import { THEME_DARK, ThemeColor } from '@/constants/colors';
 
-import { ThemeColor } from './action-types';
 import { useAppContext, useGetColor } from './hooks';
 
 export function AppCssVars() {

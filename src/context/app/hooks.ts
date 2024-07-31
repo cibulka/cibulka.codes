@@ -1,10 +1,9 @@
 'use client';
 import { useContext } from 'react';
 
-import { THEMES } from '@/constants/colors';
+import { ThemeColor, THEMES } from '@/constants/colors';
 import { ThemeMode } from '@/constants/ui';
 
-import { ThemeColor } from './action-types';
 import { AppContext } from './provider';
 
 export function useAppContext() {

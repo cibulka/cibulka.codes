@@ -36,3 +36,6 @@ export const THEMES = {
   [ThemeMode.DARK]: THEME_DARK,
   [ThemeMode.LIGHT]: THEME_LIGHT,
 };
+
+export type Theme = typeof THEME_DARK;
+export type ThemeColor = keyof typeof THEME_DARK;
