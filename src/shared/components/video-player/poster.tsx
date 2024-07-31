@@ -1,12 +1,12 @@
 'use client';
 
 import NextImage from 'next/image';
+import { useIntl } from 'react-intl';
 
-import { ThemeMode } from '@/constants/config';
+import { ThemeMode } from '@/constants/ui';
 import { useLightMode } from '@/context/app/hooks';
 import { IconPlay } from '@/icons/IconPlay';
 
-import { useIntl } from 'react-intl';
 import { useVideoContext } from './context';
 import { posterAltMessage, videoControlMessages } from './messages';
 

@@ -1,4 +1,4 @@
-import { CONTACT } from '@/constants/config';
+import { CONTACT } from '@/constants/contact';
 import { IconPhone } from '@/icons/IconPhone';
 import { PropsWithLocale } from '@/types/params';
 

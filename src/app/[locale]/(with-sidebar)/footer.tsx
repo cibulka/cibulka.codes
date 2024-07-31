@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { REPO } from '@/constants/config';
+import { REPO } from '@/constants/links';
 import { URLS } from '@/constants/url';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { getIntl } from '@/shared/i18n/get-intl';

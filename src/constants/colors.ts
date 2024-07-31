@@ -1,4 +1,4 @@
-import { ThemeMode } from './config';
+import { ThemeMode } from './ui';
 
 export const THEME_DARK = {
   action: '#10b981',

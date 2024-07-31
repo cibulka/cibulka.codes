@@ -1,4 +1,4 @@
-import { CONTACT } from '@/constants/config';
+import { CONTACT } from '@/constants/contact';
 import { IconEmail } from '@/icons/IconEmail';
 import { Locale } from '@/shared/i18n/types';
 

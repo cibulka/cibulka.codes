@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { CONTACT } from '@/constants/config';
+import { CONTACT } from '@/constants/contact';
 import { URLS } from '@/constants/url';
 import { IconCV } from '@/icons/IconCV';
 import { IconEmail } from '@/icons/IconEmail';
@@ -8,8 +8,8 @@ import { IconPhone } from '@/icons/IconPhone';
 import { IconTetris } from '@/icons/IconTetris';
 import { getIntl } from '@/shared/i18n/get-intl';
 import { Locale } from '@/shared/i18n/types';
-
 import { getLinkComponent } from '@/utils/url';
+
 import { navBarMessages } from './messages';
 
 function NavBarIcon(props: { href: string; icon: ReactNode; label: string }) {

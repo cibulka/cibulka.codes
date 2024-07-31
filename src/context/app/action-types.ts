@@ -1,5 +1,6 @@
 import { THEME_DARK } from '@/constants/colors';
-import { HomeSectionId, ThemeMode } from '@/constants/config';
+import { HomeSectionId } from '@/constants/config';
+import { ThemeMode } from '@/constants/ui';
 
 export enum AppActionType {
   HOME_SECTION_ACTIVE_ADD = 'HOME_SECTION_ACTIVE_ADD',

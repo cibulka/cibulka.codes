@@ -1,4 +1,4 @@
-import { ThemeMode } from '@/constants/config';
+import { ThemeMode } from '@/constants/ui';
 import { useEffect } from 'react';
 import { AppAction, AppActionType } from './action-types';
 

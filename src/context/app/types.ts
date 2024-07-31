@@ -1,4 +1,5 @@
-import { HomeSectionId, ThemeMode } from '@/constants/config';
+import { HomeSectionId } from '@/constants/config';
+import { ThemeMode } from '@/constants/ui';
 
 export type AppContextValue = {
   activeHomeSections: HomeSectionId[];

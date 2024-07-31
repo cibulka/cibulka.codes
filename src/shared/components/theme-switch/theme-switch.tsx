@@ -1,12 +1,13 @@
 'use client';
-import { ThemeMode } from '@/constants/config';
+import { useEffect, useState } from 'react';
+
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
+import { ThemeMode } from '@/constants/ui';
 import { AppActionType } from '@/context/app/action-types';
 import { useAppContext, useLightMode } from '@/context/app/hooks';
 import { IconMoon } from '@/icons/IconMoon';
 import { IconSun } from '@/icons/IconSun';
 import { usePlausibleEvent } from '@/utils/plausible';
-import { useEffect, useState } from 'react';
 
 export function ThemeSwitch(props: { labels: { dark: string; light: string } }) {
   const [isRendered, setIsRendered] = useState(false);

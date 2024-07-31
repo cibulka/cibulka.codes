@@ -2,7 +2,7 @@ import { Education, Position, Project, Skill } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { REPO } from '@/constants/config';
+import { REPO } from '@/constants/links';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { ChipVariant } from '@/shared/components/chip';
 import { ChipAvailability } from '@/shared/components/chip-availability';

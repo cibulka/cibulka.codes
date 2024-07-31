@@ -1,7 +1,8 @@
 'use client';
 import React, { PropsWithChildren, useReducer } from 'react';
 
-import { HomeSectionId, ThemeMode } from '@/constants/config';
+import { HomeSectionId } from '@/constants/config';
+import { ThemeMode } from '@/constants/ui';
 
 import { AppAction } from './action-types';
 import { AppCssVars } from './css-vars';

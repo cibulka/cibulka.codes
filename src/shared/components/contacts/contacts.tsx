@@ -2,7 +2,7 @@
 
 import { useIntl } from 'react-intl';
 
-import { SOCIAL } from '@/constants/config';
+import { SOCIAL } from '@/constants/links';
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 import { IconGitHub } from '@/icons/IconGitHub';
 import { IconLinkedIn } from '@/icons/IconLinkedIn';
