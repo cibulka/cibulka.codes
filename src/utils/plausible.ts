@@ -7,9 +7,9 @@ export function getClassNamePlausible(type: PlausibleGoal) {
   return event ? `plausible-event-name=${PLAUSIBLE_GOALS[type]}` : undefined;
 }
 
-export function usePlausibleEvent(type?: PlausibleGoal) {
+export function usePlausibleEvent(type?: PlausibleGoal, props?: unknown) {
   const plausible = usePlausible();
-  return type ? () => plausible(type) : undefined;
+  return type ? () => plausible(type, { props }) : undefined;
 }
 
 export function getPlausibleClassNameForLink(slug: string) {
