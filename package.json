@@ -28,7 +28,7 @@
     "react-dom": "18.3.1",
     "react-intl": "^6.6.8",
     "react-range": "^1.9.2",
-    "react-tetris-ts": "0.2.0",
+    "react-tetris-ts": "1.0.0-beta.11",
     "sharp": "^0.33.4"
   },
   "devDependencies": {
