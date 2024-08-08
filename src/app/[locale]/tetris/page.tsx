@@ -1,16 +1,16 @@
 import { getIntl } from '@/shared/i18n/get-intl';
-import { Locale } from '@/shared/i18n/types';
 
+import { ParamsWithLocale } from '@/types/params';
 import { TetrisClient } from './client';
 import { messages } from './messages';
 
-export async function generateMetadata(props: { params: { locale: Locale } }) {
-  const { formatMessage } = await getIntl(props.params.locale);
+export async function generateMetadata({ params: { locale } }: ParamsWithLocale) {
+  const { formatMessage } = await getIntl(locale);
   return {
     title: formatMessage(messages.button),
   };
 }
 
-export default function TetrisPage() {
-  return <TetrisClient />;
+export default function TetrisPage({ params: { locale } }: ParamsWithLocale) {
+  return <TetrisClient locale={locale} />;
 }
