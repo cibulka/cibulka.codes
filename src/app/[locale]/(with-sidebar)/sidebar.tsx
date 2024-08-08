@@ -71,7 +71,7 @@ export async function Sidebar(props: {
             },
             {
               label: formatMessage(sectionMessages.tetris),
-              href: URLS.TETRIS,
+              href: `/${props.locale}/${URLS.TETRIS}`,
               icon: <IconTetris className="fill-action" />,
             },
           ]}
