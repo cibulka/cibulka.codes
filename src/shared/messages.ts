@@ -44,8 +44,8 @@ export const sectionMessages = defineMessages({
     id: 'jtygmI',
   },
   experience: {
-    defaultMessage: 'Relevant experience',
-    id: 'k4Oex8',
+    defaultMessage: 'Selected projects',
+    id: 'lAX+xB',
   },
   hobbies: {
     defaultMessage: 'Hobbies',
