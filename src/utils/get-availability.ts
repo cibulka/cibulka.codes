@@ -11,6 +11,9 @@ import { metaMessages } from '@/shared/messages';
 dayjs.extend(localizedFormat);
 
 function getAvailabilityDate(locale: Locale) {
+  if (!DATE_AVAILABILITY) {
+    return null;
+  }
   dayjs.locale(locale);
   const minDate = dayjs().add(2, 'month');
   const date = dayjs(DATE_AVAILABILITY);
@@ -20,6 +23,9 @@ function getAvailabilityDate(locale: Locale) {
 export async function getAvailabilityStr(locale: Locale) {
   const { formatMessage } = await getIntl(locale);
   const date = getAvailabilityDate(locale);
+  if (!date) {
+    return formatMessage(metaMessages.availabilityNone);
+  }
 
   const month = date.format('MMMM');
   const monthCapitalizedFirst = month.charAt(0).toUpperCase() + month.slice(1);

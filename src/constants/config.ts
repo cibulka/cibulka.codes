@@ -1,4 +1,4 @@
-export const DATE_AVAILABILITY = '2024-08-01';
+export const DATE_AVAILABILITY = null;
 
 export const FEATURED = ['dotu', 'after-russia', 'tetris'];
 export const SKILL_CATEGORY = ['code', 'main', 'tool'];

@@ -5,6 +5,10 @@ export const metaMessages = defineMessages({
     defaultMessage: 'Available from { month } { year }',
     id: '/O1HwX',
   },
+  availabilityNone: {
+    defaultMessage: 'Not available for new projects', 
+    id: 'kYfp6j',
+  },
   location: {
     defaultMessage: 'Prague & Remote',
     id: '1m+iG7',

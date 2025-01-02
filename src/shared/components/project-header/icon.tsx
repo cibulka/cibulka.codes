@@ -2,6 +2,7 @@ import { IconBriefcase } from '@/icons/IconBriefcase';
 import { IconCaseAfterRussia } from '@/icons/IconCaseAfterRussia';
 import { IconCaseDotu } from '@/icons/IconCaseDotu';
 import { IconCaseTvar } from '@/icons/IconCaseTvar';
+import IconCreativeDock from '@/icons/IconCreativeDock';
 import { IconDrAbe } from '@/icons/IconDrAbe';
 import { IconEducationDamu } from '@/icons/IconEducationDamu';
 import { IconEducationMuni } from '@/icons/IconEducationMuni';
@@ -11,6 +12,7 @@ import { IconTetris } from '@/icons/IconTetris';
 const projectIcons = {
   'after-russia': IconCaseAfterRussia,
   apitree: IconEon,
+  'creative-dock': IconCreativeDock,
   eon: IconEon,
   dotu: IconCaseDotu,
   'dr-abe': IconDrAbe,
