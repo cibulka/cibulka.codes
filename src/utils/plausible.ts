@@ -7,7 +7,10 @@ export function getClassNamePlausible(type: PlausibleGoal) {
   return event ? `plausible-event-name=${PLAUSIBLE_GOALS[type]}` : undefined;
 }
 
-export function usePlausibleEvent(type?: PlausibleGoal, props?: unknown) {
+export function usePlausibleEvent(
+  type?: PlausibleGoal,
+  props?: Record<string, unknown>,
+) {
   const plausible = usePlausible();
   return type ? () => plausible(type, { props }) : undefined;
 }

@@ -28,7 +28,7 @@ export function Copy(
     }
   }
 
-  const timeout = useRef<NodeJS.Timeout>();
+  const timeout = useRef<NodeJS.Timeout | undefined>(undefined);
   const isReset = state === STATE.FAILURE || state === STATE.SUCCESS;
   useEffect(() => {
     if (timeout.current) clearTimeout(timeout.current);

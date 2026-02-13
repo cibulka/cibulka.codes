@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 
+import type { Locale } from '@/shared/i18n/types';
 import { ParamsWithLocale } from '@/types/params';
 
 import { Footer } from './footer';
@@ -9,8 +10,10 @@ import { Sidebar } from './sidebar';
 
 export default async function LayoutWithSidebar({
   children,
-  params: { locale },
+  params,
 }: PropsWithChildren & ParamsWithLocale) {
+  const { locale } = await params;
+  const localeTyped = locale as Locale;
   return (
     <>
       <div className="relative">
@@ -18,14 +21,14 @@ export default async function LayoutWithSidebar({
           <Sidebar
             className={styles.header}
             classNameHeaderInfo={styles.header_info}
-            locale={locale}
+            locale={localeTyped}
           />
           <div className={styles.content}>
             <div className="flex flex-col xl:gap-12 gap-8">{children}</div>
-            <Footer locale={locale} />
+            <Footer locale={localeTyped} />
           </div>
         </div>
-        <NavBar className={styles['contact-bar']} locale={locale} />
+        <NavBar className={styles['contact-bar']} locale={localeTyped} />
       </div>
     </>
   );

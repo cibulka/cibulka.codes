@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 import { YearsOfExperience } from '@/shared/blocks/years-of-experience';
 import { Locale } from '@/shared/i18n/types';
 import { isParagraphNode } from '@/utils/dom';
-import { isAbsoluteUrl } from '@/utils/url';
+import { getLocalizedUrl, isAbsoluteUrl } from '@/utils/url';
 
 export function getComponents(locale: Locale) {
   return {
@@ -15,7 +15,7 @@ export function getComponents(locale: Locale) {
           {p.children}
         </a>
       ) : (
-        <Link href={p.href} locale={locale}>
+        <Link href={p.href.startsWith('#') ? p.href : getLocalizedUrl(p.href, locale)}>
           {p.children}
         </Link>
       );

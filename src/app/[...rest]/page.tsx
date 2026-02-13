@@ -14,15 +14,17 @@ function getLocaleFromRest(params: string[]) {
 }
 
 export async function generateMetadata(props: ParamsRest) {
-  const locale = getLocaleFromRest(props.params.rest);
+  const { rest } = await props.params;
+  const locale = getLocaleFromRest(rest);
   const { formatMessage } = await getIntl(locale);
   return {
     title: formatMessage(notFoundMessages.title),
   };
 }
 
-export default function NotFoundPageRest(props: ParamsRest) {
-  const locale = getLocaleFromRest(props.params.rest);
+export default async function NotFoundPageRest(props: ParamsRest) {
+  const { rest } = await props.params;
+  const locale = getLocaleFromRest(rest);
   return (
     <Providers locale={locale}>
       <div className={['absolute inset-0', 'flex items-center justify-center'].join(' ')}>

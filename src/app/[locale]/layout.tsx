@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react';
 
 import { Providers } from '@/app/providers';
 import { LOCALES } from '@/shared/i18n/config';
+import type { Locale } from '@/shared/i18n/types';
 import { getIntl } from '@/shared/i18n/get-intl';
 import { metaMessages } from '@/shared/messages';
 import { ParamsWithLocale } from '@/types/params';
@@ -55,6 +56,7 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export default function LocaleLayout(props: PropsWithChildren & ParamsWithLocale) {
-  return <Providers locale={props.params.locale}>{props.children}</Providers>;
+export default async function LocaleLayout(props: PropsWithChildren & ParamsWithLocale) {
+  const { locale } = await props.params;
+  return <Providers locale={locale as Locale}>{props.children}</Providers>;
 }

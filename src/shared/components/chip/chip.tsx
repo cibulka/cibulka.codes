@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ElementType, PropsWithChildren } from 'react';
+import type { ReactElement } from 'react';
 
 import { isAbsoluteUrl } from '@/utils/url';
 
@@ -9,7 +10,7 @@ export function Chip(
   props: PropsWithChildren & {
     className?: string;
     href?: string;
-    icon?: JSX.Element;
+    icon?: ReactElement;
     isBorder?: boolean;
     isIconRight?: boolean;
     isNoUnderline?: boolean;

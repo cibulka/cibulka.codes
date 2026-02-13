@@ -30,7 +30,7 @@ export type VideoContextValue = {
   isMuted: boolean;
   isPoster: boolean;
   played: number;
-  ref: RefObject<HTMLVideoElement> | null;
+  ref: RefObject<HTMLVideoElement | null> | null;
   showVideo: null | (() => void);
   videoState: VideoPlayerState;
 };

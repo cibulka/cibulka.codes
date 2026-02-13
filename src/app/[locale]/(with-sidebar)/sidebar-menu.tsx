@@ -1,5 +1,7 @@
 'use client';
 
+import type { ReactElement } from 'react';
+
 import { useAppContext } from '@/context/app/hooks';
 import { isRoute } from '@/utils/url';
 
@@ -7,7 +9,7 @@ type SidebarMenuOption = {
   className?: string;
   label: string;
   href: string;
-  icon?: JSX.Element;
+  icon?: ReactElement;
 };
 
 export function SidebarMenu(props: { className?: string; options: SidebarMenuOption[] }) {
