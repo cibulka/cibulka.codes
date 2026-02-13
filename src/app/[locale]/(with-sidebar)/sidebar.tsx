@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { HomeSectionId } from '@/constants/config';
+import { getLocalizedUrl } from '@/utils/url';
 import { PLAUSIBLE_GOALS } from '@/constants/plausible';
 import { URLS } from '@/constants/url';
 import { IconTetris } from '@/icons/IconTetris';
@@ -36,8 +37,7 @@ export async function Sidebar(props: {
         ]
           .filter(Boolean)
           .join(' ')}
-        href="/"
-        locale={props.locale}
+        href={getLocalizedUrl('/', props.locale)}
       >
         <Image
           src="/petr.jpg"

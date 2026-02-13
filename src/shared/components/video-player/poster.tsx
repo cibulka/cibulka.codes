@@ -19,7 +19,12 @@ export function VideoPoster(props: { src: string; title: string }) {
 
   return (
     <>
-      <Image fill src={props.src} alt={formatMessage(posterAltMessage)} className="object-cover" />
+      <Image
+        fill
+        src={props.src}
+        alt={formatMessage(posterAltMessage, { title: props.title })}
+        className="object-cover"
+      />
       {showVideo && (
         <button
           type="button"

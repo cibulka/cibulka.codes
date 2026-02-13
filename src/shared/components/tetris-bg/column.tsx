@@ -9,7 +9,7 @@ const WIDTH = 4;
 export function TetrisBgColumn(props: { y?: number; shape: TetrisShape }) {
   const [y, setY] = useState(props.y || 0);
 
-  const interval = useRef<NodeJS.Timeout>();
+  const interval = useRef<NodeJS.Timeout | undefined>(undefined);
   useEffect(() => {
     interval.current = setInterval(() => {
       setY((old) => {

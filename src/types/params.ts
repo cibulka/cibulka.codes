@@ -1,9 +1,9 @@
 import { Locale } from '@/shared/i18n/types';
 
 export type ParamsWithLocale<T = {}> = T & {
-  params: {
-    locale: Locale;
-  };
+  params: Promise<{
+    locale: string;
+  }>;
 };
 
 export type PropsWithLocale<T = {}> = T & {
@@ -11,7 +11,7 @@ export type PropsWithLocale<T = {}> = T & {
 };
 
 export type ParamsRest<T = {}> = T & {
-  params: {
+  params: Promise<{
     rest: string[];
-  };
+  }>;
 };

@@ -4,14 +4,19 @@ import { Locale } from '@/shared/i18n/types';
 
 import { messages } from './messages';
 
-export async function generateMetadata(props: { params: { locale: Locale } }) {
-  const { formatMessage } = await getIntl(props.params.locale);
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  const { formatMessage } = await getIntl(locale as Locale);
   return {
     title: formatMessage(messages.button),
   };
 }
 
-export default function ResumePage(props: { params: { locale: Locale } }) {
-  const { locale } = props.params;
-  return <Resume locale={locale} />;
+export default async function ResumePage(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  return <Resume locale={locale as Locale} />;
 }

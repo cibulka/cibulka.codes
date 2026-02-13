@@ -76,7 +76,8 @@ export function stripLocaleFromHref(href: string) {
 }
 
 export function getLocalizedUrl(href: string, locale: Locale) {
-  return `/${locale}/${stripLocaleFromHref(href)}`;
+  const path = stripLocaleFromHref(href);
+  return path ? `/${locale}/${path}` : `/${locale}`;
 }
 
 export function isRoute(href: string) {

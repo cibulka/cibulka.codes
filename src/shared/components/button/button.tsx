@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import type { ReactElement } from 'react';
 import { PropsWithChildren } from 'react';
 
 import { Locale } from '@/shared/i18n/types';
 import { PropsWithLocale } from '@/types/params';
-import { isAbsoluteUrl, isRelativeFileUrl } from '@/utils/url';
+import { getLocalizedUrl, isAbsoluteUrl, isRelativeFileUrl } from '@/utils/url';
 
 function ButtonWrap(
   props: PropsWithChildren & {
@@ -14,8 +15,11 @@ function ButtonWrap(
   },
 ) {
   if (props.href && !isAbsoluteUrl(props.href) && !isRelativeFileUrl(props.href)) {
+    const href = props.href.startsWith('#')
+      ? props.href
+      : getLocalizedUrl(props.href, props.locale);
     return (
-      <Link href={props.href} className={props.className} locale={props.locale}>
+      <Link href={href} className={props.className}>
         {props.children}
       </Link>
     );
@@ -41,7 +45,7 @@ export function Button(
     PropsWithLocale & {
       className?: string;
       href?: string;
-      icon?: JSX.Element;
+      icon?: ReactElement;
       isSmall?: boolean;
       onClick?: () => void;
     },

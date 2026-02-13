@@ -1,6 +1,7 @@
 import { Education, type Project, Skill } from 'contentlayer/generated';
 
 import { FEATURED, HomeSectionId, SKILL_CATEGORY } from '@/constants/config';
+import type { Locale } from '@/shared/i18n/types';
 import { ChipVariant } from '@/shared/components/chip';
 import { ChipLink } from '@/shared/components/chip-link';
 import { ProjectHeader } from '@/shared/components/project-header';
@@ -15,14 +16,16 @@ import { Featured } from './featured';
 import { HomePageHeader } from './header';
 import { HomeSection } from './section';
 
-export async function HomePage({ params: { locale } }: ParamsWithLocale) {
-  const { formatMessage } = await getIntl(locale);
+export async function HomePage({ params }: ParamsWithLocale) {
+  const { locale } = await params;
+  const localeTyped = locale as Locale;
+  const { formatMessage } = await getIntl(localeTyped);
 
-  const projects = getDocuments(['Project'], locale) as Project[];
+  const projects = getDocuments(['Project'], localeTyped) as Project[];
   const featured = projects.filter((c) => FEATURED.includes(c.slug));
-  const educations = getDocuments(['Education'], locale) as Education[];
+  const educations = getDocuments(['Education'], localeTyped) as Education[];
 
-  const skills = (getDocuments(['Skill'], locale) as Skill[]).filter((skill) => {
+  const skills = (getDocuments(['Skill'], localeTyped) as Skill[]).filter((skill) => {
     return SKILL_CATEGORY.includes(skill.category);
   });
   const skillsPast = skills.filter((s) => s.status === 'past');
@@ -34,13 +37,13 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
 
   return (
     <>
-      <HomePageHeader locale={locale} />
+      <HomePageHeader locale={localeTyped} />
 
       <Skills
         skillsFeatured={skillsMain.map((s) => s.slug)}
         title={formatMessage(toolsMessages.present)}
         skills={[...skillsMain, ...skillsCode, ...skillsTools]}
-        locale={locale}
+        locale={localeTyped}
         variant={ChipVariant.NAKED}
       />
 
@@ -48,7 +51,7 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
         <ul className="flex flex-col gap-8">
           {featured.map((f) => (
             <li key={f.slug}>
-              <Featured locale={locale} project={f} />
+              <Featured locale={localeTyped} project={f} />
             </li>
           ))}
         </ul>
@@ -57,7 +60,7 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
         <ul className="flex flex-col gap-8">
           {projects.map((project) => (
             <li key={project.slug}>
-              <ProjectView isBorder locale={locale} project={project} />
+              <ProjectView isBorder locale={localeTyped} project={project} />
             </li>
           ))}
         </ul>
@@ -67,7 +70,7 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
           {educations.map((education) => (
             <li key={education.slug}>
               <article>
-                <ProjectHeader locale={locale} project={education} />
+                <ProjectHeader locale={localeTyped} project={education} />
                 {education.www && <ChipLink href={education.www} />}
               </article>
             </li>
@@ -77,12 +80,12 @@ export async function HomePage({ params: { locale } }: ParamsWithLocale) {
       <Skills
         title={formatMessage(toolsMessages.past)}
         skills={skillsPast}
-        locale={locale}
+        locale={localeTyped}
         variant={ChipVariant.NAKED}
       />
       <Skills
         skills={skillsFuture}
-        locale={locale}
+        locale={localeTyped}
         title={formatMessage(toolsMessages.future)}
         variant={ChipVariant.NAKED}
       />

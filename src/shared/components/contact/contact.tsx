@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactElement } from 'react';
 import { useIntl } from 'react-intl';
 
 import { Copy } from '@/shared/components/copy';
@@ -10,7 +11,7 @@ export function Contact(
   props: PropsWithLocale<{
     href: string;
     value: string;
-    icon: JSX.Element;
+    icon: ReactElement;
   }>,
 ) {
   const { formatMessage } = useIntl();
